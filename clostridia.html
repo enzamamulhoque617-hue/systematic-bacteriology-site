@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Clostridia | Unit II | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.65;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1050px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  padding:48px 0 42px;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  letter-spacing:.6px;
+  margin-bottom:17px;
+}
+
+h1{
+  font-size:40px;
+  line-height:1.15;
+  margin-bottom:9px;
+}
+
+.subtitle{
+  color:#d5deeb;
+  font-size:16px;
+}
+
+.header-credit{
+  margin-top:16px;
+  font-size:13px;
+  color:#aebbd0;
+}
+
+/* NAV */
+.nav{
+  background:white;
+  border-bottom:1px solid #e4e8ef;
+}
+
+.nav-inner{
+  min-height:55px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.back{
+  color:#2563eb;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.unit-link{
+  font-size:13px;
+  color:#697487;
+}
+
+/* MAIN */
+main{
+  padding:34px 0 60px;
+}
+
+/* HERO */
+.hero-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:22px;
+  padding:27px;
+  margin-bottom:22px;
+  box-shadow:0 8px 25px rgba(20,30,50,.05);
+}
+
+.topic-label{
+  display:inline-block;
+  font-size:11px;
+  font-weight:bold;
+  color:#2563eb;
+  background:#eef3ff;
+  padding:6px 10px;
+  border-radius:20px;
+  margin-bottom:13px;
+  letter-spacing:.5px;
+}
+
+.hero-card h2{
+  font-size:28px;
+  margin-bottom:7px;
+}
+
+.hero-card p{
+  color:#687386;
+}
+
+/* QUICK */
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.quick-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:17px;
+  padding:18px;
+}
+
+.quick-card span{
+  display:block;
+  color:#7a8494;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:5px;
+}
+
+.quick-card strong{
+  font-size:15px;
+}
+
+/* NOTES */
+.note{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+  box-shadow:0 6px 20px rgba(20,30,50,.04);
+}
+
+.note h3{
+  font-size:20px;
+  margin-bottom:14px;
+}
+
+.note h3::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:21px;
+  background:#2563eb;
+  border-radius:5px;
+  vertical-align:-4px;
+  margin-right:10px;
+}
+
+.note h4{
+  font-size:16px;
+  margin-top:20px;
+  margin-bottom:9px;
+}
+
+.note ul{
+  padding-left:22px;
+}
+
+.note li{
+  margin:7px 0;
+}
+
+.note p{
+  margin:8px 0;
+}
+
+.highlight{
+  background:#f7f9fc;
+  border-left:4px solid #2563eb;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+.warning{
+  background:#fff8ed;
+  border-left:4px solid #e5a11a;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+/* SPECIES CARDS */
+.species-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:15px;
+}
+
+.species{
+  border:1px solid #e3e7ee;
+  border-radius:15px;
+  padding:17px;
+  background:#fafbfc;
+}
+
+.species h4{
+  margin:0 0 8px;
+  color:#172033;
+}
+
+.species p{
+  font-size:14px;
+  color:#667085;
+}
+
+/* FLOW */
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:12px;
+}
+
+.flow span{
+  background:#f0f4fa;
+  border:1px solid #dfe5ed;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.arrow{
+  color:#2563eb;
+  font-weight:bold;
+}
+
+/* MEMORY */
+.memory{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-top:20px;
+}
+
+.memory small{
+  color:#aebbd0;
+  display:block;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
+}
+
+.memory h3{
+  margin-bottom:9px;
+}
+
+.memory p{
+  color:#d7dfeb;
+}
+
+/* EXAM */
+.exam{
+  background:#f7f9ff;
+  border:1px solid #dce5ff;
+  border-radius:18px;
+  padding:23px;
+  margin-top:20px;
+}
+
+.exam h3{
+  margin-bottom:12px;
+}
+
+.exam ul{
+  padding-left:22px;
+}
+
+/* SOURCE */
+.source-box{
+  margin-top:30px;
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:22px;
+  padding:29px;
+  text-align:center;
+}
+
+.source-title{
+  color:#aebbd0;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.source{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.designer{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:17px;
+  color:#c8d2e1;
+  font-size:13px;
+}
+
+.designer strong{
+  color:white;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#7b8494;
+  font-size:12px;
+  padding:25px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  h1{
+    font-size:31px;
+  }
+
+  .quick,
+  .species-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav-inner{
+    min-height:65px;
+  }
+
+  .unit-link{
+    display:none;
+  }
+
+  .hero-card h2{
+    font-size:24px;
+  }
+
+  .note{
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="container">
+
+    <div class="badge">
+      UNIT II • GRAM-POSITIVE BACILLI
+    </div>
+
+    <h1>Clostridia</h1>
+
+    <div class="subtitle">
+      Systematic Bacteriology • FYUGP 3rd Semester
+    </div>
+
+    <div class="header-credit">
+      Medical Lab & Molecular Diagnostic Technology
+    </div>
+
+  </div>
+
+</header>
+
+
+<div class="nav">
+
+  <div class="container nav-inner">
+
+    <a href="unit2.html" class="back">
+      ← Back to Unit II
+    </a>
+
+    <span class="unit-link">
+      Unit II → Topic 03 → Notes
+    </span>
+
+  </div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero-card">
+
+  <div class="topic-label">
+    TOPIC 03 • NOTES
+  </div>
+
+  <h2>Clostridia</h2>
+
+  <p>
+    Clostridia are important Gram-positive bacilli associated
+    with diseases such as gas gangrene, tetanus and botulism.
+  </p>
+
+</section>
+
+
+<!-- QUICK FACTS -->
+
+<section class="quick">
+
+  <div class="quick-card">
+    <span>Type</span>
+    <strong>Gram-positive bacilli</strong>
+  </div>
+
+  <div class="quick-card">
+    <span>Special feature</span>
+    <strong>Spore formation</strong>
+  </div>
+
+  <div class="quick-card">
+    <span>Major diseases</span>
+    <strong>Gas gangrene • Tetanus • Botulism</strong>
+  </div>
+
+</section>
+
+
+<!-- MORPHOLOGY -->
+
+<section class="note">
+
+  <h3>1. Morphology</h3>
+
+  <ul>
+
+    <li>
+      Clostridia are <strong>Gram-positive bacilli</strong>.
+    </li>
+
+    <li>
+      They are generally <strong>large bacilli</strong>.
+    </li>
+
+    <li>
+      The notes describe them as
+      <strong>motile</strong>, with some exceptions.
+    </li>
+
+    <li>
+      <strong>Spores are present</strong> in many Clostridium
+      species.
+    </li>
+
+    <li>
+      Spores may be terminal, subterminal or central,
+      depending on the organism.
+    </li>
+
+    <li>
+      Some species show characteristic shapes because of
+      their spores.
+    </li>
+
+  </ul>
+
+  <div class="highlight">
+
+    <strong>⭐ Key point:</strong>
+    Think of Clostridia as
+    <strong>Gram-positive, spore-forming bacilli</strong>.
+
+  </div>
+
+</section>
+
+
+<!-- CULTURAL -->
+
+<section class="note">
+
+  <h3>2. Cultural Characteristics</h3>
+
+  <ul>
+
+    <li>
+      The notes describe growth under
+      <strong>anaerobic conditions</strong>.
+    </li>
+
+    <li>
+      Many species produce characteristic colonies and
+      fermentation products.
+    </li>
+
+    <li>
+      Saccharolytic species can ferment carbohydrates.
+    </li>
+
+    <li>
+      Some species produce gas during fermentation.
+    </li>
+
+    <li>
+      Some organisms produce characteristic odour during
+      growth.
+    </li>
+
+  </ul>
+
+  <div class="highlight">
+
+    <strong>Remember:</strong>
+    Clostridia are especially associated with
+    <strong>anaerobic growth</strong>.
+
+  </div>
+
+</section>
+
+
+<!-- IMPORTANT SPECIES -->
+
+<section class="note">
+
+  <h3>3. Important Clostridium Species</h3>
+
+  <div class="species-grid">
+
+    <div class="species">
+
+      <h4>C. perfringens</h4>
+
+      <p>
+        Associated with gas gangrene and wound infections.
+        The notes describe it as an important species.
+      </p>
+
+    </div>
+
+
+    <div class="species">
+
+      <h4>C. tetani</h4>
+
+      <p>
+        Produces tetanus and is associated with
+        tetanus toxin.
+      </p>
+
+    </div>
+
+
+    <div class="species">
+
+      <h4>C. botulinum</h4>
+
+      <p>
+        Produces botulinum toxin and causes botulism,
+        particularly after consumption of contaminated food.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PATHOGENESIS -->
+
+<section class="note">
+
+  <h3>4. Pathogenesis</h3>
+
+  <p>
+    Disease caused by Clostridia is mainly associated with
+    the production of powerful toxins.
+  </p>
+
+
+  <h4>A. Exotoxins</h4>
+
+  <p>
+    Pathogenic Clostridia produce exotoxins that are
+    responsible for important disease manifestations.
+  </p>
+
+
+  <h4>B. C. tetani — Tetanus</h4>
+
+  <p>
+    <strong>C. tetani</strong> produces tetanus toxin.
+    The notes associate the toxin with the characteristic
+    manifestations of tetanus.
+  </p>
+
+
+  <h4>C. C. perfringens — Gas Gangrene</h4>
+
+  <p>
+    <strong>C. perfringens</strong> is associated with
+    gas gangrene, particularly in damaged or contaminated
+    tissue.
+  </p>
+
+  <p>
+    The notes describe tissue destruction and gas production
+    as important features.
+  </p>
+
+
+  <h4>D. C. botulinum — Botulism</h4>
+
+  <p>
+    <strong>C. botulinum</strong> causes botulism through
+    consumption of food containing the preformed toxin.
+  </p>
+
+  <div class="flow">
+
+    <span>Clostridium</span>
+
+    <b class="arrow">→</b>
+
+    <span>Toxin production</span>
+
+    <b class="arrow">→</b>
+
+    <span>Tissue / nervous effects</span>
+
+    <b class="arrow">→</b>
+
+    <span>Disease</span>
+
+  </div>
+
+</section>
+
+
+<!-- DISEASES -->
+
+<section class="note">
+
+  <h3>5. Diseases Caused</h3>
+
+  <div class="table-wrap">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Organism</th>
+          <th>Important disease</th>
+          <th>Main association in notes</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>C. perfringens</strong></td>
+          <td>Gas gangrene</td>
+          <td>Wound / tissue infection with gas production</td>
+        </tr>
+
+        <tr>
+          <td><strong>C. tetani</strong></td>
+          <td>Tetanus</td>
+          <td>Tetanus toxin</td>
+        </tr>
+
+        <tr>
+          <td><strong>C. botulinum</strong></td>
+          <td>Botulism</td>
+          <td>Preformed toxin in contaminated food</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+
+<!-- LAB DIAGNOSIS -->
+
+<section class="note">
+
+  <h3>6. Laboratory Diagnosis</h3>
+
+
+  <h4>A. C. tetani</h4>
+
+  <ul>
+
+    <li>
+      The notes mention <strong>specimen collection</strong>
+      for laboratory examination.
+    </li>
+
+    <li>
+      <strong>Microscopy</strong> is included in the diagnosis.
+    </li>
+
+    <li>
+      The notes mention demonstration of characteristic
+      bacilli/spores.
+    </li>
+
+  </ul>
+
+
+  <h4>B. C. botulinum</h4>
+
+  <ul>
+
+    <li>
+      Diagnosis can involve examination of the suspected
+      <strong>food</strong>.
+    </li>
+
+    <li>
+      The notes mention detection of toxin as part of
+      diagnosis.
+    </li>
+
+  </ul>
+
+
+  <h4>C. C. perfringens</h4>
+
+  <ul>
+
+    <li>
+      The notes mention laboratory diagnosis by
+      <strong>microscopy and culture</strong>.
+    </li>
+
+    <li>
+      Demonstration of characteristic bacterial features
+      assists diagnosis.
+    </li>
+
+  </ul>
+
+
+  <div class="highlight">
+
+    <strong>General diagnosis flow:</strong>
+
+    <div class="flow">
+
+      <span>Clinical specimen</span>
+
+      <b class="arrow">→</b>
+
+      <span>Microscopy</span>
+
+      <b class="arrow">→</b>
+
+      <span>Culture</span>
+
+      <b class="arrow">→</b>
+
+      <span>Identification / toxin detection</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BIOCHEMICAL -->
+
+<section class="note">
+
+  <h3>7. Biochemical / Identification Points</h3>
+
+  <p>
+    Your handwritten notes mainly emphasize morphology,
+    cultural characteristics, pathogenicity and laboratory
+    diagnosis for Clostridia. A complete species-wise
+    biochemical reaction table is <strong>not clearly
+    recorded in the provided pages</strong>.
+  </p>
+
+  <div class="warning">
+
+    <strong>Source note:</strong>
+    Rather than adding outside biochemical reactions,
+    this section is intentionally kept limited to what is
+    clearly supported by your notes.
+
+  </div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section class="exam">
+
+  <h3>⭐ High-Yield Exam Points</h3>
+
+  <ul>
+
+    <li>
+      General morphology of Clostridia
+    </li>
+
+    <li>
+      Spore formation
+    </li>
+
+    <li>
+      Anaerobic growth
+    </li>
+
+    <li>
+      <strong>C. perfringens → Gas gangrene</strong>
+    </li>
+
+    <li>
+      <strong>C. tetani → Tetanus</strong>
+    </li>
+
+    <li>
+      <strong>C. botulinum → Botulism</strong>
+    </li>
+
+    <li>
+      Exotoxin production
+    </li>
+
+    <li>
+      Laboratory diagnosis of Clostridial infections
+    </li>
+
+  </ul>
+
+</section>
+
+
+<!-- MEMORY -->
+
+<section class="memory">
+
+  <small>🧠 QUICK MEMORY</small>
+
+  <h3>“PERF – TET – BOT”</h3>
+
+  <p>
+
+    <strong>PERF</strong> → C. perfringens → Gas gangrene
+
+    <br><br>
+
+    <strong>TET</strong> → C. tetani → Tetanus
+
+    <br><br>
+
+    <strong>BOT</strong> → C. botulinum → Botulism
+
+  </p>
+
+</section>
+
+
+<!-- SOURCE & CREDIT -->
+
+<section class="source-box">
+
+  <div class="source-title">
+    ACADEMIC SOURCE &amp; CREDITS
+  </div>
+
+  <div class="source">
+    📚 Source: Diksha Ma’am
+  </div>
+
+  <div class="designer">
+
+    Created &amp; Designed by
+    <strong>Enzamamul Hoque</strong>
+
+    <br>
+
+    Student, Mangaldai College
+
+    <br>
+
+    Department: ML&amp;MDT
+
+  </div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+  Systematic Bacteriology • Unit II • Clostridia
+
+  <br>
+
+  Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+</body>
+</html>
