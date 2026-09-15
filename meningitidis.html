@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="N. meningitidis - Systematic Bacteriology 3rd Semester ML&MDT">
+
+<title>N. meningitidis | Systematic Bacteriology</title>
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fb;
+    color:#172033;
+    line-height:1.65;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    padding:65px 20px;
+    text-align:center;
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071d33,
+            #0d4269,
+            #1677b7
+        );
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:360px;
+    height:360px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:50%;
+    top:-220px;
+    left:-100px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:430px;
+    height:430px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    bottom:-310px;
+    right:-120px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:950px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 17px;
+    margin-bottom:18px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:50px;
+    background:rgba(255,255,255,.08);
+    color:#bce5ff;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.hero h1{
+    font-size:clamp(35px,6vw,58px);
+    line-height:1.1;
+    margin-bottom:12px;
+}
+
+.hero p{
+    font-size:17px;
+    color:#d7e9f5;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:42px 20px;
+}
+
+
+/* =========================
+   BACK
+========================= */
+
+.back{
+    display:inline-block;
+    margin-bottom:28px;
+    text-decoration:none;
+    color:#12649b;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.back:hover{
+    text-decoration:underline;
+}
+
+
+/* =========================
+   QUICK FACTS
+========================= */
+
+.quick-facts{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin-bottom:35px;
+}
+
+.fact{
+    background:white;
+    padding:19px;
+    border-radius:16px;
+    border:1px solid #e3eaf1;
+    box-shadow:
+        0 7px 20px
+        rgba(16,42,67,.06);
+}
+
+.fact span{
+    display:block;
+    font-size:10px;
+    letter-spacing:1.5px;
+    color:#75869a;
+    margin-bottom:4px;
+}
+
+.fact strong{
+    color:#12649b;
+    font-size:15px;
+}
+
+
+/* =========================
+   CONTENT CARD
+========================= */
+
+.card{
+    background:white;
+    border:1px solid #e3eaf1;
+    border-radius:21px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:
+        0 8px 25px
+        rgba(16,42,67,.06);
+}
+
+.card h2{
+    color:#102a43;
+    font-size:25px;
+    margin-bottom:17px;
+    padding-bottom:10px;
+    border-bottom:1px solid #e7edf3;
+}
+
+.card h3{
+    color:#12649b;
+    font-size:18px;
+    margin-top:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#56677a;
+    margin-bottom:10px;
+}
+
+.card ul{
+    padding-left:22px;
+    color:#56677a;
+}
+
+.card li{
+    margin-bottom:7px;
+}
+
+
+/* =========================
+   HIGHLIGHT
+========================= */
+
+.highlight{
+    background:#eef8ff;
+    border-left:4px solid #1677b7;
+    padding:15px 17px;
+    border-radius:10px;
+    margin:17px 0;
+    color:#38536b;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:550px;
+}
+
+th,
+td{
+    border:1px solid #dce5ed;
+    padding:12px 13px;
+    text-align:left;
+}
+
+th{
+    background:#edf7fd;
+    color:#12649b;
+    font-size:14px;
+}
+
+td{
+    color:#56677a;
+    font-size:14px;
+}
+
+
+/* =========================
+   DISEASE GRID
+========================= */
+
+.disease-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:13px;
+    margin-top:15px;
+}
+
+.disease{
+    padding:17px;
+    border-radius:14px;
+    background:#f7fafc;
+    border:1px solid #e4ebf1;
+}
+
+.disease strong{
+    display:block;
+    color:#12649b;
+    margin-bottom:4px;
+}
+
+.disease span{
+    color:#68788b;
+    font-size:13px;
+}
+
+
+/* =========================
+   FLOW
+========================= */
+
+.flow{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:22px 0;
+}
+
+.flow-step{
+    padding:12px 15px;
+    background:#f0f8fd;
+    border:1px solid #d6eaf6;
+    border-radius:12px;
+    color:#12649b;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.arrow{
+    color:#1677b7;
+    font-weight:bold;
+}
+
+
+/* =========================
+   DIAGNOSIS
+========================= */
+
+.diagnosis-flow{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+    margin-top:18px;
+}
+
+.diagnosis-step{
+    padding:17px;
+    background:#f5f9fc;
+    border-radius:13px;
+    border-left:4px solid #1677b7;
+}
+
+.diagnosis-step strong{
+    display:block;
+    color:#12649b;
+    margin-bottom:4px;
+}
+
+.diagnosis-step span{
+    color:#68788b;
+    font-size:13px;
+}
+
+
+/* =========================
+   MEMORY
+========================= */
+
+.memory{
+    background:
+        linear-gradient(
+            135deg,
+            #102a43,
+            #12649b
+        );
+
+    color:white;
+    border-radius:21px;
+    padding:30px;
+    margin-bottom:25px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(16,42,67,.18);
+}
+
+.memory h2{
+    margin-bottom:15px;
+}
+
+.memory p{
+    color:#dceefa;
+}
+
+.memory strong{
+    color:#9ddcff;
+}
+
+
+/* =========================
+   CREDIT
+========================= */
+
+.credit{
+    position:relative;
+    overflow:hidden;
+    margin-top:40px;
+    padding:43px 22px;
+    text-align:center;
+    color:white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #071d33,
+            #123f63,
+            #0b2b47
+        );
+
+    border-radius:25px;
+
+    box-shadow:
+        0 18px 45px
+        rgba(7,29,51,.23);
+}
+
+.credit::before{
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:50%;
+    top:-170px;
+    right:-80px;
+}
+
+.credit::after{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    bottom:-150px;
+    left:-70px;
+}
+
+.credit > *{
+    position:relative;
+    z-index:2;
+}
+
+.credit-icon{
+    font-size:30px;
+    color:#8ed1ff;
+    margin-bottom:7px;
+}
+
+.credit-label{
+    font-size:10px;
+    letter-spacing:3px;
+    color:#8ed1ff;
+    font-weight:bold;
+    margin-bottom:9px;
+}
+
+.credit h2{
+    font-size:25px;
+    margin-bottom:23px;
+}
+
+.source-box{
+    max-width:440px;
+    margin:0 auto 25px;
+    padding:16px 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+
+    background:rgba(255,255,255,.09);
+
+    border:
+        1px solid
+        rgba(142,209,255,.28);
+
+    border-radius:16px;
+}
+
+.source-icon{
+    font-size:25px;
+}
+
+.source-box small{
+    display:block;
+    font-size:9px;
+    letter-spacing:2px;
+    color:#8ed1ff;
+}
+
+.source-box strong{
+    display:block;
+    font-size:18px;
+}
+
+.designer p{
+    margin:4px;
+    font-size:13px;
+    color:#c8d8e6;
+}
+
+.designer h3{
+    font-size:24px;
+    color:white;
+    margin:2px 0;
+}
+
+.designer strong{
+    color:#8ed1ff;
+}
+
+.credit-line{
+    width:80px;
+    height:2px;
+    margin:21px auto;
+    background:#8ed1ff;
+    border-radius:10px;
+}
+
+.credit-note{
+    font-size:11px;
+    color:#9fb3c8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:28px 20px;
+    color:#65748b;
+    font-size:12px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .hero{
+        padding:52px 18px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .container{
+        padding:32px 15px;
+    }
+
+    .card{
+        padding:23px;
+    }
+
+    .quick-facts{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .credit{
+        padding:37px 17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================
+     HERO
+================================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            UNIT I • GRAM-NEGATIVE COCCI
+        </div>
+
+        <h1>
+            N. meningitidis
+        </h1>
+
+        <p>
+            3rd Semester • Systematic Bacteriology • ML&MDT
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- BACK -->
+
+<a
+    class="back"
+    href="unit1.html"
+>
+    ← Back to Unit I
+</a>
+
+
+
+<!-- =================================
+     QUICK FACTS
+================================= -->
+
+<section class="quick-facts">
+
+
+    <div class="fact">
+
+        <span>
+            GRAM REACTION
+        </span>
+
+        <strong>
+            Gram-negative
+        </strong>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span>
+            SHAPE
+        </span>
+
+        <strong>
+            Diplococci
+        </strong>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span>
+            ARRANGEMENT
+        </span>
+
+        <strong>
+            Pairs
+        </strong>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span>
+            CAPSULE
+        </span>
+
+        <strong>
+            Present
+        </strong>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span>
+            OXIDASE
+        </span>
+
+        <strong>
+            Positive
+        </strong>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =================================
+     MORPHOLOGY
+================================= -->
+
+<section class="card">
+
+    <h2>
+        1. Morphology
+    </h2>
+
+
+    <ul>
+
+        <li>
+            N. meningitidis is a
+            <strong>Gram-negative diplococcus</strong>.
+        </li>
+
+        <li>
+            The cocci occur characteristically in pairs.
+        </li>
+
+        <li>
+            The adjacent sides may appear flattened,
+            giving a characteristic diplococcal appearance.
+        </li>
+
+        <li>
+            The organism possesses a
+            <strong>capsule</strong>.
+        </li>
+
+        <li>
+            It is non-motile.
+        </li>
+
+        <li>
+            It is non-spore-forming.
+        </li>
+
+    </ul>
+
+
+    <div class="highlight">
+
+        <strong>Remember:</strong>
+
+        Meningococcus
+        →
+        Gram-negative diplococci
+        +
+        capsule.
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     CULTURAL
+================================= -->
+
+<section class="card">
+
+    <h2>
+        2. Cultural Characteristics
+    </h2>
+
+
+    <p>
+        N. meningitidis is a fastidious organism
+        requiring suitable enriched culture conditions.
+    </p>
+
+
+    <h3>
+        Growth
+    </h3>
+
+    <ul>
+
+        <li>
+            Growth is favoured at approximately
+            <strong>35–37°C</strong>.
+        </li>
+
+        <li>
+            Growth is enhanced in an atmosphere
+            containing carbon dioxide.
+        </li>
+
+        <li>
+            Enriched media are used for cultivation.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Culture media
+    </h3>
+
+    <p>
+        Blood agar and chocolate agar may be used.
+        Selective media can also be used when isolation
+        from mixed flora is required.
+    </p>
+
+
+    <div class="highlight">
+
+        <strong>High-yield:</strong>
+
+        Meningococcus is fastidious and requires
+        enriched culture conditions.
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     BIOCHEMICAL
+================================= -->
+
+<section class="card">
+
+    <h2>
+        3. Biochemical Reactions
+    </h2>
+
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Test
+                    </th>
+
+                    <th>
+                        Result
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                <tr>
+
+                    <td>
+                        Catalase
+                    </td>
+
+                    <td>
+                        Positive
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Oxidase
+                    </td>
+
+                    <td>
+                        Positive
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Glucose fermentation
+                    </td>
+
+                    <td>
+                        Positive
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Maltose fermentation
+                    </td>
+
+                    <td>
+                        Positive
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="highlight">
+
+        <strong>Exam memory:</strong>
+
+        N. meningitidis
+        ferments
+        <strong>glucose + maltose</strong>.
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PATHOGENESIS
+================================= -->
+
+<section class="card">
+
+    <h2>
+        4. Pathogenesis
+    </h2>
+
+
+    <p>
+        N. meningitidis may colonize the upper
+        respiratory tract and can subsequently invade
+        the bloodstream and central nervous system.
+    </p>
+
+
+    <h3>
+        Nasopharyngeal colonization
+    </h3>
+
+    <p>
+        The organism may colonize the nasopharynx.
+        Attachment to mucosal epithelial cells is
+        an important early step.
+    </p>
+
+
+    <h3>
+        Invasion of bloodstream
+    </h3>
+
+    <p>
+        The organism can enter the bloodstream,
+        producing meningococcemia.
+    </p>
+
+
+    <h3>
+        Role of capsule
+    </h3>
+
+    <p>
+        The capsule is an important virulence factor
+        and helps the organism resist phagocytosis.
+    </p>
+
+
+    <h3>
+        Central nervous system
+    </h3>
+
+    <p>
+        From the bloodstream, the organism may reach
+        the central nervous system and produce meningitis.
+    </p>
+
+
+    <div class="flow">
+
+        <div class="flow-step">
+            Nasopharynx
+        </div>
+
+        <div class="arrow">
+            →
+        </div>
+
+        <div class="flow-step">
+            Bloodstream
+        </div>
+
+        <div class="arrow">
+            →
+        </div>
+
+        <div class="flow-step">
+            CNS
+        </div>
+
+        <div class="arrow">
+            →
+        </div>
+
+        <div class="flow-step">
+            Meningitis
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     DISEASES
+================================= -->
+
+<section class="card">
+
+    <h2>
+        5. Diseases Caused
+    </h2>
+
+
+    <div class="disease-grid">
+
+
+        <div class="disease">
+
+            <strong>
+                Meningitis
+            </strong>
+
+            <span>
+                Important infection of the meninges
+                caused by meningococcus.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>
+                Meningococcemia
+            </strong>
+
+            <span>
+                Bloodstream infection caused by
+                invasive meningococci.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>
+                Septicemia
+            </strong>
+
+            <span>
+                Severe systemic infection may occur.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>
+                Petechial / purpuric rash
+            </strong>
+
+            <span>
+                A characteristic clinical finding
+                may occur during meningococcal disease.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>
+                Fulminant infection
+            </strong>
+
+            <span>
+                Severe invasive disease can progress
+                rapidly.
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     LAB DIAGNOSIS
+================================= -->
+
+<section class="card">
+
+    <h2>
+        6. Laboratory Diagnosis
+    </h2>
+
+
+    <h3>
+        1. Specimen
+    </h3>
+
+    <p>
+        Important specimens include
+        <strong>cerebrospinal fluid (CSF)</strong>
+        and <strong>blood</strong>, depending on
+        the clinical presentation.
+    </p>
+
+
+    <h3>
+        2. Microscopy
+    </h3>
+
+    <p>
+        Gram staining may demonstrate
+        Gram-negative diplococci in an appropriate
+        clinical specimen.
+    </p>
+
+
+    <h3>
+        3. Culture
+    </h3>
+
+    <p>
+        Suitable enriched media are used for isolation
+        of the organism.
+    </p>
+
+
+    <h3>
+        4. Biochemical identification
+    </h3>
+
+    <p>
+        Oxidase and carbohydrate fermentation reactions
+        can help identify the organism.
+    </p>
+
+
+    <h3>
+        5. Molecular / antigen detection
+    </h3>
+
+    <p>
+        Molecular and antigen-based methods can assist
+        diagnosis, particularly when rapid diagnosis
+        is required.
+    </p>
+
+
+    <div class="diagnosis-flow">
+
+
+        <div class="diagnosis-step">
+
+            <strong>
+                CSF / Blood
+            </strong>
+
+            <span>
+                Collect an appropriate clinical specimen.
+            </span>
+
+        </div>
+
+
+        <div class="diagnosis-step">
+
+            <strong>
+                Gram stain
+            </strong>
+
+            <span>
+                Look for Gram-negative diplococci.
+            </span>
+
+        </div>
+
+
+        <div class="diagnosis-step">
+
+            <strong>
+                Culture
+            </strong>
+
+            <span>
+                Grow on appropriate enriched media.
+            </span>
+
+        </div>
+
+
+        <div class="diagnosis-step">
+
+            <strong>
+                Oxidase
+            </strong>
+
+            <span>
+                Positive reaction supports identification.
+            </span>
+
+        </div>
+
+
+        <div class="diagnosis-step">
+
+            <strong>
+                Glucose + Maltose
+            </strong>
+
+            <span>
+                Both carbohydrates are fermented.
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     HIGH YIELD
+================================= -->
+
+<section class="card">
+
+    <h2>
+        7. High-Yield Points
+    </h2>
+
+
+    <ul>
+
+        <li>
+            Gram-negative diplococci.
+        </li>
+
+        <li>
+            Encapsulated organism.
+        </li>
+
+        <li>
+            Non-motile and non-spore-forming.
+        </li>
+
+        <li>
+            Fastidious organism.
+        </li>
+
+        <li>
+            Oxidase positive.
+        </li>
+
+        <li>
+            Catalase positive.
+        </li>
+
+        <li>
+            Ferments glucose and maltose.
+        </li>
+
+        <li>
+            Causes meningitis and meningococcemia.
+        </li>
+
+        <li>
+            CSF and blood are important clinical
+            specimens in invasive disease.
+        </li>
+
+    </ul>
+
+</section>
+
+
+
+<!-- =================================
+     MEMORY
+================================= -->
+
+<section class="memory">
+
+    <h2>
+        🧠 Quick Memory
+    </h2>
+
+
+    <p>
+
+        <strong>
+            MENINGO
+        </strong>
+
+        →
+
+        <strong>
+            M
+        </strong>
+        altose +
+
+        <strong>
+            G
+        </strong>
+        lucose
+
+        +
+
+        <strong>
+            E
+        </strong>
+        ncapsulated
+
+        +
+
+        <strong>
+            N
+        </strong>
+        egative diplococci
+
+        +
+
+        <strong>
+            I
+        </strong>
+        nvasive disease
+
+        +
+
+        <strong>
+            N
+        </strong>
+        euromeningeal involvement
+
+        +
+
+        <strong>
+            G
+        </strong>
+        oal: meningitis
+
+    </p>
+
+</section>
+
+
+
+<!-- =================================
+     CREDIT
+================================= -->
+
+<section class="credit">
+
+    <div class="credit-icon">
+        ✦
+    </div>
+
+
+    <div class="credit-label">
+        ACADEMIC SOURCE & CREDITS
+    </div>
+
+
+    <h2>
+        N. meningitidis
+    </h2>
+
+
+    <div class="source-box">
+
+        <span class="source-icon">
+            📚
+        </span>
+
+        <div>
+
+            <small>
+                ACADEMIC SOURCE
+            </small>
+
+            <strong>
+                Diksha Ma’am
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="designer">
+
+        <p>
+            Created & Designed by
+        </p>
+
+
+        <h3>
+            Enzamamul Hoque
+        </h3>
+
+
+        <p>
+            Student • Mangaldai College
+        </p>
+
+
+        <p>
+
+            Department:
+
+            <strong>
+                ML&MDT
+            </strong>
+
+        </p>
+
+    </div>
+
+
+    <div class="credit-line"></div>
+
+
+    <p class="credit-note">
+
+        Systematic Bacteriology • Unit I • 3rd Semester
+
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    © 2026 Systematic Bacteriology
+
+    <br>
+
+    3rd Semester • ML&MDT • Mangaldai College
+
+</footer>
+
+
+</body>
+
+</html>
