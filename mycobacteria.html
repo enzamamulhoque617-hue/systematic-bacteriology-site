@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mycobacteria | Unit II | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.65;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1050px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  padding:48px 0 42px;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  letter-spacing:.6px;
+  margin-bottom:17px;
+}
+
+h1{
+  font-size:40px;
+  line-height:1.15;
+  margin-bottom:9px;
+}
+
+.subtitle{
+  color:#d5deeb;
+  font-size:16px;
+}
+
+.header-credit{
+  margin-top:16px;
+  font-size:13px;
+  color:#aebbd0;
+}
+
+/* NAV */
+.nav{
+  background:white;
+  border-bottom:1px solid #e4e8ef;
+}
+
+.nav-inner{
+  min-height:55px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.back{
+  color:#2563eb;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.unit-link{
+  font-size:13px;
+  color:#697487;
+}
+
+/* MAIN */
+main{
+  padding:34px 0 60px;
+}
+
+/* INTRO */
+.hero-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:22px;
+  padding:27px;
+  margin-bottom:22px;
+  box-shadow:0 8px 25px rgba(20,30,50,.05);
+}
+
+.topic-label{
+  display:inline-block;
+  font-size:11px;
+  font-weight:bold;
+  color:#2563eb;
+  background:#eef3ff;
+  padding:6px 10px;
+  border-radius:20px;
+  margin-bottom:13px;
+  letter-spacing:.5px;
+}
+
+.hero-card h2{
+  font-size:28px;
+  margin-bottom:7px;
+}
+
+.hero-card p{
+  color:#687386;
+}
+
+/* QUICK FACTS */
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.quick-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:17px;
+  padding:18px;
+}
+
+.quick-card span{
+  display:block;
+  color:#7a8494;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:5px;
+}
+
+.quick-card strong{
+  font-size:15px;
+}
+
+/* NOTES */
+.note{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+  box-shadow:0 6px 20px rgba(20,30,50,.04);
+}
+
+.note h3{
+  font-size:20px;
+  margin-bottom:14px;
+}
+
+.note h3::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:21px;
+  background:#2563eb;
+  border-radius:5px;
+  vertical-align:-4px;
+  margin-right:10px;
+}
+
+.note h4{
+  font-size:16px;
+  margin-top:20px;
+  margin-bottom:9px;
+}
+
+.note ul{
+  padding-left:22px;
+}
+
+.note li{
+  margin:7px 0;
+}
+
+.note p{
+  margin:8px 0;
+}
+
+.highlight{
+  background:#f7f9fc;
+  border-left:4px solid #2563eb;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+.warning{
+  background:#fff8ed;
+  border-left:4px solid #e5a11a;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+/* TABLE */
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  min-width:500px;
+}
+
+th,td{
+  border:1px solid #e2e6ed;
+  padding:12px;
+  text-align:left;
+  font-size:14px;
+}
+
+th{
+  background:#f3f6fa;
+  font-weight:bold;
+}
+
+/* FLOW */
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:12px;
+}
+
+.flow span{
+  background:#f0f4fa;
+  border:1px solid #dfe5ed;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.arrow{
+  color:#2563eb;
+  font-weight:bold;
+}
+
+/* MEMORY */
+.memory{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-top:20px;
+}
+
+.memory small{
+  color:#aebbd0;
+  display:block;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
+}
+
+.memory h3{
+  margin-bottom:9px;
+}
+
+.memory p{
+  color:#d7dfeb;
+}
+
+/* EXAM */
+.exam{
+  background:#f7f9ff;
+  border:1px solid #dce5ff;
+  border-radius:18px;
+  padding:23px;
+  margin-top:20px;
+}
+
+.exam h3{
+  margin-bottom:12px;
+}
+
+.exam ul{
+  padding-left:22px;
+}
+
+/* CREDIT */
+.source-box{
+  margin-top:30px;
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:22px;
+  padding:29px;
+  text-align:center;
+}
+
+.source-title{
+  color:#aebbd0;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.source{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.designer{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:17px;
+  color:#c8d2e1;
+  font-size:13px;
+}
+
+.designer strong{
+  color:white;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#7b8494;
+  font-size:12px;
+  padding:25px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  h1{
+    font-size:31px;
+  }
+
+  .quick{
+    grid-template-columns:1fr;
+  }
+
+  .nav-inner{
+    min-height:65px;
+  }
+
+  .unit-link{
+    display:none;
+  }
+
+  .hero-card h2{
+    font-size:24px;
+  }
+
+  .note{
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+  <div class="container">
+
+    <div class="badge">
+      UNIT II • GRAM-POSITIVE BACILLI
+    </div>
+
+    <h1>Mycobacteria</h1>
+
+    <div class="subtitle">
+      Systematic Bacteriology • FYUGP 3rd Semester
+    </div>
+
+    <div class="header-credit">
+      Medical Lab & Molecular Diagnostic Technology
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+<div class="nav">
+
+  <div class="container nav-inner">
+
+    <a href="unit2.html" class="back">
+      ← Back to Unit II
+    </a>
+
+    <span class="unit-link">
+      Unit II → Topic 02 → Notes
+    </span>
+
+  </div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<!-- INTRO -->
+<section class="hero-card">
+
+  <div class="topic-label">
+    TOPIC 02 • NOTES
+  </div>
+
+  <h2>Mycobacteria</h2>
+
+  <p>
+    Important acid-fast bacilli studied under Gram-positive
+    bacilli. The notes particularly discuss
+    <strong>Mycobacterium tuberculosis</strong>.
+  </p>
+
+</section>
+
+
+<!-- QUICK FACTS -->
+<section class="quick">
+
+  <div class="quick-card">
+    <span>Important species</span>
+    <strong>M. tuberculosis</strong>
+  </div>
+
+  <div class="quick-card">
+    <span>Special feature</span>
+    <strong>Acid-fast bacilli</strong>
+  </div>
+
+  <div class="quick-card">
+    <span>Important disease</span>
+    <strong>Tuberculosis</strong>
+  </div>
+
+</section>
+
+
+<!-- INTRODUCTION -->
+<section class="note">
+
+  <h3>1. Introduction</h3>
+
+  <p>
+    Mycobacteria are slender bacilli that may show branching.
+    The notes include:
+  </p>
+
+  <ul>
+
+    <li>
+      <strong>Mycobacterium tuberculosis</strong>
+    </li>
+
+    <li>
+      <strong>Mycobacterium bovis</strong>
+    </li>
+
+    <li>
+      <strong>Mycobacterium phlei</strong>
+    </li>
+
+  </ul>
+
+  <p>
+    The notes describe different groups including obligate
+    parasites, opportunistic pathogens and saprophytes.
+  </p>
+
+</section>
+
+
+<!-- MORPHOLOGY -->
+<section class="note">
+
+  <h3>2. Morphology</h3>
+
+  <ul>
+
+    <li>
+      Mycobacteria are described as
+      <strong>straight or slightly curved bacilli</strong>.
+    </li>
+
+    <li>
+      They may occur singly or in groups.
+    </li>
+
+    <li>
+      Some may show branching.
+    </li>
+
+    <li>
+      <strong>M. bovis</strong> is described in the notes as
+      shorter and more straight.
+    </li>
+
+  </ul>
+
+  <div class="highlight">
+
+    <strong>Key morphology:</strong><br>
+
+    Slender bacilli → straight/slightly curved →
+    may occur singly or in groups.
+
+  </div>
+
+</section>
+
+
+<!-- ACID FAST -->
+<section class="note">
+
+  <h3>3. Acid-Fast Staining</h3>
+
+  <p>
+    One of the most important features of Mycobacteria is
+    their acid-fast nature.
+  </p>
+
+  <p>
+    The notes relate acid-fast staining to the presence of
+    <strong>mycolic acid</strong> in the bacterial cell wall.
+  </p>
+
+  <div class="flow">
+
+    <span>Carbol fuchsin</span>
+
+    <b class="arrow">→</b>
+
+    <span>Acid-fast bacilli retain stain</span>
+
+    <b class="arrow">→</b>
+
+    <span>Resist decolorization</span>
+
+  </div>
+
+  <p style="margin-top:18px;">
+    The notes describe the use of carbol fuchsin followed by
+    acid decolorization and alcohol-related decolorization
+    steps in acid-fast staining.
+  </p>
+
+  <div class="highlight">
+
+    <strong>⭐ Exam point:</strong>
+    Acid-fastness is a major identifying characteristic of
+    Mycobacteria.
+
+  </div>
+
+</section>
+
+
+<!-- CULTURAL -->
+<section class="note">
+
+  <h3>4. Cultural Characteristics</h3>
+
+  <ul>
+
+    <li>
+      Mycobacteria are described as
+      <strong>slow-growing organisms</strong>.
+    </li>
+
+    <li>
+      The notes mention that colonies may become visible
+      after approximately <strong>10–15 days</strong>.
+    </li>
+
+    <li>
+      The optimum temperature mentioned is around
+      <strong>37°C</strong>.
+    </li>
+
+    <li>
+      The notes mention sensitivity to
+      <strong>toll's ...</strong> in the context of growth;
+      this part of the handwritten wording is not completely
+      clear, so it is not expanded here.
+    </li>
+
+  </ul>
+
+
+  <h4>Important culture media mentioned in the notes</h4>
+
+  <ul>
+
+    <li>Lowenstein–Jensen medium</li>
+
+    <li>Dubos' Middlebrook medium</li>
+
+    <li>Beck's ... medium</li>
+
+    <li>Laurton / related medium as written in the notes</li>
+
+  </ul>
+
+  <div class="highlight">
+
+    <strong>Remember:</strong>
+    Mycobacteria are <strong>slow growers</strong>, and
+    Lowenstein–Jensen medium is specifically mentioned
+    in the notes.
+
+  </div>
+
+</section>
+
+
+<!-- BIOCHEMICAL -->
+<section class="note">
+
+  <h3>5. Biochemical Reactions</h3>
+
+  <p>
+    The handwritten notes describe several tests used in
+    the study/differentiation of Mycobacteria.
+  </p>
+
+  <div class="table-wrap">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Test</th>
+          <th>Point mentioned in notes</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>Niacin test</strong></td>
+          <td>
+            Mentioned as a test for Mycobacterium
+            differentiation.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Arylsulfatase test</strong></td>
+          <td>
+            Mentioned as a biochemical test for
+            differentiation of Mycobacteria.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Catalase–peroxidase</strong></td>
+          <td>
+            Mentioned as a test useful for differentiating
+            typical Mycobacteria.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Nitrate reduction test</strong></td>
+          <td>
+            Mentioned as positive with Mycobacterium
+            tuberculosis in the notes.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+
+<!-- LAB DIAGNOSIS -->
+<section class="note">
+
+  <h3>6. Laboratory Diagnosis</h3>
+
+
+  <h4>A. Specimen Collection</h4>
+
+  <ul>
+
+    <li>
+      <strong>Sputum</strong> is specifically mentioned
+      in the notes.
+    </li>
+
+    <li>
+      The notes state that sputum should be collected
+      preferably from the <strong>morning specimen</strong>.
+    </li>
+
+    <li>
+      Specimen collection is important for detection of
+      the organism.
+    </li>
+
+  </ul>
+
+
+  <h4>B. Microscopy</h4>
+
+  <ul>
+
+    <li>
+      The <strong>ZN method</strong> (Ziehl–Neelsen method)
+      is mentioned for staining sputum.
+    </li>
+
+    <li>
+      Acid-fast bacilli can be demonstrated by appropriate
+      acid-fast staining.
+    </li>
+
+    <li>
+      The notes also mention molecular methods such as
+      <strong>PCR</strong>.
+    </li>
+
+  </ul>
+
+
+  <h4>C. Molecular Methods</h4>
+
+  <ul>
+
+    <li>
+      Molecular methods mentioned include
+      <strong>PCR</strong>.
+    </li>
+
+    <li>
+      <strong>RFLP</strong> is also mentioned in the notes.
+    </li>
+
+  </ul>
+
+
+  <div class="highlight">
+
+    <strong>Diagnosis flow:</strong>
+
+    <div class="flow">
+
+      <span>Sputum</span>
+
+      <b class="arrow">→</b>
+
+      <span>ZN staining</span>
+
+      <b class="arrow">→</b>
+
+      <span>Acid-fast bacilli</span>
+
+      <b class="arrow">→</b>
+
+      <span>Culture / tests</span>
+
+      <b class="arrow">→</b>
+
+      <span>Molecular methods</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- IMPORTANT -->
+<section class="note">
+
+  <h3>7. Important Exam Points</h3>
+
+  <ul>
+
+    <li>
+      Mycobacteria are <strong>acid-fast bacilli</strong>.
+    </li>
+
+    <li>
+      <strong>Mycolic acid</strong> is associated with
+      acid-fastness.
+    </li>
+
+    <li>
+      They are generally <strong>slow-growing</strong>.
+    </li>
+
+    <li>
+      <strong>Lowenstein–Jensen medium</strong> is an important
+      culture medium mentioned in the notes.
+    </li>
+
+    <li>
+      <strong>Ziehl–Neelsen staining</strong> is important
+      for microscopy.
+    </li>
+
+    <li>
+      Sputum is an important specimen mentioned for
+      laboratory diagnosis.
+    </li>
+
+    <li>
+      PCR and RFLP are mentioned under molecular methods.
+    </li>
+
+  </ul>
+
+</section>
+
+
+<!-- MEMORY -->
+<section class="memory">
+
+  <small>🧠 QUICK MEMORY</small>
+
+  <h3>MYCO = ACID FAST + SLOW + LJ + ZN</h3>
+
+  <p>
+
+    <strong>ACID FAST</strong> →
+    special staining characteristic
+
+    <br><br>
+
+    <strong>SLOW</strong> →
+    slow growth
+
+    <br><br>
+
+    <strong>LJ</strong> →
+    Lowenstein–Jensen medium
+
+    <br><br>
+
+    <strong>ZN</strong> →
+    Ziehl–Neelsen staining
+
+  </p>
+
+</section>
+
+
+<!-- SOURCE -->
+<section class="source-box">
+
+  <div class="source-title">
+    ACADEMIC SOURCE &amp; CREDITS
+  </div>
+
+  <div class="source">
+    📚 Source: Diksha Ma’am
+  </div>
+
+  <div class="designer">
+
+    Created &amp; Designed by
+    <strong>Enzamamul Hoque</strong>
+
+    <br>
+
+    Student, Mangaldai College
+
+    <br>
+
+    Department: ML&amp;MDT
+
+  </div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+  Systematic Bacteriology • Unit II • Mycobacteria
+
+  <br>
+
+  Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+</body>
+</html>
