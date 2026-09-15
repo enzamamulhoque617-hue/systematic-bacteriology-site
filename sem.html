@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SEM | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%,#18243d 0%,transparent 35%),
+    radial-gradient(circle at 90% 80%,#102c35 0%,transparent 35%),
+    #050912;
+  color:#eef6ff;
+  min-height:100vh;
+}
+
+header{
+  padding:28px 6%;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(18px);
+  background:rgba(4,8,18,.65);
+}
+
+.back{
+  color:#8ddcff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+header h1{
+  margin-top:12px;
+  font-size:clamp(30px,5vw,58px);
+  letter-spacing:-2px;
+}
+
+header p{
+  margin-top:8px;
+  color:#a9bbca;
+  max-width:800px;
+  line-height:1.6;
+}
+
+.badge{
+  display:inline-block;
+  margin-top:15px;
+  padding:7px 13px;
+  border:1px solid rgba(100,220,255,.35);
+  border-radius:30px;
+  color:#8deaff;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.container{
+  width:min(1250px,92%);
+  margin:auto;
+}
+
+.viewer{
+  margin-top:30px;
+  position:relative;
+  height:650px;
+  border-radius:28px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.13);
+  background:
+    radial-gradient(circle at 50% 45%,rgba(0,180,255,.08),transparent 40%),
+    linear-gradient(145deg,#0c1422,#050910);
+  box-shadow:0 30px 90px rgba(0,0,0,.45);
+}
+
+canvas{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.viewer-title{
+  position:absolute;
+  top:22px;
+  left:24px;
+  z-index:5;
+  pointer-events:none;
+}
+
+.viewer-title strong{
+  display:block;
+  font-size:18px;
+}
+
+.viewer-title span{
+  color:#7f95a7;
+  font-size:12px;
+}
+
+.controls{
+  position:absolute;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:8;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+button{
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(10,18,30,.78);
+  color:white;
+  padding:10px 15px;
+  border-radius:12px;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  transition:.2s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  border-color:#65ddff;
+  background:rgba(20,40,55,.9);
+}
+
+.labels{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:6;
+}
+
+.label{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  padding:6px 10px;
+  border-radius:9px;
+  background:rgba(3,9,18,.82);
+  border:1px solid rgba(91,221,255,.4);
+  color:#a7ecff;
+  font-size:11px;
+  white-space:nowrap;
+  box-shadow:0 0 20px rgba(0,200,255,.08);
+}
+
+.info{
+  position:absolute;
+  right:20px;
+  bottom:20px;
+  width:min(310px,75%);
+  padding:17px;
+  border-radius:18px;
+  background:rgba(5,12,22,.88);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(18px);
+  z-index:10;
+  opacity:0;
+  transform:translateY(10px);
+  transition:.25s;
+  pointer-events:none;
+}
+
+.info.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.info h3{
+  color:#78e5ff;
+  margin-bottom:7px;
+  font-size:16px;
+}
+
+.info p{
+  color:#b9c9d6;
+  font-size:13px;
+  line-height:1.55;
+}
+
+section{
+  margin:32px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.card{
+  padding:25px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.1);
+  background:linear-gradient(
+    145deg,
+    rgba(20,31,48,.82),
+    rgba(7,13,24,.8)
+  );
+  box-shadow:0 15px 45px rgba(0,0,0,.2);
+}
+
+.card h2{
+  color:#8ce9ff;
+  font-size:20px;
+  margin-bottom:12px;
+}
+
+.card p,
+.card li{
+  color:#b9c7d2;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.card ul{
+  padding-left:20px;
+}
+
+.flow{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.flow div{
+  padding:13px 17px;
+  border-radius:14px;
+  background:#101d2d;
+  border:1px solid rgba(120,225,255,.2);
+  color:#b9efff;
+  font-size:13px;
+}
+
+.arrow{
+  color:#61dfff;
+  font-size:20px;
+}
+
+.exam{
+  border:1px solid rgba(120,225,255,.18);
+  background:linear-gradient(135deg,rgba(17,37,52,.8),rgba(6,15,25,.9));
+}
+
+.credit{
+  text-align:center;
+  padding:35px 20px 50px;
+  color:#7f94a4;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.credit strong{
+  color:#d9f7ff;
+}
+
+@media(max-width:800px){
+  .viewer{
+    height:520px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .info{
+    width:80%;
+    right:10px;
+    bottom:70px;
+  }
+}
+
+@media(max-width:500px){
+  .viewer{
+    height:470px;
+    border-radius:20px;
+  }
+
+  header{
+    padding:22px 5%;
+  }
+
+  .container{
+    width:94%;
+  }
+
+  button{
+    padding:9px 11px;
+    font-size:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+
+    <a class="back" href="unit5.html">← Back to Unit V</a>
+
+    <h1>Scanning Electron Microscope</h1>
+
+    <p>
+      SEM is an electron microscope in which electrons scan the surface
+      of the specimen and produce a 3D-like image.
+    </p>
+
+    <span class="badge">UNIT V • MICROSCOPY • 10 MARKS</span>
+
+  </div>
+</header>
+
+
+<main class="container">
+
+  <!-- 3D VIEWER -->
+  <div class="viewer" id="viewer">
+
+    <div class="viewer-title">
+      <strong>Interactive 3D SEM</strong>
+      <span>Drag • Rotate • Scroll to zoom • Click components</span>
+    </div>
+
+    <canvas id="scene"></canvas>
+
+    <div class="labels" id="labels"></div>
+
+    <div class="info" id="info">
+      <h3 id="infoTitle"></h3>
+      <p id="infoText"></p>
+    </div>
+
+    <div class="controls">
+      <button id="reset">Reset</button>
+      <button id="rotate">Auto Rotate</button>
+      <button id="labelBtn">Labels</button>
+    </div>
+
+  </div>
+
+
+  <!-- INTRODUCTION -->
+
+  <section class="grid">
+
+    <div class="card">
+      <h2>1. Introduction</h2>
+
+      <p>
+        Scanning Electron Microscope (SEM) is an electron microscope.
+        According to the study notes, electrons scan the specimen surface
+        and produce a 3D-like image.
+      </p>
+    </div>
+
+
+    <div class="card">
+      <h2>2. Basic Principle</h2>
+
+      <p>
+        The basic idea is surface scanning. An electron beam is used,
+        the specimen surface is scanned, and the resulting information
+        produces a 3D-like image.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- WORKING -->
+
+  <section>
+
+    <div class="card">
+
+      <h2>3. Working Principle</h2>
+
+      <ul>
+        <li>SEM is an electron microscope.</li>
+        <li>It uses an electron beam.</li>
+        <li>Electrons scan the surface of the specimen.</li>
+        <li>The scanned surface information produces a 3D-like image.</li>
+      </ul>
+
+      <div class="flow">
+
+        <div>Electron Beam</div>
+
+        <span class="arrow">→</span>
+
+        <div>Specimen Surface</div>
+
+        <span class="arrow">→</span>
+
+        <div>Surface Scanning</div>
+
+        <span class="arrow">→</span>
+
+        <div>3D-like Image</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- KEY FEATURE -->
+
+  <section class="grid">
+
+    <div class="card">
+      <h2>4. Special Feature</h2>
+
+      <p>
+        The important feature highlighted in the notes is that SEM
+        scans the specimen surface and produces a
+        <strong>3D-like image</strong>.
+      </p>
+    </div>
+
+
+    <div class="card">
+      <h2>5. Light vs Electron Microscope</h2>
+
+      <ul>
+        <li><strong>Light microscope:</strong> visible light.</li>
+        <li><strong>Electron microscope:</strong> electron beam.</li>
+        <li><strong>SEM:</strong> scans the specimen surface.</li>
+        <li><strong>SEM image:</strong> 3D-like appearance.</li>
+      </ul>
+
+    </div>
+
+  </section>
+
+
+  <!-- APPLICATION -->
+
+  <section>
+
+    <div class="card">
+
+      <h2>6. Applications</h2>
+
+      <p>
+        The uploaded notes specifically emphasize SEM for examining
+        the surface of a specimen and obtaining a 3D-like image.
+        Detailed clinical applications are not specified in the
+        uploaded notes, so they are not added here.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- COMPONENTS -->
+
+  <section>
+
+    <div class="card">
+
+      <h2>7. Important Parts Shown in the 3D Model</h2>
+
+      <ul>
+        <li>Electron beam</li>
+        <li>Specimen surface</li>
+        <li>Scanning system</li>
+        <li>3D-like image output</li>
+        <li>Microscope body / structural housing</li>
+      </ul>
+
+      <p style="margin-top:14px">
+        <strong>Note:</strong>
+        The uploaded notes do not provide a detailed component-by-component
+        description of SEM, so the 3D model uses these labels mainly to
+        visualize the SEM concept.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- EXAM ANSWER -->
+
+  <section>
+
+    <div class="card exam">
+
+      <h2>8. 10-Mark Answer Structure</h2>
+
+      <p><strong>Scanning Electron Microscope (SEM)</strong></p>
+
+      <p style="margin-top:10px">
+        SEM is an electron microscope that uses an electron beam.
+        The electrons scan the surface of the specimen and produce
+        a 3D-like image.
+      </p>
+
+      <p style="margin-top:12px">
+        <strong>Principle:</strong>
+        Electron beam → scanning of specimen surface →
+        3D-like image.
+      </p>
+
+      <p style="margin-top:12px">
+        <strong>Important feature:</strong>
+        It provides a 3D-like representation of the specimen surface.
+      </p>
+
+      <p style="margin-top:12px">
+        <strong>Application:</strong>
+        Useful for observing specimen surface structure.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUICK REVISION -->
+
+  <section>
+
+    <div class="card">
+
+      <h2>⚡ Quick Revision</h2>
+
+      <div class="flow">
+
+        <div>SEM</div>
+
+        <span class="arrow">→</span>
+
+        <div>Electron Beam</div>
+
+        <span class="arrow">→</span>
+
+        <div>Surface Scan</div>
+
+        <span class="arrow">→</span>
+
+        <div>3D-like Image</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer class="credit">
+
+  <strong>Created & Designed by Enzamamul Hoque</strong><br>
+
+  Student, Mangaldai College<br>
+
+  Department: ML&MDT<br>
+
+  Source: Diksha Ma’am
+
+</footer>
+
+
+<!-- THREE.JS -->
+
+<script type="importmap">
+{
+  "imports":{
+    "three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+
+
+<script type="module">
+
+import * as THREE from "three";
+
+import {
+  OrbitControls
+} from "three/addons/controls/OrbitControls.js";
+
+
+const canvas =
+  document.getElementById("scene");
+
+const viewer =
+  document.getElementById("viewer");
+
+
+/* SCENE */
+
+const scene =
+  new THREE.Scene();
+
+scene.background =
+  new THREE.Color(0x050912);
+
+
+/* CAMERA */
+
+const camera =
+  new THREE.PerspectiveCamera(
+    42,
+    viewer.clientWidth / viewer.clientHeight,
+    0.1,
+    1000
+  );
+
+camera.position.set(
+  8,
+  6,
+  10
+);
+
+
+/* RENDERER */
+
+const renderer =
+  new THREE.WebGLRenderer({
+    canvas,
+    antialias:true
+  });
+
+renderer.setPixelRatio(
+  Math.min(window.devicePixelRatio,2)
+);
+
+renderer.setSize(
+  viewer.clientWidth,
+  viewer.clientHeight
+);
+
+renderer.outputColorSpace =
+  THREE.SRGBColorSpace;
+
+
+/* CONTROLS */
+
+const controls =
+  new OrbitControls(
+    camera,
+    renderer.domElement
+  );
+
+controls.enableDamping = true;
+controls.dampingFactor = .06;
+controls.minDistance = 5;
+controls.maxDistance = 18;
+
+
+/* LIGHTING */
+
+scene.add(
+  new THREE.HemisphereLight(
+    0xbfefff,
+    0x08101c,
+    2.2
+  )
+);
+
+const keyLight =
+  new THREE.DirectionalLight(
+    0xffffff,
+    3
+  );
+
+keyLight.position.set(
+  6,
+  10,
+  8
+);
+
+scene.add(keyLight);
+
+
+const rimLight =
+  new THREE.PointLight(
+    0x37dfff,
+    15,
+    20
+  );
+
+rimLight.position.set(
+  -5,
+  5,
+  -4
+);
+
+scene.add(rimLight);
+
+
+/* MATERIALS */
+
+const blackMetal =
+  new THREE.MeshStandardMaterial({
+    color:0x101722,
+    metalness:.9,
+    roughness:.22
+  });
+
+const darkMetal =
+  new THREE.MeshStandardMaterial({
+    color:0x202b38,
+    metalness:.85,
+    roughness:.25
+  });
+
+const silver =
+  new THREE.MeshStandardMaterial({
+    color:0x8493a1,
+    metalness:.9,
+    roughness:.18
+  });
+
+const glass =
+  new THREE.MeshPhysicalMaterial({
+    color:0x3edfff,
+    transparent:true,
+    opacity:.28,
+    metalness:.1,
+    roughness:.05,
+    transmission:.3
+  });
+
+const cyan =
+  new THREE.MeshStandardMaterial({
+    color:0x42e6ff,
+    emissive:0x087d9d,
+    emissiveIntensity:4,
+    metalness:.2,
+    roughness:.2
+  });
+
+const screenMat =
+  new THREE.MeshStandardMaterial({
+    color:0x07141b,
+    emissive:0x064457,
+    emissiveIntensity:1.5
+  });
+
+
+/* GROUP */
+
+const model =
+  new THREE.Group();
+
+scene.add(model);
+
+
+/* HELPER */
+
+function box(
+  w,h,d,
+  material,
+  x,y,z
+){
+
+  const geo =
+    new THREE.BoxGeometry(
+      w,h,d
+    );
+
+  const mesh =
+    new THREE.Mesh(
+      geo,
+      material
+    );
+
+  mesh.position.set(
+    x,y,z
+  );
+
+  model.add(mesh);
+
+  return mesh;
+}
+
+
+function cylinder(
+  r1,r2,h,
+  material,
+  x,y,z
+){
+
+  const geo =
+    new THREE.CylinderGeometry(
+      r1,r2,h,48
+    );
+
+  const mesh =
+    new THREE.Mesh(
+      geo,
+      material
+    );
+
+  mesh.position.set(
+    x,y,z
+  );
+
+  model.add(mesh);
+
+  return mesh;
+}
+
+
+/* BASE */
+
+const base =
+  box(
+    5.5,
+    .55,
+    4.2,
+    blackMetal,
+    0,
+    .25,
+    0
+  );
+
+
+/* LOWER PLATFORM */
+
+box(
+  4.4,
+  .35,
+  3.3,
+  darkMetal,
+  0,
+  .7,
+  0
+);
+
+
+/* VERTICAL BODY */
+
+box(
+  2.2,
+  5.4,
+  2.1,
+  blackMetal,
+  0,
+  3.35,
+  .15
+);
+
+
+/* FRONT COLUMN */
+
+box(
+  1.45,
+  4.5,
+  .45,
+  darkMetal,
+  0,
+  3.7,
+  -1.12
+);
+
+
+/* TOP COLUMN */
+
+cylinder(
+  .9,
+  .7,
+  1.7,
+  silver,
+  0,
+  6.15,
+  .15
+);
+
+
+/* TOP CAP */
+
+cylinder(
+  1.05,
+  1.05,
+  .35,
+  darkMetal,
+  0,
+  7.1,
+  .15
+);
+
+
+/* SPECIMEN CHAMBER */
+
+const chamber =
+  cylinder(
+    1.65,
+    1.65,
+    2.4,
+    darkMetal,
+    0,
+    2.9,
+    -1.45
+  );
+
+chamber.rotation.x =
+  Math.PI / 2;
+
+
+/* CHAMBER GLASS WINDOW */
+
+const window =
+  new THREE.Mesh(
+    new THREE.CylinderGeometry(
+      .72,
+      .72,
+      .08,
+      48
+    ),
+    glass
+  );
+
+window.rotation.x =
+  Math.PI / 2;
+
+window.position.set(
+  0,
+  2.9,
+  -2.7
+);
+
+model.add(window);
+
+
+/* SAMPLE STAGE */
+
+box(
+  2.2,
+  .25,
+  1.8,
+  silver,
+  0,
+  2.15,
+  -1.45
+);
+
+
+/* SPECIMEN */
+
+const specimen =
+  new THREE.Mesh(
+    new THREE.IcosahedronGeometry(
+      .65,
+      2
+    ),
+    cyan
+  );
+
+specimen.scale.y =
+  .5;
+
+specimen.position.set(
+  0,
+  2.55,
+  -1.45
+);
+
+model.add(specimen);
+
+
+/* SCANNING RINGS */
+
+for(let i=0;i<3;i++){
+
+  const ring =
+    new THREE.Mesh(
+      new THREE.TorusGeometry(
+        .72 + i*.12,
+        .018,
+        12,
+        64
+      ),
+      cyan
+    );
+
+  ring.rotation.x =
+    Math.PI/2;
+
+  ring.position.set(
+    0,
+    2.62 + i*.06,
+    -1.45
+  );
+
+  model.add(ring);
+}
+
+
+/* ELECTRON BEAM */
+
+const beam =
+  new THREE.Mesh(
+    new THREE.CylinderGeometry(
+      .035,
+      .09,
+      3.1,
+      20
+    ),
+    cyan
+  );
+
+beam.position.set(
+  0,
+  4.5,
+  -1.45
+);
+
+model.add(beam);
+
+
+/* BEAM TIP */
+
+const beamTip =
+  new THREE.Mesh(
+    new THREE.SphereGeometry(
+      .13,
+      24,
+      24
+    ),
+    cyan
+  );
+
+beamTip.position.set(
+  0,
+  2.95,
+  -1.45
+);
+
+model.add(beamTip);
+
+
+/* DETECTOR */
+
+const detector =
+  cylinder(
+    .28,
+    .35,
+    .7,
+    silver,
+    1.05,
+    3.25,
+    -1.45
+  );
+
+detector.rotation.z =
+  Math.PI/2;
+
+
+/* SIDE CONTROL MODULE */
+
+box(
+  1.1,
+  2.1,
+  .65,
+  darkMetal,
+  1.9,
+  2.4,
+  -.7
+);
+
+
+/* DISPLAY MONITOR */
+
+box(
+  2.1,
+  1.55,
+  .3,
+  blackMetal,
+  3.4,
+  3.5,
+  -.3
+);
+
+box(
+  1.7,
+  1.15,
+  .08,
+  screenMat,
+  3.4,
+  3.5,
+  -.48
+);
+
+
+/* SCREEN GLOW */
+
+const screenGlow =
+  new THREE.Mesh(
+    new THREE.PlaneGeometry(
+      1.45,
+      .8
+    ),
+    new THREE.MeshBasicMaterial({
+      color:0x20dfff,
+      transparent:true,
+      opacity:.12
+    })
+  );
+
+screenGlow.position.set(
+  3.4,
+  3.5,
+  -.53
+);
+
+screenGlow.rotation.y =
+  Math.PI;
+
+model.add(screenGlow);
+
+
+/* FLOOR */
+
+const floor =
+  new THREE.Mesh(
+    new THREE.CircleGeometry(
+      7,
+      64
+    ),
+    new THREE.MeshStandardMaterial({
+      color:0x08101a,
+      metalness:.3,
+      roughness:.75
+    })
+  );
+
+floor.rotation.x =
+  -Math.PI/2;
+
+floor.position.y =
+  -.05;
+
+scene.add(floor);
+
+
+/* CLICKABLE OBJECTS */
+
+const clickable = [];
+
+function clickablePart(
+  mesh,
+  name,
+  text
+){
+
+  mesh.userData.name =
+    name;
+
+  mesh.userData.text =
+    text;
+
+  clickable.push(mesh);
+
+}
+
+clickablePart(
+  beam,
+  "Electron Beam",
+  "The notes identify the electron microscope as using an electron beam. In SEM, electrons scan the specimen surface."
+);
+
+clickablePart(
+  specimen,
+  "Specimen Surface",
+  "The specimen surface is scanned by electrons in SEM. The notes describe the resulting image as 3D-like."
+);
+
+clickablePart(
+  detector,
+  "Scanning Area",
+  "This part of the model represents the scanning region. The uploaded notes emphasize scanning the specimen surface."
+);
+
+clickablePart(
+  window,
+  "Specimen Chamber",
+  "The chamber is shown as part of the SEM 3D visualization. Detailed chamber function is not specified in the uploaded notes."
+);
+
+clickablePart(
+  screenGlow,
+  "3D-like Image",
+  "The notes state that SEM scans the surface and produces a 3D-like image."
+);
+
+
+/* RAYCASTER */
+
+const raycaster =
+  new THREE.Raycaster();
+
+const mouse =
+  new THREE.Vector2();
+
+const info =
+  document.getElementById("info");
+
+const infoTitle =
+  document.getElementById("infoTitle");
+
+const infoText =
+  document.getElementById("infoText");
+
+
+function showInfo(
+  object
+){
+
+  infoTitle.textContent =
+    object.userData.name;
+
+  infoText.textContent =
+    object.userData.text;
+
+  info.classList.add("show");
+}
+
+
+renderer.domElement.addEventListener(
+  "pointerdown",
+  function(event){
+
+    const rect =
+      renderer.domElement.getBoundingClientRect();
+
+    mouse.x =
+      ((event.clientX - rect.left)
+      / rect.width) * 2 - 1;
+
+    mouse.y =
+      -((event.clientY - rect.top)
+      / rect.height) * 2 + 1;
+
+    raycaster.setFromCamera(
+      mouse,
+      camera
+    );
+
+    const hits =
+      raycaster.intersectObjects(
+        clickable,
+        true
+      );
+
+    if(hits.length){
+      showInfo(hits[0].object);
+    }
+
+  }
+);
+
+
+/* LABELS */
+
+const labelData = [
+  {
+    text:"Electron Beam",
+    pos:new THREE.Vector3(0,5,-1.45)
+  },
+  {
+    text:"Specimen Surface",
+    pos:new THREE.Vector3(0,2.65,-1.45)
+  },
+  {
+    text:"Scanning Area",
+    pos:new THREE.Vector3(1.3,3.25,-1.45)
+  },
+  {
+    text:"3D-like Image",
+    pos:new THREE.Vector3(3.4,4.45,-.3)
+  }
+];
+
+
+const labelContainer =
+  document.getElementById("labels");
+
+
+labelData.forEach(
+  item=>{
+
+    const el =
+      document.createElement("div");
+
+    el.className =
+      "label";
+
+    el.textContent =
+      item.text;
+
+    el.dataset.x =
+      item.pos.x;
+
+    el.dataset.y =
+      item.pos.y;
+
+    el.dataset.z =
+      item.pos.z;
+
+    labelContainer.appendChild(el);
+
+  }
+);
+
+
+function updateLabels(){
+
+  const labels =
+    labelContainer.children;
+
+  for(
+    let i=0;
+    i<labels.length;
+    i++
+  ){
+
+    const el =
+      labels[i];
+
+    const pos =
+      new THREE.Vector3(
+        Number(el.dataset.x),
+        Number(el.dataset.y),
+        Number(el.dataset.z)
+      );
+
+    pos.project(camera);
+
+    const x =
+      (pos.x * .5 + .5)
+      * viewer.clientWidth;
+
+    const y =
+      (-pos.y * .5 + .5)
+      * viewer.clientHeight;
+
+    el.style.left =
+      x + "px";
+
+    el.style.top =
+      y + "px";
+
+  }
+}
+
+
+/* BUTTONS */
+
+let autoRotate =
+  false;
+
+let showLabels =
+  true;
+
+
+document
+  .getElementById("rotate")
+  .onclick =
+  function(){
+
+    autoRotate =
+      !autoRotate;
+
+    this.textContent =
+      autoRotate
+      ? "Stop Rotation"
+      : "Auto Rotate";
+
+  };
+
+
+document
+  .getElementById("labelBtn")
+  .onclick =
+  function(){
+
+    showLabels =
+      !showLabels;
+
+    labelContainer.style.display =
+      showLabels
+      ? "block"
+      : "none";
+
+  };
+
+
+document
+  .getElementById("reset")
+  .onclick =
+  function(){
+
+    camera.position.set(
+      8,
+      6,
+      10
+    );
+
+    controls.target.set(
+      0,
+      3,
+      -0.5
+    );
+
+    controls.update();
+
+  };
+
+
+/* ANIMATION */
+
+function animate(){
+
+  requestAnimationFrame(
+    animate
+  );
+
+  if(autoRotate){
+
+    model.rotation.y +=
+      .0025;
+
+  }
+
+  specimen.rotation.y +=
+    .006;
+
+  beamTip.scale.setScalar(
+    1 + Math.sin(
+      performance.now()*.005
+    )*.12
+  );
+
+  controls.update();
+
+  updateLabels();
+
+  renderer.render(
+    scene,
+    camera
+  );
+
+}
+
+controls.target.set(
+  0,
+  3,
+  -.5
+);
+
+controls.update();
+
+animate();
+
+
+/* RESPONSIVE */
+
+window.addEventListener(
+  "resize",
+  function(){
+
+    camera.aspect =
+      viewer.clientWidth /
+      viewer.clientHeight;
+
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(
+      viewer.clientWidth,
+      viewer.clientHeight
+    );
+
+  }
+);
+
+</script>
+
+</body>
+</html>
