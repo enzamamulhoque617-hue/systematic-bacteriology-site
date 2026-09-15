@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Actinomycetes | Unit II | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.65;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1050px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  padding:48px 0 42px;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  letter-spacing:.6px;
+  margin-bottom:17px;
+}
+
+h1{
+  font-size:40px;
+  line-height:1.15;
+  margin-bottom:9px;
+}
+
+.subtitle{
+  color:#d5deeb;
+  font-size:16px;
+}
+
+.header-credit{
+  margin-top:16px;
+  font-size:13px;
+  color:#aebbd0;
+}
+
+/* NAV */
+.nav{
+  background:white;
+  border-bottom:1px solid #e4e8ef;
+}
+
+.nav-inner{
+  min-height:55px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.back{
+  color:#2563eb;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.unit-link{
+  font-size:13px;
+  color:#697487;
+}
+
+/* MAIN */
+main{
+  padding:34px 0 60px;
+}
+
+/* HERO */
+.hero-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:22px;
+  padding:27px;
+  margin-bottom:22px;
+  box-shadow:0 8px 25px rgba(20,30,50,.05);
+}
+
+.topic-label{
+  display:inline-block;
+  font-size:11px;
+  font-weight:bold;
+  color:#2563eb;
+  background:#eef3ff;
+  padding:6px 10px;
+  border-radius:20px;
+  margin-bottom:13px;
+  letter-spacing:.5px;
+}
+
+.hero-card h2{
+  font-size:28px;
+  margin-bottom:7px;
+}
+
+.hero-card p{
+  color:#687386;
+}
+
+/* QUICK FACTS */
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.quick-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:17px;
+  padding:18px;
+}
+
+.quick-card span{
+  display:block;
+  color:#7a8494;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:5px;
+}
+
+.quick-card strong{
+  font-size:15px;
+}
+
+/* NOTES */
+.note{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+  box-shadow:0 6px 20px rgba(20,30,50,.04);
+}
+
+.note h3{
+  font-size:20px;
+  margin-bottom:14px;
+}
+
+.note h3::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:21px;
+  background:#2563eb;
+  border-radius:5px;
+  vertical-align:-4px;
+  margin-right:10px;
+}
+
+.note h4{
+  font-size:16px;
+  margin-top:20px;
+  margin-bottom:9px;
+}
+
+.note ul{
+  padding-left:22px;
+}
+
+.note li{
+  margin:7px 0;
+}
+
+.note p{
+  margin:8px 0;
+}
+
+.highlight{
+  background:#f7f9fc;
+  border-left:4px solid #2563eb;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+.warning{
+  background:#fff8ed;
+  border-left:4px solid #e5a11a;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+/* EXAMPLES */
+.example-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-top:15px;
+}
+
+.example{
+  background:#fafbfc;
+  border:1px solid #e2e6ed;
+  border-radius:15px;
+  padding:18px;
+}
+
+.example h4{
+  margin:0 0 8px;
+  color:#172033;
+}
+
+.example p{
+  color:#687386;
+  font-size:14px;
+}
+
+/* FLOW */
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:12px;
+}
+
+.flow span{
+  background:#f0f4fa;
+  border:1px solid #dfe5ed;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.arrow{
+  color:#2563eb;
+  font-weight:bold;
+}
+
+/* EXAM */
+.exam{
+  background:#f7f9ff;
+  border:1px solid #dce5ff;
+  border-radius:18px;
+  padding:23px;
+  margin-top:20px;
+}
+
+.exam h3{
+  margin-bottom:12px;
+}
+
+.exam ul{
+  padding-left:22px;
+}
+
+/* MEMORY */
+.memory{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-top:20px;
+}
+
+.memory small{
+  color:#aebbd0;
+  display:block;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
+}
+
+.memory h3{
+  margin-bottom:9px;
+}
+
+.memory p{
+  color:#d7dfeb;
+}
+
+/* SOURCE */
+.source-box{
+  margin-top:30px;
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:22px;
+  padding:29px;
+  text-align:center;
+}
+
+.source-title{
+  color:#aebbd0;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.source{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.designer{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:17px;
+  color:#c8d2e1;
+  font-size:13px;
+}
+
+.designer strong{
+  color:white;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#7b8494;
+  font-size:12px;
+  padding:25px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  h1{
+    font-size:31px;
+  }
+
+  .quick,
+  .example-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav-inner{
+    min-height:65px;
+  }
+
+  .unit-link{
+    display:none;
+  }
+
+  .hero-card h2{
+    font-size:24px;
+  }
+
+  .note{
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+  <div class="container">
+
+    <div class="badge">
+      UNIT II • GRAM-POSITIVE BACILLI
+    </div>
+
+    <h1>Actinomycetes</h1>
+
+    <div class="subtitle">
+      Systematic Bacteriology • FYUGP 3rd Semester
+    </div>
+
+    <div class="header-credit">
+      Medical Lab & Molecular Diagnostic Technology
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+<div class="nav">
+
+  <div class="container nav-inner">
+
+    <a href="unit2.html" class="back">
+      ← Back to Unit II
+    </a>
+
+    <span class="unit-link">
+      Unit II → Topic 04 → Notes
+    </span>
+
+  </div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero-card">
+
+  <div class="topic-label">
+    TOPIC 04 • NOTES
+  </div>
+
+  <h2>Actinomycetes</h2>
+
+  <p>
+    Actinomycetes are filamentous bacterial forms included
+    in the study of Gram-positive bacilli. The notes mainly
+    discuss their morphology, pathogenicity and laboratory
+    diagnosis.
+  </p>
+
+</section>
+
+
+<!-- QUICK FACTS -->
+
+<section class="quick">
+
+  <div class="quick-card">
+    <span>Group</span>
+    <strong>Actinomycetes</strong>
+  </div>
+
+  <div class="quick-card">
+    <span>Important examples</span>
+    <strong>Actinomyces • Nocardia</strong>
+  </div>
+
+  <div class="quick-card">
+    <span>Important feature</span>
+    <strong>Filamentous forms</strong>
+  </div>
+
+</section>
+
+
+<!-- INTRODUCTION -->
+
+<section class="note">
+
+  <h3>1. Introduction</h3>
+
+  <p>
+    The handwritten notes describe Actinomycetes as
+    filamentous bacterial organisms.
+  </p>
+
+  <p>
+    The examples written in the notes include:
+  </p>
+
+  <div class="example-grid">
+
+    <div class="example">
+
+      <h4>Actinomyces</h4>
+
+      <p>
+        An important actinomycete associated with
+        actinomycosis.
+      </p>
+
+    </div>
+
+
+    <div class="example">
+
+      <h4>Nocardia</h4>
+
+      <p>
+        Another filamentous bacterial organism included
+        under Actinomycetes in the notes.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MORPHOLOGY -->
+
+<section class="note">
+
+  <h3>2. Morphology</h3>
+
+  <ul>
+
+    <li>
+      Actinomycetes are described as
+      <strong>rod-shaped / filamentous bacteria</strong>.
+    </li>
+
+    <li>
+      They may form branching filamentous structures.
+    </li>
+
+    <li>
+      The notes mention that some organisms are
+      <strong>acid-fast</strong>.
+    </li>
+
+    <li>
+      Granules may be associated with the organisms.
+    </li>
+
+    <li>
+      The notes mention that they are
+      <strong>Gram-positive</strong>.
+    </li>
+
+    <li>
+      They are described as
+      <strong>non-motile</strong> and
+      <strong>non-spore-forming</strong>.
+    </li>
+
+  </ul>
+
+  <div class="highlight">
+
+    <strong>⭐ Key morphology:</strong>
+
+    Filamentous + branching appearance +
+    Gram-positive nature.
+
+  </div>
+
+</section>
+
+
+<!-- PATHOGENESIS -->
+
+<section class="note">
+
+  <h3>3. Pathogenesis</h3>
+
+  <p>
+    The notes describe Actinomyces as capable of causing
+    infections when they enter tissues and establish
+    infection.
+  </p>
+
+  <p>
+    <strong>Actinomycosis</strong> is the important disease
+    associated with Actinomyces.
+  </p>
+
+  <div class="flow">
+
+    <span>Actinomyces</span>
+
+    <b class="arrow">→</b>
+
+    <span>Tissue infection</span>
+
+    <b class="arrow">→</b>
+
+    <span>Actinomycosis</span>
+
+  </div>
+
+</section>
+
+
+<!-- DISEASES -->
+
+<section class="note">
+
+  <h3>4. Diseases / Clinical Infections</h3>
+
+  <p>
+    Your notes specifically mention different sites of
+    Actinomyces infection.
+  </p>
+
+  <div class="example-grid">
+
+    <div class="example">
+
+      <h4>Cervicofacial infection</h4>
+
+      <p>
+        Infection involving the cervicofacial region.
+      </p>
+
+    </div>
+
+
+    <div class="example">
+
+      <h4>Thoracic infection</h4>
+
+      <p>
+        Infection involving the thoracic region.
+      </p>
+
+    </div>
+
+
+    <div class="example">
+
+      <h4>Abdominal infection</h4>
+
+      <p>
+        Infection involving the abdominal region.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="highlight">
+
+    <strong>Remember the sites:</strong>
+
+    <br><br>
+
+    <strong>Cervicofacial → Thoracic → Abdominal</strong>
+
+  </div>
+
+</section>
+
+
+<!-- LAB DIAGNOSIS -->
+
+<section class="note">
+
+  <h3>5. Laboratory Diagnosis</h3>
+
+
+  <h4>A. Specimen Collection</h4>
+
+  <ul>
+
+    <li>
+      The notes mention collection of specimens from
+      <strong>pus or sputum</strong>.
+    </li>
+
+    <li>
+      Appropriate clinical material should be collected
+      for laboratory examination.
+    </li>
+
+  </ul>
+
+
+  <h4>B. Microscopy</h4>
+
+  <ul>
+
+    <li>
+      Microscopic examination is an important part of
+      laboratory diagnosis.
+    </li>
+
+    <li>
+      The notes mention examination of the organism
+      following appropriate staining.
+    </li>
+
+    <li>
+      Filamentous/branching bacterial forms can be
+      observed microscopically.
+    </li>
+
+  </ul>
+
+
+  <h4>C. Culture / Isolation</h4>
+
+  <ul>
+
+    <li>
+      The notes mention <strong>isolation culture</strong>.
+    </li>
+
+    <li>
+      The specimen can be inoculated into suitable
+      culture media.
+    </li>
+
+    <li>
+      The notes mention incubation around
+      <strong>37°C</strong>.
+    </li>
+
+    <li>
+      Colony growth may take time before it becomes
+      clearly visible.
+    </li>
+
+  </ul>
+
+
+  <div class="highlight">
+
+    <strong>Diagnosis flow:</strong>
+
+    <div class="flow">
+
+      <span>Specimen</span>
+
+      <b class="arrow">→</b>
+
+      <span>Microscopy</span>
+
+      <b class="arrow">→</b>
+
+      <span>Culture</span>
+
+      <b class="arrow">→</b>
+
+      <span>Identification</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BIOCHEMICAL -->
+
+<section class="note">
+
+  <h3>6. Biochemical Reactions</h3>
+
+  <p>
+    The provided handwritten pages do not give a complete
+    species-wise biochemical reaction table for
+    Actinomycetes.
+  </p>
+
+  <div class="warning">
+
+    <strong>Source-based note:</strong>
+    No outside biochemical reactions have been added here,
+    so the page remains faithful to the supplied notes.
+
+  </div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section class="exam">
+
+  <h3>⭐ High-Yield Exam Points</h3>
+
+  <ul>
+
+    <li>
+      Definition / characteristics of Actinomycetes
+    </li>
+
+    <li>
+      Filamentous and branching morphology
+    </li>
+
+    <li>
+      Gram-positive nature
+    </li>
+
+    <li>
+      Actinomyces and Nocardia as examples
+    </li>
+
+    <li>
+      Actinomycosis
+    </li>
+
+    <li>
+      Cervicofacial infection
+    </li>
+
+    <li>
+      Thoracic infection
+    </li>
+
+    <li>
+      Abdominal infection
+    </li>
+
+    <li>
+      Laboratory diagnosis by specimen collection,
+      microscopy and culture
+    </li>
+
+  </ul>
+
+</section>
+
+
+<!-- MEMORY -->
+
+<section class="memory">
+
+  <small>🧠 QUICK MEMORY</small>
+
+  <h3>ACTINO = FILAMENT + BRANCHING + INFECTION</h3>
+
+  <p>
+
+    <strong>FILAMENT</strong> → filamentous appearance
+
+    <br><br>
+
+    <strong>BRANCHING</strong> → branching bacterial forms
+
+    <br><br>
+
+    <strong>INFECTION</strong> → actinomycosis
+
+    <br><br>
+
+    <strong>3 SITES</strong> →
+    Cervicofacial • Thoracic • Abdominal
+
+  </p>
+
+</section>
+
+
+<!-- SOURCE & CREDIT -->
+
+<section class="source-box">
+
+  <div class="source-title">
+    ACADEMIC SOURCE &amp; CREDITS
+  </div>
+
+  <div class="source">
+    📚 Source: Diksha Ma’am
+  </div>
+
+  <div class="designer">
+
+    Created &amp; Designed by
+    <strong>Enzamamul Hoque</strong>
+
+    <br>
+
+    Student, Mangaldai College
+
+    <br>
+
+    Department: ML&amp;MDT
+
+  </div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+  Systematic Bacteriology • Unit II • Actinomycetes
+
+  <br>
+
+  Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+</body>
+</html>
