@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Staphylococci - Systematic Bacteriology 3rd Semester ML&MDT">
+
+<title>Staphylococci | Systematic Bacteriology</title>
+
+<style>
+
+/* ================================
+   RESET
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f7fb;
+    color:#172033;
+    line-height:1.65;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    padding:65px 20px;
+    text-align:center;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #071d33,
+        #0d4269,
+        #1677b7
+    );
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:360px;
+    height:360px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:50%;
+    top:-220px;
+    left:-100px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:430px;
+    height:430px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    bottom:-310px;
+    right:-120px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:950px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 17px;
+    margin-bottom:18px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:50px;
+    background:rgba(255,255,255,.08);
+    color:#bce5ff;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.hero h1{
+    font-size:clamp(38px,6vw,60px);
+    line-height:1.1;
+    margin-bottom:12px;
+}
+
+.hero p{
+    font-size:17px;
+    color:#d7e9f5;
+}
+
+
+/* ================================
+   MAIN
+================================ */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:42px 20px;
+}
+
+
+/* ================================
+   BACK
+================================ */
+
+.back{
+    display:inline-block;
+    margin-bottom:28px;
+    text-decoration:none;
+    color:#12649b;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.back:hover{
+    text-decoration:underline;
+}
+
+
+/* ================================
+   QUICK FACTS
+================================ */
+
+.quick-facts{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin-bottom:35px;
+}
+
+.fact{
+    background:white;
+    padding:19px;
+    border-radius:16px;
+    border:1px solid #e3eaf1;
+    box-shadow:0 7px 20px rgba(16,42,67,.06);
+}
+
+.fact span{
+    display:block;
+    font-size:10px;
+    letter-spacing:1.5px;
+    color:#75869a;
+    margin-bottom:4px;
+}
+
+.fact strong{
+    color:#12649b;
+    font-size:15px;
+}
+
+
+/* ================================
+   CONTENT CARD
+================================ */
+
+.card{
+    background:white;
+    border:1px solid #e3eaf1;
+    border-radius:21px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(16,42,67,.06);
+}
+
+.card h2{
+    color:#102a43;
+    font-size:25px;
+    margin-bottom:17px;
+    padding-bottom:10px;
+    border-bottom:1px solid #e7edf3;
+}
+
+.card h3{
+    color:#12649b;
+    font-size:18px;
+    margin-top:20px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#56677a;
+    margin-bottom:10px;
+}
+
+.card ul{
+    padding-left:22px;
+    color:#56677a;
+}
+
+.card li{
+    margin-bottom:7px;
+}
+
+.highlight{
+    background:#eef8ff;
+    border-left:4px solid #1677b7;
+    padding:15px 17px;
+    border-radius:10px;
+    margin:16px 0;
+    color:#38536b;
+}
+
+
+/* ================================
+   BIOCHEMICAL TABLE
+================================ */
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:550px;
+}
+
+th,
+td{
+    border:1px solid #dce5ed;
+    padding:12px 13px;
+    text-align:left;
+}
+
+th{
+    background:#edf7fd;
+    color:#12649b;
+    font-size:14px;
+}
+
+td{
+    color:#56677a;
+    font-size:14px;
+}
+
+.result-positive{
+    font-weight:bold;
+    color:#12649b;
+}
+
+
+/* ================================
+   PATHOGENESIS FLOW
+================================ */
+
+.flow{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:22px 0;
+}
+
+.flow-step{
+    padding:12px 15px;
+    background:#f0f8fd;
+    border:1px solid #d6eaf6;
+    border-radius:12px;
+    color:#12649b;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.arrow{
+    color:#1677b7;
+    font-weight:bold;
+}
+
+
+/* ================================
+   DISEASE GRID
+================================ */
+
+.disease-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
+    gap:13px;
+    margin-top:15px;
+}
+
+.disease{
+    padding:16px;
+    border-radius:13px;
+    background:#f7fafc;
+    border:1px solid #e4ebf1;
+}
+
+.disease strong{
+    display:block;
+    color:#12649b;
+    margin-bottom:4px;
+}
+
+.disease span{
+    color:#68788b;
+    font-size:13px;
+}
+
+
+/* ================================
+   MEMORY BOX
+================================ */
+
+.memory{
+    background:
+        linear-gradient(
+            135deg,
+            #102a43,
+            #12649b
+        );
+    color:white;
+    border-radius:21px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 12px 30px rgba(16,42,67,.18);
+}
+
+.memory h2{
+    margin-bottom:15px;
+}
+
+.memory p{
+    color:#dceefa;
+}
+
+.memory strong{
+    color:#9ddcff;
+}
+
+
+/* ================================
+   DIAGNOSIS
+================================ */
+
+.diagnosis-flow{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+    margin-top:18px;
+}
+
+.diagnosis-step{
+    padding:17px;
+    background:#f5f9fc;
+    border-radius:13px;
+    border-left:4px solid #1677b7;
+}
+
+.diagnosis-step strong{
+    display:block;
+    color:#12649b;
+    margin-bottom:4px;
+}
+
+.diagnosis-step span{
+    color:#68788b;
+    font-size:13px;
+}
+
+
+/* ================================
+   CREDIT
+================================ */
+
+.credit{
+    position:relative;
+    overflow:hidden;
+    margin-top:40px;
+    padding:43px 22px;
+    text-align:center;
+    color:white;
+    background:
+        linear-gradient(
+            145deg,
+            #071d33,
+            #123f63,
+            #0b2b47
+        );
+    border-radius:25px;
+    box-shadow:0 18px 45px rgba(7,29,51,.23);
+}
+
+.credit::before{
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:50%;
+    top:-170px;
+    right:-80px;
+}
+
+.credit::after{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    bottom:-150px;
+    left:-70px;
+}
+
+.credit > *{
+    position:relative;
+    z-index:2;
+}
+
+.credit-icon{
+    font-size:30px;
+    color:#8ed1ff;
+    margin-bottom:7px;
+}
+
+.credit-label{
+    font-size:10px;
+    letter-spacing:3px;
+    color:#8ed1ff;
+    font-weight:bold;
+    margin-bottom:9px;
+}
+
+.credit h2{
+    font-size:25px;
+    margin-bottom:23px;
+}
+
+.source-box{
+    max-width:440px;
+    margin:0 auto 25px;
+    padding:16px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(142,209,255,.28);
+    border-radius:16px;
+}
+
+.source-icon{
+    font-size:25px;
+}
+
+.source-box small{
+    display:block;
+    font-size:9px;
+    letter-spacing:2px;
+    color:#8ed1ff;
+}
+
+.source-box strong{
+    display:block;
+    font-size:18px;
+}
+
+.designer p{
+    margin:4px;
+    font-size:13px;
+    color:#c8d8e6;
+}
+
+.designer h3{
+    font-size:24px;
+    color:white;
+    margin:2px 0;
+}
+
+.designer strong{
+    color:#8ed1ff;
+}
+
+.credit-line{
+    width:80px;
+    height:2px;
+    margin:21px auto;
+    background:#8ed1ff;
+    border-radius:10px;
+}
+
+.credit-note{
+    font-size:11px;
+    color:#9fb3c8;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+    text-align:center;
+    padding:28px 20px;
+    color:#65748b;
+    font-size:12px;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
+
+    .hero{
+        padding:52px 18px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .container{
+        padding:32px 15px;
+    }
+
+    .card{
+        padding:23px;
+    }
+
+    .quick-facts{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .credit{
+        padding:37px 17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================
+     HERO
+================================== -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            UNIT I • SYSTEMATIC BACTERIOLOGY
+        </div>
+
+        <h1>
+            Staphylococci
+        </h1>
+
+        <p>
+            3rd Semester • Medical Laboratory & Molecular Diagnostics
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<a
+    class="back"
+    href="unit1.html"
+>
+    ← Back to Unit I
+</a>
+
+
+
+<!-- =================================
+     QUICK FACTS
+================================== -->
+
+<section class="quick-facts">
+
+    <div class="fact">
+        <span>GRAM REACTION</span>
+        <strong>Gram-positive</strong>
+    </div>
+
+    <div class="fact">
+        <span>SHAPE</span>
+        <strong>Spherical cocci</strong>
+    </div>
+
+    <div class="fact">
+        <span>ARRANGEMENT</span>
+        <strong>Grape-like clusters</strong>
+    </div>
+
+    <div class="fact">
+        <span>MOTILITY</span>
+        <strong>Non-motile</strong>
+    </div>
+
+    <div class="fact">
+        <span>SPORES</span>
+        <strong>Non-spore-forming</strong>
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     MORPHOLOGY
+================================== -->
+
+<section class="card">
+
+    <h2>
+        1. Morphology
+    </h2>
+
+    <ul>
+
+        <li>
+            Staphylococci are <strong>Gram-positive cocci</strong>.
+        </li>
+
+        <li>
+            They are spherical in shape.
+        </li>
+
+        <li>
+            The cells are characteristically arranged
+            in irregular <strong>grape-like clusters</strong>.
+        </li>
+
+        <li>
+            They are non-motile.
+        </li>
+
+        <li>
+            They do not produce spores.
+        </li>
+
+        <li>
+            Some pathogenic staphylococci may possess
+            a capsule or slime layer.
+        </li>
+
+    </ul>
+
+    <div class="highlight">
+
+        <strong>Remember:</strong>
+        Staphylococci → Gram-positive cocci →
+        grape-like clusters.
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     CELL STRUCTURE
+================================== -->
+
+<section class="card">
+
+    <h2>
+        2. Important Cell Components
+    </h2>
+
+    <h3>
+        Cell wall
+    </h3>
+
+    <p>
+        The cell wall provides shape and structural
+        support to the bacterial cell.
+    </p>
+
+    <h3>
+        Capsule
+    </h3>
+
+    <p>
+        The notes describe the capsule as a layer
+        outside the cell wall. It can contribute to
+        virulence and can help the organism resist
+        phagocytosis.
+    </p>
+
+    <h3>
+        Pili
+    </h3>
+
+    <p>
+        Pili are associated with attachment of bacteria
+        to surfaces.
+    </p>
+
+    <h3>
+        Flagella
+    </h3>
+
+    <p>
+        The notes distinguish flagella as structures
+        associated with motility; staphylococci themselves
+        are non-motile.
+    </p>
+
+    <h3>
+        DNA
+    </h3>
+
+    <p>
+        DNA contains the genetic material of the bacterium.
+    </p>
+
+    <h3>
+        Ribosomes
+    </h3>
+
+    <p>
+        Ribosomes are involved in protein synthesis.
+    </p>
+
+</section>
+
+
+
+<!-- =================================
+     CULTURAL CHARACTERISTICS
+================================== -->
+
+<section class="card">
+
+    <h2>
+        3. Cultural Characteristics
+    </h2>
+
+    <p>
+        The PDF notes describe staphylococci as organisms
+        that can grow on commonly used laboratory media.
+    </p>
+
+    <h3>
+        Temperature & pH
+    </h3>
+
+    <ul>
+
+        <li>
+            Growth is described around <strong>35–37°C</strong>.
+        </li>
+
+        <li>
+            The notes give a pH range of approximately
+            <strong>7.2–7.6</strong>.
+        </li>
+
+        <li>
+            They are described as facultative anaerobes.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Nutrient agar
+    </h3>
+
+    <p>
+        On nutrient agar, colonies are described as
+        relatively large, round, smooth and opaque.
+    </p>
+
+
+    <h3>
+        Blood agar
+    </h3>
+
+    <p>
+        Colonies may show pigmentation and haemolysis.
+        The notes describe typical golden-yellow pigment
+        associated with staphylococcal colonies.
+    </p>
+
+
+    <h3>
+        Liquid media
+    </h3>
+
+    <p>
+        Growth can produce visible turbidity in liquid media.
+    </p>
+
+
+    <h3>
+        Selective medium
+    </h3>
+
+    <div class="highlight">
+
+        <strong>Mannitol Salt Agar (MSA)</strong>
+
+        <br>
+
+        The notes mention mannitol salt agar as a
+        selective medium useful for isolating
+        staphylococci, particularly S. aureus.
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     BIOCHEMICAL
+================================== -->
+
+<section class="card">
+
+    <h2>
+        4. Biochemical Reactions
+    </h2>
+
+    <p>
+        Important biochemical tests used for identification
+        include the following:
+    </p>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Test</th>
+                    <th>Importance / Result</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><strong>Catalase test</strong></td>
+
+                    <td>
+                        <span class="result-positive">
+                            Positive
+                        </span>
+                        — useful for differentiating
+                        staphylococci from streptococci.
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><strong>Coagulase test</strong></td>
+
+                    <td>
+                        Used particularly to identify
+                        coagulase-producing staphylococci,
+                        especially S. aureus.
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><strong>Mannitol fermentation</strong></td>
+
+                    <td>
+                        Useful in differentiation;
+                        S. aureus is commonly associated
+                        with mannitol fermentation.
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><strong>DNase</strong></td>
+
+                    <td>
+                        May be used as an additional
+                        identification test.
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><strong>Oxidase</strong></td>
+
+                    <td>
+                        Generally negative in staphylococci.
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><strong>Urease</strong></td>
+
+                    <td>
+                        May be variable among species.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>
+        Coagulase test
+    </h3>
+
+    <p>
+        The notes describe two approaches:
+        <strong>slide coagulase test</strong> and
+        <strong>tube coagulase test</strong>.
+    </p>
+
+    <div class="highlight">
+
+        <strong>Exam point:</strong>
+        Coagulase testing is especially important
+        when S. aureus is suspected.
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PATHOGENESIS
+================================== -->
+
+<section class="card">
+
+    <h2>
+        5. Pathogenesis
+    </h2>
+
+    <p>
+        The notes describe two broad mechanisms of
+        staphylococcal disease:
+    </p>
+
+    <div class="flow">
+
+        <div class="flow-step">
+            Infection
+        </div>
+
+        <div class="arrow">
+            →
+        </div>
+
+        <div class="flow-step">
+            Intoxication
+        </div>
+
+    </div>
+
+
+    <h3>
+        Infection
+    </h3>
+
+    <p>
+        Infection can occur when staphylococci enter
+        through damaged skin, mucosa or tissue.
+    </p>
+
+    <p>
+        After entering the host, the organism can attach
+        to cells and multiply, leading to tissue damage
+        and inflammation.
+    </p>
+
+
+    <h3>
+        Important virulence factors
+    </h3>
+
+    <ul>
+
+        <li>
+            Cell-associated factors.
+        </li>
+
+        <li>
+            Cell-associated proteins.
+        </li>
+
+        <li>
+            Clumping factor.
+        </li>
+
+        <li>
+            Toxins.
+        </li>
+
+    </ul>
+
+</section>
+
+
+
+<!-- =================================
+     TOXINS
+================================== -->
+
+<section class="card">
+
+    <h2>
+        6. Toxin-mediated Disease
+    </h2>
+
+    <h3>
+        Enterotoxins
+    </h3>
+
+    <p>
+        Staphylococcal enterotoxins are associated with
+        food poisoning and gastrointestinal symptoms.
+    </p>
+
+    <h3>
+        Toxic shock syndrome toxin
+    </h3>
+
+    <p>
+        The notes mention toxic shock syndrome as an
+        important toxin-mediated disease.
+    </p>
+
+    <h3>
+        Exfoliative toxin
+    </h3>
+
+    <p>
+        Exfoliative toxin is associated with separation
+        of superficial layers of the skin and can produce
+        scalded skin syndrome.
+    </p>
+
+</section>
+
+
+
+<!-- =================================
+     DISEASES
+================================== -->
+
+<section class="card">
+
+    <h2>
+        7. Diseases Caused by Staphylococci
+    </h2>
+
+    <div class="disease-grid">
+
+        <div class="disease">
+
+            <strong>Folliculitis</strong>
+
+            <span>
+                Infection involving hair follicles.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Furuncle</strong>
+
+            <span>
+                A painful pus-forming skin infection.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Abscess</strong>
+
+            <span>
+                Localized collection of pus.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Wound infection</strong>
+
+            <span>
+                Infection can develop at damaged tissue
+                or wound sites.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Osteomyelitis</strong>
+
+            <span>
+                Infection involving bone.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Arthritis</strong>
+
+            <span>
+                Joint infection may occur.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Pneumonia</strong>
+
+            <span>
+                Respiratory infection involving the lungs.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Meningitis</strong>
+
+            <span>
+                Infection involving the central nervous system.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Septicemia</strong>
+
+            <span>
+                Severe systemic infection.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Endocarditis</strong>
+
+            <span>
+                Infection involving the endocardium/heart.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Food poisoning</strong>
+
+            <span>
+                Toxin-mediated illness.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Toxic shock syndrome</strong>
+
+            <span>
+                Important toxin-mediated disease.
+            </span>
+
+        </div>
+
+
+        <div class="disease">
+
+            <strong>Scalded skin syndrome</strong>
+
+            <span>
+                Associated with exfoliative toxin.
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     LAB DIAGNOSIS
+================================== -->
+
+<section class="card">
+
+    <h2>
+        8. Laboratory Diagnosis
+    </h2>
+
+    <h3>
+        1. Specimen collection
+    </h3>
+
+    <p>
+        The specimen depends on the site and type
+        of infection. The notes mention examples such as
+        wound material, pus and nasal swabs depending
+        on the clinical situation.
+    </p>
+
+
+    <h3>
+        2. Microscopy
+    </h3>
+
+    <p>
+        A Gram-stained smear can demonstrate
+        <strong>Gram-positive cocci arranged in clusters</strong>.
+    </p>
+
+
+    <h3>
+        3. Culture
+    </h3>
+
+    <p>
+        The specimen is cultured on suitable laboratory
+        media. Colony appearance, pigmentation and
+        haemolysis can provide useful clues.
+    </p>
+
+
+    <h3>
+        4. Identification
+    </h3>
+
+    <div class="diagnosis-flow">
+
+        <div class="diagnosis-step">
+
+            <strong>Gram stain</strong>
+
+            <span>
+                Gram-positive cocci in clusters
+            </span>
+
+        </div>
+
+
+        <div class="diagnosis-step">
+
+            <strong>Culture</strong>
+
+            <span>
+                Examine colony characteristics
+            </span>
+
+        </div>
+
+
+        <div class="diagnosis-step">
+
+            <strong>Catalase</strong>
+
+            <span>
+                Catalase-positive reaction supports
+                staphylococcal identification
+            </span>
+
+        </div>
+
+
+        <div class="diagnosis-step">
+
+            <strong>Coagulase</strong>
+
+            <span>
+                Important test when S. aureus is suspected
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     MEMORY
+================================== -->
+
+<section class="memory">
+
+    <h2>
+        🧠 Quick Memory
+    </h2>
+
+    <p>
+
+        <strong>STAPH</strong>
+
+        =
+
+        <strong>
+            S
+        </strong>
+       pherical cocci
+
+        +
+
+        <strong>
+            T
+        </strong>
+       ypically grape-like clusters
+
+        +
+
+        <strong>
+            A
+        </strong>
+       erobic/facultative growth
+
+        +
+
+        <strong>
+            P
+        </strong>
+       ositive catalase
+
+        +
+
+        <strong>
+            H
+        </strong>
+       igh-yield coagulase identification
+
+    </p>
+
+</section>
+
+
+
+<!-- =================================
+     SOURCE & CREDIT
+================================== -->
+
+<section class="credit">
+
+    <div class="credit-icon">
+        ✦
+    </div>
+
+    <div class="credit-label">
+        ACADEMIC SOURCE & CREDITS
+    </div>
+
+    <h2>
+        Staphylococci
+    </h2>
+
+
+    <div class="source-box">
+
+        <span class="source-icon">
+            📚
+        </span>
+
+        <div>
+
+            <small>
+                ACADEMIC SOURCE
+            </small>
+
+            <strong>
+                Diksha Ma’am
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="designer">
+
+        <p>
+            Created & Designed by
+        </p>
+
+        <h3>
+            Enzamamul Hoque
+        </h3>
+
+        <p>
+            Student • Mangaldai College
+        </p>
+
+        <p>
+            Department:
+            <strong>
+                ML&MDT
+            </strong>
+        </p>
+
+    </div>
+
+
+    <div class="credit-line"></div>
+
+
+    <p class="credit-note">
+
+        Systematic Bacteriology • 3rd Semester
+
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    © 2026 Systematic Bacteriology
+
+    <br>
+
+    3rd Semester • ML&MDT • Mangaldai College
+
+</footer>
+
+
+</body>
+
+</html>
