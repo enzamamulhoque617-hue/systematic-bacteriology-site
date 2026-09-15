@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Polarised Microscope | 10 Mark Notes</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#040a10;
+color:#f5f8fc;
+line-height:1.65;
+}
+
+.container{
+width:min(1200px,94%);
+margin:auto;
+}
+
+header{
+padding:48px 0 35px;
+background:
+radial-gradient(circle at 15% 20%,#183f5c,transparent 35%),
+radial-gradient(circle at 85% 10%,#302b55,transparent 30%),
+linear-gradient(135deg,#040a10,#101d2b);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.badge{
+display:inline-block;
+padding:7px 13px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.15);
+background:rgba(255,255,255,.06);
+font-size:10px;
+letter-spacing:1.5px;
+margin-bottom:14px;
+}
+
+h1{
+font-size:43px;
+line-height:1.15;
+margin-bottom:9px;
+}
+
+.subtitle{
+color:#a9bacd;
+font-size:14px;
+}
+
+.top-credit{
+color:#71869b;
+font-size:11px;
+margin-top:10px;
+}
+
+.nav{
+background:#09131e;
+border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.nav-inner{
+min-height:55px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.back{
+color:#69afff;
+text-decoration:none;
+font-size:12px;
+font-weight:bold;
+}
+
+.nav-right{
+color:#718397;
+font-size:10px;
+}
+
+main{
+padding:30px 0 70px;
+}
+
+.card{
+background:linear-gradient(145deg,#0f1c2a,#08121d);
+border:1px solid rgba(255,255,255,.08);
+border-radius:22px;
+}
+
+.intro{
+padding:25px;
+margin-bottom:20px;
+}
+
+.section-label{
+color:#60aaff;
+font-size:9px;
+font-weight:bold;
+letter-spacing:2px;
+margin-bottom:8px;
+}
+
+.intro h2{
+font-size:27px;
+margin-bottom:7px;
+}
+
+.intro p{
+color:#91a3b6;
+font-size:13px;
+}
+
+.viewer-card{
+overflow:hidden;
+}
+
+.viewer-header{
+padding:17px 21px;
+display:flex;
+justify-content:space-between;
+background:#0c1825;
+border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.viewer-header strong{
+font-size:14px;
+}
+
+.viewer-header span{
+color:#72859a;
+font-size:10px;
+}
+
+#viewer{
+height:680px;
+position:relative;
+background:
+radial-gradient(circle at center,#25244b,#07111c 60%,#03080d);
+}
+
+canvas{
+display:block;
+}
+
+.info-panel{
+position:absolute;
+top:18px;
+right:18px;
+width:310px;
+padding:20px;
+border-radius:18px;
+background:rgba(5,13,22,.93);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.13);
+box-shadow:0 20px 50px rgba(0,0,0,.4);
+z-index:10;
+}
+
+.info-panel small{
+color:#8d8cff;
+font-size:9px;
+letter-spacing:1.6px;
+font-weight:bold;
+}
+
+.info-panel h2{
+font-size:21px;
+margin:7px 0;
+}
+
+.info-panel p{
+color:#aab9c8;
+font-size:12px;
+line-height:1.6;
+}
+
+.info-function{
+margin-top:14px;
+padding:12px;
+background:rgba(255,255,255,.05);
+border-radius:11px;
+color:#b9c7d5;
+font-size:11px;
+}
+
+.info-function strong{
+color:#fff;
+}
+
+.controls{
+position:absolute;
+left:18px;
+bottom:20px;
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+z-index:10;
+}
+
+.control{
+border:1px solid rgba(255,255,255,.14);
+background:rgba(5,13,22,.88);
+color:#dbe6ef;
+border-radius:9px;
+padding:9px 12px;
+cursor:pointer;
+font-size:10px;
+}
+
+.control:hover{
+background:#302d61;
+}
+
+.tip{
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+text-align:center;
+padding:10px;
+background:rgba(3,9,15,.75);
+color:#71869b;
+font-size:10px;
+z-index:5;
+}
+
+.notes-title{
+margin-top:35px;
+margin-bottom:15px;
+}
+
+.notes-title h2{
+font-size:27px;
+}
+
+.notes-title p{
+color:#74879a;
+font-size:11px;
+}
+
+.note-card{
+padding:23px;
+margin-bottom:14px;
+}
+
+.note-number{
+color:#8b8cff;
+font-size:9px;
+font-weight:bold;
+letter-spacing:1.5px;
+}
+
+.note-card h3{
+font-size:18px;
+margin:5px 0 9px;
+}
+
+.note-card p,
+.note-card li{
+color:#9cacbd;
+font-size:13px;
+line-height:1.75;
+}
+
+.note-card ul{
+margin-left:20px;
+margin-top:8px;
+}
+
+.note-card li{
+margin:6px 0;
+}
+
+.highlight{
+border-left:3px solid #8d8cff;
+}
+
+.principle{
+padding:20px;
+border-radius:15px;
+background:rgba(105,95,220,.09);
+border:1px solid rgba(145,135,255,.18);
+text-align:center;
+}
+
+.principle strong{
+color:#aaa5ff;
+}
+
+.component-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+margin-top:15px;
+}
+
+.component{
+padding:17px;
+background:rgba(255,255,255,.025);
+border:1px solid rgba(255,255,255,.06);
+border-radius:14px;
+}
+
+.component-number{
+color:#8d8cff;
+font-size:9px;
+font-weight:bold;
+}
+
+.component h4{
+font-size:14px;
+margin:5px 0;
+}
+
+.component p{
+font-size:11px;
+color:#8496a9;
+}
+
+.flow{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:17px;
+}
+
+.flow-box{
+padding:13px 15px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.07);
+border-radius:12px;
+font-size:11px;
+color:#b8c7d5;
+}
+
+.arrow{
+color:#9a96ff;
+font-size:18px;
+}
+
+.exam-box{
+padding:23px;
+background:
+linear-gradient(
+135deg,
+rgba(105,95,220,.13),
+rgba(40,35,80,.08)
+);
+border:1px solid rgba(130,120,235,.18);
+border-radius:18px;
+}
+
+.exam-box h3{
+color:#aaa5ff;
+font-size:17px;
+margin-bottom:9px;
+}
+
+.exam-box p{
+color:#9eb0c2;
+font-size:12px;
+}
+
+.answer{
+margin-top:13px;
+padding:15px;
+background:rgba(0,0,0,.18);
+border-radius:12px;
+color:#c0cedb;
+font-size:12px;
+}
+
+.revision{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+}
+
+.revision-item{
+text-align:center;
+padding:18px 10px;
+background:rgba(255,255,255,.035);
+border:1px solid rgba(255,255,255,.06);
+border-radius:14px;
+}
+
+.revision-item strong{
+display:block;
+font-size:20px;
+color:#9995ff;
+}
+
+.revision-item span{
+color:#7f91a5;
+font-size:10px;
+}
+
+.source{
+margin-top:30px;
+padding:28px;
+text-align:center;
+}
+
+.source-title{
+color:#708399;
+font-size:9px;
+letter-spacing:2px;
+margin-bottom:10px;
+}
+
+.source-name{
+font-size:17px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.credit{
+border-top:1px solid rgba(255,255,255,.08);
+padding-top:15px;
+color:#8496a9;
+font-size:11px;
+line-height:1.9;
+}
+
+.credit strong{
+color:#fff;
+}
+
+footer{
+padding:28px;
+text-align:center;
+color:#5e7185;
+font-size:10px;
+}
+
+@media(max-width:800px){
+
+h1{
+font-size:34px;
+}
+
+.component-grid{
+grid-template-columns:1fr;
+}
+
+.revision{
+grid-template-columns:repeat(2,1fr);
+}
+
+#viewer{
+height:720px;
+}
+
+.info-panel{
+left:13px;
+right:13px;
+width:auto;
+}
+
+}
+
+@media(max-width:500px){
+
+h1{
+font-size:29px;
+}
+
+#viewer{
+height:760px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="container">
+
+<div class="badge">
+UNIT V • 10 MARKS
+</div>
+
+<h1>🔬 Polarised Microscope</h1>
+
+<div class="subtitle">
+Ultra 3D Interactive Microscope • Exam-Oriented Notes
+</div>
+
+<div class="top-credit">
+Systematic Bacteriology • ML&amp;MDT
+</div>
+
+</div>
+
+</header>
+
+
+<div class="nav">
+
+<div class="container nav-inner">
+
+<a href="unit5.html" class="back">
+← Back to Unit V
+</a>
+
+<div class="nav-right">
+MICROSCOPY
+</div>
+
+</div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<section class="card intro">
+
+<div class="section-label">
+INTERACTIVE 3D LEARNING
+</div>
+
+<h2>Explore the Polarised Microscope</h2>
+
+<p>
+Rotate the 3D microscope, zoom in and tap/click the
+components to see their introduction and function.
+</p>
+
+</section>
+
+
+<!-- 3D MODEL -->
+
+<section class="card viewer-card">
+
+<div class="viewer-header">
+
+<strong>
+🔬 Polarised Microscope — Ultra 3D
+</strong>
+
+<span>
+REAL-TIME WEBGL
+</span>
+
+</div>
+
+
+<div id="viewer">
+
+<div class="info-panel">
+
+<small>
+SELECTED COMPONENT
+</small>
+
+<h2 id="partName">
+Microscope
+</h2>
+
+<p id="partIntro">
+Tap a component to learn about it.
+</p>
+
+<div class="info-function">
+
+<strong>Function:</strong>
+
+<span id="partFunction">
+Select a component.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="controls">
+
+<button class="control" id="resetBtn">
+↻ Reset
+</button>
+
+<button class="control" id="rotateBtn">
+▶ Auto Rotate
+</button>
+
+<button class="control" id="labelsBtn">
+◉ Labels
+</button>
+
+</div>
+
+
+<div class="tip">
+🖱 Drag = Rotate • Scroll = Zoom •
+👆 Touch = Rotate • Tap = Select
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NOTES -->
+
+<div class="notes-title">
+
+<div class="section-label">
+10-MARK EXAM NOTES
+</div>
+
+<h2>Polarised Microscope</h2>
+
+<p>
+Write the answer systematically using the following headings.
+</p>
+
+</div>
+
+
+<!-- 01 -->
+
+<section class="card note-card">
+
+<div class="note-number">
+01 • INTRODUCTION
+</div>
+
+<h3>Introduction</h3>
+
+<p>
+The Polarised Microscope is one of the microscope types
+included under microscopy in Unit V.
+</p>
+
+<p style="margin-top:12px;">
+It is used to view materials such as crystalline and
+mineral materials.
+</p>
+
+</section>
+
+
+<!-- 02 -->
+
+<section class="card note-card highlight">
+
+<div class="note-number">
+02 • PRINCIPLE / KEY FEATURE
+</div>
+
+<h3>Principle</h3>
+
+<div class="principle">
+
+<p>
+The Polarised Microscope uses <strong>polarised light</strong>
+for examining materials that show characteristic
+behaviour with polarised illumination.
+</p>
+
+<br>
+
+<p>
+The notes particularly associate it with the examination
+of <strong>birefringent substances</strong>.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- 03 -->
+
+<section class="card note-card">
+
+<div class="note-number">
+03 • MATERIALS OBSERVED
+</div>
+
+<h3>What Can Be Viewed?</h3>
+
+<p>
+According to the handwritten notes, the Polarised Microscope
+is used to examine materials such as:
+</p>
+
+<ul>
+
+<li>
+Crystals
+</li>
+
+<li>
+Mineral granules
+</li>
+
+<li>
+Cellulose fibres
+</li>
+
+</ul>
+
+<p style="margin-top:12px;">
+The notes describe these in relation to
+<strong>birefringent substances</strong>.
+</p>
+
+</section>
+
+
+<!-- 04 -->
+
+<section class="card note-card">
+
+<div class="note-number">
+04 • MAIN COMPONENTS
+</div>
+
+<h3>Important Microscope Components</h3>
+
+<p>
+The general microscope component section in your notes
+identifies the following parts:
+</p>
+
+
+<div class="component-grid">
+
+
+<div class="component">
+<div class="component-number">01</div>
+<h4>Light Source</h4>
+<p>
+The light bulb or LED is located at the base and provides illumination.
+</p>
+</div>
+
+
+<div class="component">
+<div class="component-number">02</div>
+<h4>Eyepiece</h4>
+<p>
+Present at the top and acts as the viewing lens through which the sample is seen.
+</p>
+</div>
+
+
+<div class="component">
+<div class="component-number">03</div>
+<h4>Objective Lens</h4>
+<p>
+The primary lens that captures light and creates the initial magnified image.
+</p>
+</div>
+
+
+<div class="component">
+<div class="component-number">04</div>
+<h4>Stage</h4>
+<p>
+The platform where the glass slide is placed for observation.
+</p>
+</div>
+
+
+<div class="component">
+<div class="component-number">05</div>
+<h4>Support Stage Clip</h4>
+<p>
+The metal clip holds the specimen slide securely.
+</p>
+</div>
+
+
+<div class="component">
+<div class="component-number">06</div>
+<h4>Fine Adjustment</h4>
+<p>
+Helps obtain a sharper and clearer image.
+</p>
+</div>
+
+
+<div class="component">
+<div class="component-number">07</div>
+<h4>Diaphragm</h4>
+<p>
+Controls the light passing through the specimen.
+</p>
+</div>
+
+
+<div class="component">
+<div class="component-number">08</div>
+<h4>Base</h4>
+<p>
+The heavy bottom part supports the microscope.
+</p>
+</div>
+
+
+<div class="component">
+<div class="component-number">09</div>
+<h4>Arm</h4>
+<p>
+The supporting portion used to safely carry the microscope.
+</p>
+</div>
+
+
+<div class="component">
+<div class="component-number">10</div>
+<h4>Stage Control</h4>
+<p>
+Used to adjust the stage position.
+</p>
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- 05 -->
+
+<section class="card note-card">
+
+<div class="note-number">
+05 • WORKING
+</div>
+
+<h3>Working Concept</h3>
+
+<ul>
+
+<li>
+The specimen is placed on the stage.
+</li>
+
+<li>
+Illumination is provided through the microscope.
+</li>
+
+<li>
+Polarised light is used for examination.
+</li>
+
+<li>
+The specimen is observed through the optical system.
+</li>
+
+<li>
+Materials showing birefringence can be examined.
+</li>
+
+<li>
+The eyepiece is used for viewing the specimen.
+</li>
+
+<li>
+Fine adjustment helps obtain a clearer image.
+</li>
+
+</ul>
+
+
+<div class="flow">
+
+<div class="flow-box">
+💡 Light
+</div>
+
+<div class="arrow">
+→
+</div>
+
+<div class="flow-box">
+↕ Polarised Light
+</div>
+
+<div class="arrow">
+→
+</div>
+
+<div class="flow-box">
+🔬 Specimen
+</div>
+
+<div class="arrow">
+→
+</div>
+
+<div class="flow-box">
+👁 Observation
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 06 -->
+
+<section class="card note-card">
+
+<div class="note-number">
+06 • APPLICATION
+</div>
+
+<h3>Applications / Uses</h3>
+
+<p>
+According to the notes, the Polarised Microscope is mainly
+used for examining <strong>birefringent substances</strong>.
+</p>
+
+<div class="component-grid">
+
+<div class="component">
+<h4>Crystals</h4>
+<p>
+Used for viewing crystalline materials.
+</p>
+</div>
+
+<div class="component">
+<h4>Mineral Granules</h4>
+<p>
+Included among the materials mentioned in the notes.
+</p>
+</div>
+
+<div class="component">
+<h4>Cellulose Fibres</h4>
+<p>
+Mentioned as a birefringent substance that can be examined.
+</p>
+</div>
+
+<div class="component">
+<h4>Mineral Materials</h4>
+<p>
+The notes associate the microscope with viewing mineral materials.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 07 -->
+
+<section class="card note-card">
+
+<div class="note-number">
+07 • COMPONENT FUNCTIONS
+</div>
+
+<h3>Functions of Important Parts</h3>
+
+<div class="component-grid">
+
+<div class="component">
+<h4>Light Source</h4>
+<p>Provides illumination.</p>
+</div>
+
+<div class="component">
+<h4>Eyepiece</h4>
+<p>Used for viewing the sample.</p>
+</div>
+
+<div class="component">
+<h4>Objective Lens</h4>
+<p>Captures light and creates the initial magnified image.</p>
+</div>
+
+<div class="component">
+<h4>Stage</h4>
+<p>Supports the glass slide.</p>
+</div>
+
+<div class="component">
+<h4>Stage Clip</h4>
+<p>Holds the specimen slide.</p>
+</div>
+
+<div class="component">
+<h4>Fine Adjustment</h4>
+<p>Helps obtain a sharper image.</p>
+</div>
+
+<div class="component">
+<h4>Diaphragm</h4>
+<p>Controls illumination.</p>
+</div>
+
+<div class="component">
+<h4>Base</h4>
+<p>Supports the microscope.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 08 -->
+
+<section class="card note-card">
+
+<div class="note-number">
+08 • SPECIAL FEATURE
+</div>
+
+<h3>Birefringent Substances</h3>
+
+<div class="exam-box">
+
+<h3>
+⭐ Remember
+</h3>
+
+<p style="font-size:14px;text-align:center;">
+
+Polarised Microscope
+
+<br><br>
+
+↓
+
+<br><br>
+
+<strong>Birefringent substances</strong>
+
+<br><br>
+
+↓
+
+<br><br>
+
+Crystals • Mineral granules • Cellulose fibres
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- 09 -->
+
+<section class="card note-card">
+
+<div class="note-number">
+09 • QUICK REVISION
+</div>
+
+<h3>Four Things to Remember</h3>
+
+<div class="revision">
+
+<div class="revision-item">
+<strong>1</strong>
+<span>Polarised Light</span>
+</div>
+
+<div class="revision-item">
+<strong>2</strong>
+<span>Crystals</span>
+</div>
+
+<div class="revision-item">
+<strong>3</strong>
+<span>Mineral Granules</span>
+</div>
+
+<div class="revision-item">
+<strong>4</strong>
+<span>Cellulose Fibres</span>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 10 -->
+
+<section class="card note-card">
+
+<div class="note-number">
+10 • 10-MARK ANSWER
+</div>
+
+<h3>How to Write in the Examination</h3>
+
+<div class="exam-box">
+
+<h3>
+⭐ Answer Structure
+</h3>
+
+<div class="answer">
+
+<strong>1.</strong> Introduction
+
+<br><br>
+
+<strong>2.</strong> Principle / key feature
+
+<br><br>
+
+<strong>3.</strong> Main components
+
+<br><br>
+
+<strong>4.</strong> Functions of components
+
+<br><br>
+
+<strong>5.</strong> Working
+
+<br><br>
+
+<strong>6.</strong> Applications
+
+<br><br>
+
+<strong>7.</strong> Birefringent substances
+
+<br><br>
+
+<strong>8.</strong> Examples — crystals, mineral granules and cellulose fibres
+
+<br><br>
+
+<strong>9.</strong> Neat labelled diagram
+
+<br><br>
+
+<strong>10.</strong> Conclusion
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOURCE -->
+
+<section class="card source">
+
+<div class="source-title">
+ACADEMIC SOURCE &amp; CREDITS
+</div>
+
+<div class="source-name">
+📚 Source: Diksha Ma’am
+</div>
+
+<div class="credit">
+
+Created &amp; Designed by
+<strong>Enzamamul Hoque</strong>
+
+<br>
+
+Student, Mangaldai College
+
+<br>
+
+Department: ML&amp;MDT
+
+</div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+Systematic Bacteriology • Unit V • Polarised Microscope
+
+<br><br>
+
+Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+
+<!-- THREE.JS -->
+
+<script type="importmap">
+
+{
+"imports":{
+"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+"three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+}
+}
+
+</script>
+
+
+<script type="module">
+
+import * as THREE from "three";
+
+import {
+OrbitControls
+}
+from "three/addons/controls/OrbitControls.js";
+
+
+const viewer=
+document.getElementById("viewer");
+
+
+const scene=
+new THREE.Scene();
+
+scene.background=
+new THREE.Color(0x07111d);
+
+
+const camera=
+new THREE.PerspectiveCamera(
+42,
+viewer.clientWidth/
+viewer.clientHeight,
+.1,
+100
+);
+
+camera.position.set(
+7,5.5,9
+);
+
+
+const renderer=
+new THREE.WebGLRenderer({
+antialias:true
+});
+
+renderer.setPixelRatio(
+Math.min(
+window.devicePixelRatio,
+2
+));
+
+renderer.setSize(
+viewer.clientWidth,
+viewer.clientHeight
+);
+
+renderer.shadowMap.enabled=true;
+
+renderer.shadowMap.type=
+THREE.PCFSoftShadowMap;
+
+viewer.appendChild(
+renderer.domElement
+);
+
+
+/* CAMERA */
+
+const controls=
+new OrbitControls(
+camera,
+renderer.domElement
+);
+
+controls.enableDamping=true;
+
+controls.dampingFactor=.06;
+
+controls.minDistance=5;
+
+controls.maxDistance=17;
+
+controls.target.set(
+0,3,0
+);
+
+
+/* LIGHTS */
+
+scene.add(
+new THREE.HemisphereLight(
+0xe0e2ff,
+0x17172a,
+2.5
+)
+);
+
+
+const key=
+new THREE.DirectionalLight(
+0xffffff,
+4
+);
+
+key.position.set(
+6,11,8
+);
+
+key.castShadow=true;
+
+scene.add(key);
+
+
+const fill=
+new THREE.DirectionalLight(
+0xb2aaff,
+2
+);
+
+fill.position.set(
+-7,6,-4
+);
+
+scene.add(fill);
+
+
+const rim=
+new THREE.PointLight(
+0x7770ff,
+16,
+20
+);
+
+rim.position.set(
+-5,5,-5
+);
+
+scene.add(rim);
+
+
+/* MATERIALS */
+
+const metal=
+new THREE.MeshStandardMaterial({
+color:0x48576b,
+metalness:.88,
+roughness:.22
+});
+
+
+const darkMetal=
+new THREE.MeshStandardMaterial({
+color:0x172333,
+metalness:.9,
+roughness:.18
+});
+
+
+const black=
+new THREE.MeshStandardMaterial({
+color:0x0b141b,
+metalness:.7,
+roughness:.2
+});
+
+
+const silver=
+new THREE.MeshStandardMaterial({
+color:0xb5bbc8,
+metalness:.92,
+roughness:.15
+});
+
+
+const purple=
+new THREE.MeshStandardMaterial({
+color:0x928dff,
+emissive:0x4038ff,
+emissiveIntensity:2
+});
+
+
+const glass=
+new THREE.MeshPhysicalMaterial({
+color:0xb6b5ff,
+transparent:true,
+opacity:.45,
+transmission:.3,
+roughness:.04
+});
+
+
+/* MICROSCOPE */
+
+const microscope=
+new THREE.Group();
+
+scene.add(microscope);
+
+const parts=[];
+
+
+function register(
+object,
+name,
+intro,
+func
+){
+
+object.userData.isPart=true;
+
+object.userData.name=name;
+
+object.userData.intro=intro;
+
+object.userData.function=func;
+
+parts.push(object);
+
+}
+
+
+/* BASE */
+
+const base=
+new THREE.Mesh(
+new THREE.BoxGeometry(
+5.3,.7,3.5
+),
+darkMetal
+);
+
+base.position.set(
+0,.4,0
+);
+
+base.castShadow=true;
+
+base.receiveShadow=true;
+
+microscope.add(base);
+
+register(
+base,
+"Base",
+"The heavy bottom part supports the microscope.",
+"Provides support and stability."
+);
+
+
+/* ARM */
+
+const arm=
+new THREE.Mesh(
+new THREE.BoxGeometry(
+1.25,5.5,.78
+),
+metal
+);
+
+arm.position.set(
+-1.5,3.3,0
+);
+
+arm.rotation.z=
+THREE.MathUtils.degToRad(-9);
+
+arm.castShadow=true;
+
+microscope.add(arm);
+
+register(
+arm,
+"Arm",
+"The arm is the supporting portion of the microscope.",
+"Supports the microscope and helps in carrying it."
+);
+
+
+/* BODY */
+
+const body=
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.68,.82,2.7,48
+),
+darkMetal
+);
+
+body.position.set(
+-.72,6.15,0
+);
+
+body.rotation.z=
+THREE.MathUtils.degToRad(-8);
+
+microscope.add(body);
+
+register(
+body,
+"Body Tube",
+"Part of the optical assembly.",
+"Supports optical components."
+);
+
+
+/* EYEPIECE */
+
+const eyepiece=
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.4,.54,1.5,48
+),
+black
+);
+
+eyepiece.position.set(
+-.57,8.15,0
+);
+
+eyepiece.rotation.z=
+THREE.MathUtils.degToRad(-8);
+
+microscope.add(eyepiece);
+
+register(
+eyepiece,
+"Eyepiece",
+"Present at the top of the microscope.",
+"Acts as the viewing lens."
+);
+
+
+/* NOSEPIECE */
+
+const nosepiece=
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.7,.9,.45,48
+),
+silver
+);
+
+nosepiece.position.set(
+-.42,5,0
+);
+
+microscope.add(nosepiece);
+
+register(
+nosepiece,
+"Nosepiece",
+"Supports the objective assembly.",
+"Holds objective lenses."
+);
+
+
+/* OBJECTIVES */
+
+[
+[-.95,4.3,0,.55],
+[-.5,4.18,0,.7],
+[-.05,4.14,0,.88],
+[.4,4.2,0,1.05]
+].forEach(
+p=>{
+
+const objective=
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.19,.3,p[3],40
+),
+silver
+);
+
+objective.position.set(
+p[0],p[1],p[2]
+);
+
+microscope.add(
+objective
+);
+
+register(
+objective,
+"Objective Lens",
+"The primary lens that captures light.",
+"Creates the initial magnified image."
+);
+
+}
+);
+
+
+/* STAGE */
+
+const stage=
+new THREE.Mesh(
+new THREE.BoxGeometry(
+4,.42,2.8
+),
+metal
+);
+
+stage.position.set(
+.15,3,0
+);
+
+stage.castShadow=true;
+
+microscope.add(stage);
+
+register(
+stage,
+"Stage",
+"The platform where the glass slide is placed.",
+"Supports the specimen."
+);
+
+
+/* STAGE CLIP */
+
+const clip=
+new THREE.Mesh(
+new THREE.BoxGeometry(
+1.1,.14,.25
+),
+silver
+);
+
+clip.position.set(
+.15,3.3,-.55
+);
+
+microscope.add(clip);
+
+register(
+clip,
+"Support Stage Clip",
+"The metal clip holds the specimen slide.",
+"Secures the slide."
+);
+
+
+/* SLIDE */
+
+const slide=
+new THREE.Mesh(
+new THREE.BoxGeometry(
+2.3,.08,.75
+),
+glass
+);
+
+slide.position.set(
+.15,3.28,0
+);
+
+microscope.add(slide);
+
+register(
+slide,
+"Specimen Slide",
+"The slide carries the specimen.",
+"Provides a surface for observation."
+);
+
+
+/* POLARISING UNIT */
+
+const polariser=
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.72,.5,.45,48
+),
+purple
+);
+
+polariser.position.set(
+.15,2.45,0
+);
+
+microscope.add(
+polariser
+);
+
+register(
+polariser,
+"Polarising Unit",
+"Represents the polarised-light arrangement of the interactive model.",
+"Provides the polarised-light component used for examination."
+);
+
+
+/* DIAPHRAGM */
+
+const diaphragm=
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.48,.48,.2,48
+),
+black
+);
+
+diaphragm.position.set(
+.15,1.92,0
+);
+
+microscope.add(diaphragm);
+
+register(
+diaphragm,
+"Diaphragm",
+"Controls light passing through the specimen.",
+"Controls illumination."
+);
+
+
+/* LIGHT SOURCE */
+
+const lamp=
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.66,.66,.3,48
+),
+purple
+);
+
+lamp.position.set(
+.15,1.52,0
+);
+
+microscope.add(lamp);
+
+register(
+lamp,
+"Light Source",
+"The light source provides illumination.",
+"Provides illumination."
+);
+
+
+/* FINE ADJUSTMENT */
+
+const fine=
+new THREE.Mesh(
+new THREE.TorusGeometry(
+.43,.12,24,48
+),
+silver
+);
+
+fine.position.set(
+-.05,4.45,.7
+);
+
+fine.rotation.x=
+Math.PI/2;
+
+microscope.add(fine);
+
+register(
+fine,
+"Fine Adjustment",
+"Helps obtain a sharper and clearer image.",
+"Used for fine focusing."
+);
+
+
+/* STAGE CONTROL */
+
+const stageControl=
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.2,.2,.4,32
+),
+silver
+);
+
+stageControl.position.set(
+2.05,2.95,.55
+);
+
+stageControl.rotation.z=
+Math.PI/2;
+
+microscope.add(stageControl);
+
+register(
+stageControl,
+"Stage Control",
+"Used to adjust the stage position.",
+"Helps position the specimen."
+);
+
+
+/* RAYCASTING */
+
+const raycaster=
+new THREE.Raycaster();
+
+const pointer=
+new THREE.Vector2();
+
+
+function selectPart(event){
+
+const rect=
+renderer.domElement
+.getBoundingClientRect();
+
+pointer.x=
+((event.clientX-rect.left)/
+rect.width)*2-1;
+
+pointer.y=
+-((event.clientY-rect.top)/
+rect.height)*2+1;
+
+raycaster.setFromCamera(
+pointer,
+camera
+);
+
+const hits=
+raycaster.intersectObjects(
+parts,
+true
+);
+
+if(!hits.length)
+return;
+
+let selected=
+hits[0].object;
+
+while(
+selected &&
+!selected.userData.isPart &&
+selected.parent
+){
+
+selected=
+selected.parent;
+
+}
+
+if(!selected.userData.isPart)
+return;
+
+document.getElementById(
+"partName"
+).textContent=
+selected.userData.name;
+
+document.getElementById(
+"partIntro"
+).textContent=
+selected.userData.intro;
+
+document.getElementById(
+"partFunction"
+).textContent=
+selected.userData.function;
+
+}
+
+renderer.domElement.addEventListener(
+"pointerdown",
+selectPart
+);
+
+
+/* RESET */
+
+document
+.getElementById("resetBtn")
+.addEventListener(
+"click",
+()=>{
+
+camera.position.set(
+7,5.5,9
+);
+
+controls.target.set(
+0,3,0
+);
+
+controls.update();
+
+microscope.rotation.y=0;
+
+}
+);
+
+
+/* AUTO ROTATE */
+
+let autoRotate=false;
+
+document
+.getElementById("rotateBtn")
+.addEventListener(
+"click",
+function(){
+
+autoRotate=
+!autoRotate;
+
+this.textContent=
+autoRotate
+?"⏸ Stop Rotate"
+:"▶ Auto Rotate";
+
+}
+);
+
+
+/* LABELS */
+
+let labelsVisible=true;
+
+const labelData=[
+[eyepiece,"Eyepiece"],
+[nosepiece,"Nosepiece"],
+[stage,"Stage"],
+[polariser,"Polarising Unit"],
+[diaphragm,"Diaphragm"],
+[lamp,"Light Source"],
+[arm,"Arm"],
+[base,"Base"]
+];
+
+const labels=[];
+
+
+labelData.forEach(
+item=>{
+
+const div=
+document.createElement("div");
+
+div.style.position="absolute";
+
+div.style.padding="5px 8px";
+
+div.style.borderRadius="7px";
+
+div.style.background=
+"rgba(5,10,25,.86)";
+
+div.style.border=
+"1px solid rgba(145,135,255,.5)";
+
+div.style.color="#fff";
+
+div.style.fontSize="9px";
+
+div.style.pointerEvents="none";
+
+div.textContent=item[1];
+
+viewer.appendChild(div);
+
+labels.push({
+element:div,
+object:item[0]
+});
+
+}
+);
+
+
+document
+.getElementById("labelsBtn")
+.addEventListener(
+"click",
+()=>{
+
+labelsVisible=
+!labelsVisible;
+
+labels.forEach(
+item=>{
+
+item.element.style.display=
+labelsVisible
+?"block"
+:"none";
+
+}
+);
+
+}
+);
+
+
+/* LABEL POSITION */
+
+function updateLabels(){
+
+labels.forEach(
+item=>{
+
+const pos=
+item.object
+.position
+.clone();
+
+pos.project(camera);
+
+const x=
+(pos.x*.5+.5)*
+viewer.clientWidth;
+
+const y=
+(-pos.y*.5+.5)*
+viewer.clientHeight;
+
+item.element.style.left=
+x+"px";
+
+item.element.style.top=
+y+"px";
+
+}
+);
+
+}
+
+
+/* RESIZE */
+
+window.addEventListener(
+"resize",
+()=>{
+
+camera.aspect=
+viewer.clientWidth/
+viewer.clientHeight;
+
+camera.updateProjectionMatrix();
+
+renderer.setSize(
+viewer.clientWidth,
+viewer.clientHeight
+);
+
+}
+);
+
+
+/* ANIMATION */
+
+function animate(){
+
+requestAnimationFrame(
+animate
+);
+
+if(autoRotate)
+microscope.rotation.y+=.004;
+
+controls.update();
+
+updateLabels();
+
+renderer.render(
+scene,
+camera
+);
+
+}
+
+animate();
+
+</script>
+
+</body>
+
+</html>
