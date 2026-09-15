@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Treponema | Unit IV | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.65;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1050px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  padding:50px 0 44px;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  letter-spacing:.7px;
+  margin-bottom:17px;
+}
+
+h1{
+  font-size:40px;
+  line-height:1.15;
+  margin-bottom:9px;
+}
+
+.subtitle{
+  color:#d5deeb;
+  font-size:16px;
+}
+
+.header-credit{
+  margin-top:15px;
+  color:#aebbd0;
+  font-size:13px;
+}
+
+/* NAV */
+.nav{
+  background:white;
+  border-bottom:1px solid #e4e8ef;
+}
+
+.nav-inner{
+  min-height:58px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.back{
+  color:#2563eb;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.topic{
+  color:#697487;
+  font-size:13px;
+}
+
+/* MAIN */
+main{
+  padding:35px 0 60px;
+}
+
+/* HERO */
+.hero{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:22px;
+  padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 8px 25px rgba(20,30,50,.05);
+}
+
+.label{
+  display:inline-block;
+  background:#eef3ff;
+  color:#2563eb;
+  padding:6px 11px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.6px;
+  margin-bottom:12px;
+}
+
+.hero h2{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#687386;
+}
+
+/* QUICK */
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.quick-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:17px;
+  padding:18px;
+}
+
+.quick-card span{
+  display:block;
+  color:#7a8494;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:5px;
+}
+
+.quick-card strong{
+  font-size:15px;
+}
+
+/* NOTES */
+.note{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+  box-shadow:0 6px 20px rgba(20,30,50,.04);
+}
+
+.note h3{
+  font-size:20px;
+  margin-bottom:14px;
+}
+
+.note h3::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:21px;
+  background:#2563eb;
+  border-radius:5px;
+  vertical-align:-4px;
+  margin-right:10px;
+}
+
+.note h4{
+  font-size:16px;
+  margin-top:20px;
+  margin-bottom:9px;
+}
+
+.note p{
+  margin:8px 0;
+}
+
+.note ul{
+  padding-left:22px;
+}
+
+.note li{
+  margin:7px 0;
+}
+
+.highlight{
+  background:#f7f9fc;
+  border-left:4px solid #2563eb;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+/* TABLE */
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  min-width:550px;
+}
+
+th,td{
+  border:1px solid #e2e6ed;
+  padding:12px;
+  text-align:left;
+  font-size:14px;
+}
+
+th{
+  background:#f3f6fa;
+}
+
+/* FLOW */
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:13px;
+}
+
+.flow span{
+  background:#f0f4fa;
+  border:1px solid #dfe5ed;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.arrow{
+  color:#2563eb;
+  font-weight:bold;
+}
+
+/* EXAM */
+.exam{
+  background:#f7f9ff;
+  border:1px solid #dce5ff;
+  border-radius:18px;
+  padding:23px;
+  margin-top:20px;
+}
+
+.exam h3{
+  margin-bottom:12px;
+}
+
+.exam ul{
+  padding-left:22px;
+}
+
+.exam li{
+  margin:7px 0;
+}
+
+/* MEMORY */
+.memory{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-top:20px;
+}
+
+.memory small{
+  color:#aebbd0;
+  display:block;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
+}
+
+.memory h3{
+  margin-bottom:9px;
+}
+
+.memory p{
+  color:#d7dfeb;
+}
+
+/* SOURCE */
+.source-box{
+  margin-top:30px;
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:22px;
+  padding:29px;
+  text-align:center;
+}
+
+.source-title{
+  color:#aebbd0;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.source{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.designer{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:17px;
+  color:#c8d2e1;
+  font-size:13px;
+}
+
+.designer strong{
+  color:white;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#7b8494;
+  font-size:12px;
+  padding:25px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  h1{
+    font-size:31px;
+  }
+
+  .quick{
+    grid-template-columns:1fr;
+  }
+
+  .topic{
+    display:none;
+  }
+
+  .hero h2{
+    font-size:24px;
+  }
+
+  .note{
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container">
+
+  <div class="badge">
+    UNIT IV • MISCELLANEOUS BACTERIA
+  </div>
+
+  <h1>Treponema</h1>
+
+  <div class="subtitle">
+    Systematic Bacteriology • FYUGP 3rd Semester
+  </div>
+
+  <div class="header-credit">
+    Medical Lab & Molecular Diagnostic Technology
+  </div>
+
+</div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+
+<div class="container nav-inner">
+
+  <a href="unit4.html" class="back">
+    ← Back to Unit IV
+  </a>
+
+  <span class="topic">
+    Unit IV → Topic 01 → Notes
+  </span>
+
+</div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="label">
+    TOPIC 01 • SPIROCHETES
+  </div>
+
+  <h2>Treponema</h2>
+
+  <p>
+    The handwritten notes discuss Treponema as a delicate
+    spirochete associated with sexually transmitted disease,
+    particularly <strong>syphilis</strong>.
+  </p>
+
+</section>
+
+
+<!-- QUICK FACTS -->
+
+<section class="quick">
+
+  <div class="quick-card">
+    <span>Group</span>
+    <strong>Spirochete</strong>
+  </div>
+
+  <div class="quick-card">
+    <span>Important species</span>
+    <strong>Treponema pallidum</strong>
+  </div>
+
+  <div class="quick-card">
+    <span>Disease</span>
+    <strong>Syphilis</strong>
+  </div>
+
+</section>
+
+
+<!-- SPIROCHETE BASICS -->
+
+<section class="note">
+
+<h3>1. Spirochetes</h3>
+
+<p>
+  The handwritten notes introduce spirochetes as
+  <strong>elongated, motile and flexible bacteria</strong>.
+</p>
+
+<ul>
+
+  <li>
+    They are described as having a characteristic
+    spiral form.
+  </li>
+
+  <li>
+    They are very delicate organisms.
+  </li>
+
+  <li>
+    Their structure allows characteristic movement.
+  </li>
+
+</ul>
+
+<div class="highlight">
+
+<strong>⭐ Key idea:</strong>
+
+Spirochetes → elongated + flexible + motile.
+
+</div>
+
+</section>
+
+
+<!-- MORPHOLOGY -->
+
+<section class="note">
+
+<h3>2. Morphology of Treponema</h3>
+
+<ul>
+
+  <li>
+    The notes describe Treponema as a
+    <strong>short, slender and spiral-shaped bacterium</strong>.
+  </li>
+
+  <li>
+    It has closely spaced spirals.
+  </li>
+
+  <li>
+    The organism is described as
+    <strong>very delicate</strong>.
+  </li>
+
+  <li>
+    It is difficult to observe clearly by ordinary
+    light microscopy because of its delicate structure.
+  </li>
+
+  <li>
+    The notes mention that it can be observed by
+    <strong>dark-field microscopy</strong>.
+  </li>
+
+</ul>
+
+<div class="highlight">
+
+<strong>⭐ Morphology memory:</strong>
+
+Short + slender + spiral + delicate.
+
+</div>
+
+</section>
+
+
+<!-- CULTURAL -->
+
+<section class="note">
+
+<h3>3. Cultural Characteristics</h3>
+
+<p>
+  The handwritten notes indicate that Treponema
+  <strong>does not grow in ordinary culture media</strong>.
+</p>
+
+<div class="highlight">
+
+<strong>Important exam point:</strong>
+
+Treponema pallidum is not routinely cultivated on
+ordinary laboratory culture media.
+
+</div>
+
+</section>
+
+
+<!-- BIOCHEMICAL -->
+
+<section class="note">
+
+<h3>4. Biochemical Reactions</h3>
+
+<p>
+  <strong>No specific biochemical reactions are clearly
+  recorded in the Treponema section of the uploaded
+  handwritten notes.</strong>
+</p>
+
+<div class="highlight">
+
+For this reason, additional biochemical reactions have
+not been added from outside sources.
+
+</div>
+
+</section>
+
+
+<!-- PATHOGENESIS -->
+
+<section class="note">
+
+<h3>5. Pathogenesis</h3>
+
+<p>
+  The notes describe Treponema as an organism that
+  infects humans and is transmitted mainly through
+  <strong>sexual contact</strong>.
+</p>
+
+<ul>
+
+  <li>
+    Infection can occur through the
+    <strong>mucous membrane or skin</strong>.
+  </li>
+
+  <li>
+    After entering the body, the organism multiplies.
+  </li>
+
+  <li>
+    It can enter the bloodstream and spread through
+    the body.
+  </li>
+
+  <li>
+    The notes mention acquisition through
+    <strong>sexual contact</strong>.
+  </li>
+
+  <li>
+    An incubation period of approximately
+    <strong>3 weeks</strong> is mentioned.
+  </li>
+
+</ul>
+
+
+<div class="flow">
+
+  <span>Entry through skin / mucosa</span>
+
+  <b class="arrow">→</b>
+
+  <span>Multiplication</span>
+
+  <b class="arrow">→</b>
+
+  <span>Bloodstream</span>
+
+  <b class="arrow">→</b>
+
+  <span>Spread</span>
+
+</div>
+
+</section>
+
+
+<!-- DISEASE -->
+
+<section class="note">
+
+<h3>6. Disease &amp; Clinical Features</h3>
+
+<h4>Syphilis</h4>
+
+<p>
+  Treponema pallidum causes
+  <strong>syphilis</strong>.
+</p>
+
+<p>
+  The notes mention a
+  <strong>primary lesion / chancre</strong> associated
+  with the disease.
+</p>
+
+<p>
+  Skin and mucous-membrane manifestations are also
+  described in the clinical features.
+</p>
+
+<div class="highlight">
+
+<strong>⭐ Exam line:</strong>
+
+Treponema pallidum → sexually transmitted infection
+→ <strong>syphilis</strong>.
+
+</div>
+
+</section>
+
+
+<!-- LAB DIAGNOSIS -->
+
+<section class="note">
+
+<h3>7. Laboratory Diagnosis</h3>
+
+
+<h4>Specimen</h4>
+
+<p>
+  The notes mention collection of material from
+  appropriate lesions for examination.
+</p>
+
+
+<h4>Microscopy</h4>
+
+<ul>
+
+  <li>
+    <strong>Dark-field microscopy</strong> can be used
+    to observe the delicate spirochete.
+  </li>
+
+  <li>
+    The notes specifically mention dark-field microscopy
+    for demonstration of the organism.
+  </li>
+
+</ul>
+
+
+<h4>Serological Tests</h4>
+
+<p>
+  The handwritten notes mention
+  <strong>serological testing</strong>.
+</p>
+
+<ul>
+
+  <li>
+    <strong>ELISA</strong> is mentioned.
+  </li>
+
+  <li>
+    Other serological tests are also indicated in the
+    notes.
+  </li>
+
+</ul>
+
+
+<div class="flow">
+
+  <span>Clinical specimen</span>
+
+  <b class="arrow">→</b>
+
+  <span>Dark-field microscopy</span>
+
+  <b class="arrow">+</b>
+
+  <span>Serological tests</span>
+
+  <b class="arrow">→</b>
+
+  <span>Diagnosis</span>
+
+</div>
+
+</section>
+
+
+<!-- QUICK TABLE -->
+
+<section class="note">
+
+<h3>8. Quick Revision Table</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+  <th>Feature</th>
+  <th>Treponema</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+  <td><strong>Group</strong></td>
+  <td>Spirochete</td>
+</tr>
+
+<tr>
+  <td><strong>Important species</strong></td>
+  <td>Treponema pallidum</td>
+</tr>
+
+<tr>
+  <td><strong>Shape</strong></td>
+  <td>Short, slender, spiral</td>
+</tr>
+
+<tr>
+  <td><strong>Nature</strong></td>
+  <td>Very delicate</td>
+</tr>
+
+<tr>
+  <td><strong>Important disease</strong></td>
+  <td>Syphilis</td>
+</tr>
+
+<tr>
+  <td><strong>Transmission</strong></td>
+  <td>Sexual contact mentioned</td>
+</tr>
+
+<tr>
+  <td><strong>Ordinary culture</strong></td>
+  <td>Does not grow in ordinary culture media</td>
+</tr>
+
+<tr>
+  <td><strong>Microscopy</strong></td>
+  <td>Dark-field microscopy</td>
+</tr>
+
+<tr>
+  <td><strong>Serology</strong></td>
+  <td>ELISA and other serological tests mentioned</td>
+</tr>
+
+<tr>
+  <td><strong>Incubation</strong></td>
+  <td>Approximately 3 weeks mentioned</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section class="exam">
+
+<h3>⭐ High-Yield Exam Points</h3>
+
+<ul>
+
+  <li>
+    Definition / characteristics of spirochetes
+  </li>
+
+  <li>
+    Morphology of Treponema
+  </li>
+
+  <li>
+    Delicate spiral structure
+  </li>
+
+  <li>
+    Inability to grow in ordinary culture media
+  </li>
+
+  <li>
+    Sexual transmission
+  </li>
+
+  <li>
+    Syphilis
+  </li>
+
+  <li>
+    Entry through skin or mucous membrane
+  </li>
+
+  <li>
+    Spread through bloodstream
+  </li>
+
+  <li>
+    Dark-field microscopy
+  </li>
+
+  <li>
+    Serological tests / ELISA
+  </li>
+
+</ul>
+
+</section>
+
+
+<!-- MEMORY -->
+
+<section class="memory">
+
+<small>🧠 QUICK MEMORY</small>
+
+<h3>“TREPONEMA = SPIRAL + SYPHILIS + DARK FIELD”</h3>
+
+<p>
+
+<strong>SPIRAL</strong>
+→ delicate spiral-shaped organism
+
+<br><br>
+
+<strong>SYPHILIS</strong>
+→ important disease
+
+<br><br>
+
+<strong>DARK FIELD</strong>
+→ microscopy
+
+<br><br>
+
+<strong>ELISA</strong>
+→ serological diagnosis mentioned in the notes
+
+</p>
+
+</section>
+
+
+<!-- SOURCE -->
+
+<section class="source-box">
+
+<div class="source-title">
+  ACADEMIC SOURCE &amp; CREDITS
+</div>
+
+<div class="source">
+  📚 Source: Diksha Ma’am
+</div>
+
+<div class="designer">
+
+  Created &amp; Designed by
+  <strong>Enzamamul Hoque</strong>
+
+  <br>
+
+  Student, Mangaldai College
+
+  <br>
+
+  Department: ML&amp;MDT
+
+</div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+Systematic Bacteriology • Unit IV • Treponema
+
+<br>
+
+Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+</body>
+</html>
