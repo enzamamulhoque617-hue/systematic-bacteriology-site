@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Unit I Systematic Bacteriology - Gram-positive and Gram-negative cocci">
+
+<title>Unit I | Systematic Bacteriology</title>
+
+
+<style>
+
+/* =====================================
+   RESET
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:#f4f7fb;
+
+    color:#172033;
+
+    line-height:1.6;
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:65px 20px;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071d33,
+            #0d4269,
+            #1677b7
+        );
+}
+
+
+/* Decorative circles */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:360px;
+    height:360px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    border-radius:50%;
+
+    top:-220px;
+    left:-100px;
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:430px;
+    height:430px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    bottom:-310px;
+    right:-120px;
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:950px;
+
+    margin:auto;
+}
+
+
+.unit-badge{
+
+    display:inline-block;
+
+    padding:7px 17px;
+
+    margin-bottom:18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    border-radius:50px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:#bce5ff;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+}
+
+
+.hero h1{
+
+    font-size:
+        clamp(34px,6vw,58px);
+
+    line-height:1.1;
+
+    margin-bottom:15px;
+}
+
+
+.hero p{
+
+    font-size:17px;
+
+    color:#d7e9f5;
+}
+
+
+/* =====================================
+   MAIN
+===================================== */
+
+.container{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    padding:45px 20px;
+}
+
+
+/* =====================================
+   BACK BUTTON
+===================================== */
+
+.back{
+
+    display:inline-block;
+
+    margin-bottom:30px;
+
+    text-decoration:none;
+
+    color:#12649b;
+
+    font-weight:bold;
+
+    font-size:14px;
+}
+
+.back:hover{
+
+    text-decoration:underline;
+}
+
+
+/* =====================================
+   INTRO CARD
+===================================== */
+
+.intro{
+
+    background:white;
+
+    border:
+        1px solid
+        #e3eaf1;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    margin-bottom:40px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(16,42,67,.07);
+}
+
+
+.intro h2{
+
+    color:#102a43;
+
+    margin-bottom:10px;
+
+    font-size:25px;
+}
+
+
+.intro p{
+
+    color:#617083;
+}
+
+
+/* =====================================
+   SECTION TITLE
+===================================== */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:28px;
+}
+
+
+.section-title h2{
+
+    color:#102a43;
+
+    font-size:30px;
+
+    margin-bottom:6px;
+}
+
+
+.section-title p{
+
+    color:#65748b;
+
+    font-size:14px;
+}
+
+
+/* =====================================
+   TOPIC GRID
+===================================== */
+
+.topics{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px,1fr)
+        );
+
+    gap:22px;
+}
+
+
+/* =====================================
+   TOPIC CARD
+===================================== */
+
+.topic{
+
+    background:white;
+
+    border:
+        1px solid
+        #e3eaf1;
+
+    border-radius:20px;
+
+    padding:27px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(16,42,67,.06);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.topic:hover{
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 17px 38px
+        rgba(16,42,67,.12);
+}
+
+
+.topic-number{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:45px;
+    height:45px;
+
+    margin-bottom:17px;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5f4ff,
+            #d5edff
+        );
+
+    color:#12649b;
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+
+.topic h3{
+
+    color:#12649b;
+
+    font-size:21px;
+
+    margin-bottom:7px;
+}
+
+
+.topic p{
+
+    color:#65748b;
+
+    margin-bottom:19px;
+
+    min-height:48px;
+}
+
+
+/* =====================================
+   TOPIC BUTTON
+===================================== */
+
+.topic-btn{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    padding:10px 17px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1677b7,
+            #0d5d91
+        );
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 5px 14px
+        rgba(22,119,183,.18);
+
+    transition:.2s;
+}
+
+
+.topic-btn:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(22,119,183,.28);
+}
+
+
+/* =====================================
+   EXAM STRUCTURE
+===================================== */
+
+.exam{
+
+    margin-top:45px;
+
+    padding:32px;
+
+    border-radius:22px;
+
+    background:white;
+
+    border:
+        1px solid
+        #e3eaf1;
+
+    box-shadow:
+        0 8px 25px
+        rgba(16,42,67,.06);
+}
+
+
+.exam h2{
+
+    color:#102a43;
+
+    margin-bottom:18px;
+
+    font-size:24px;
+}
+
+
+.exam-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
+
+    gap:14px;
+}
+
+
+.exam-item{
+
+    padding:16px;
+
+    border-radius:14px;
+
+    background:#f5f9fc;
+
+    border-left:
+        4px solid
+        #1677b7;
+}
+
+
+.exam-item strong{
+
+    display:block;
+
+    color:#12649b;
+
+    margin-bottom:3px;
+}
+
+
+.exam-item span{
+
+    font-size:13px;
+
+    color:#68788b;
+}
+
+
+/* =====================================
+   CREDIT
+===================================== */
+
+.credit{
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin-top:45px;
+
+    padding:42px 22px;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #071d33,
+            #123f63,
+            #0b2b47
+        );
+
+    border-radius:25px;
+
+    box-shadow:
+        0 18px 45px
+        rgba(7,29,51,.23);
+}
+
+
+.credit::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    border-radius:50%;
+
+    top:-170px;
+    right:-80px;
+}
+
+
+.credit::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    bottom:-150px;
+    left:-70px;
+}
+
+
+.credit > *{
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+.credit-icon{
+
+    font-size:30px;
+
+    color:#8ed1ff;
+
+    margin-bottom:7px;
+}
+
+
+.credit-label{
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:#8ed1ff;
+
+    font-weight:bold;
+
+    margin-bottom:9px;
+}
+
+
+.credit h2{
+
+    font-size:25px;
+
+    margin-bottom:23px;
+}
+
+
+.source-box{
+
+    max-width:440px;
+
+    margin:
+        0 auto 25px;
+
+    padding:16px 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:14px;
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid
+        rgba(142,209,255,.28);
+
+    border-radius:16px;
+
+    backdrop-filter:blur(8px);
+}
+
+
+.source-icon{
+
+    font-size:25px;
+}
+
+
+.source-box small{
+
+    display:block;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#8ed1ff;
+}
+
+
+.source-box strong{
+
+    display:block;
+
+    font-size:18px;
+
+    color:white;
+}
+
+
+.designer p{
+
+    margin:4px;
+
+    font-size:13px;
+
+    color:#c8d8e6;
+}
+
+
+.designer h3{
+
+    font-size:24px;
+
+    color:white;
+
+    margin:2px 0;
+}
+
+
+.designer strong{
+
+    color:#8ed1ff;
+}
+
+
+.credit-line{
+
+    width:80px;
+
+    height:2px;
+
+    margin:21px auto;
+
+    background:#8ed1ff;
+
+    border-radius:10px;
+}
+
+
+.credit-note{
+
+    font-size:11px;
+
+    color:#9fb3c8;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer{
+
+    text-align:center;
+
+    padding:28px 20px;
+
+    color:#65748b;
+
+    font-size:12px;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media(max-width:600px){
+
+    .hero{
+
+        padding:52px 18px;
+    }
+
+    .hero h1{
+
+        font-size:36px;
+    }
+
+    .hero p{
+
+        font-size:15px;
+    }
+
+    .container{
+
+        padding:
+            35px 15px;
+    }
+
+    .intro{
+
+        padding:23px;
+    }
+
+    .topic{
+
+        padding:23px;
+    }
+
+    .exam{
+
+        padding:23px;
+    }
+
+    .credit{
+
+        padding:
+            37px 17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================
+     HERO
+================================== -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="unit-badge">
+            UNIT I • 10 MARKS
+        </div>
+
+        <h1>
+            Gram-positive & Gram-negative Cocci
+        </h1>
+
+        <p>
+            Systematic Bacteriology • 3rd Semester • ML&MDT
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- BACK -->
+
+<a
+    class="back"
+    href="index.html"
+>
+    ← Back to Home
+</a>
+
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+    <h2>
+        Unit I Overview
+    </h2>
+
+    <p>
+        This unit covers important Gram-positive
+        and Gram-negative cocci included in the
+        Systematic Bacteriology syllabus.
+        Each organism is studied under morphology,
+        cultural characteristics, biochemical
+        reactions, pathogenesis/disease caused,
+        and laboratory diagnosis.
+    </p>
+
+</section>
+
+
+
+<!-- TOPICS -->
+
+<div class="section-title">
+
+    <h2>
+        Topics
+    </h2>
+
+    <p>
+        Select a bacterium to study its complete notes
+    </p>
+
+</div>
+
+
+
+<section class="topics">
+
+
+<!-- STAPHYLOCOCCI -->
+
+<div class="topic">
+
+    <div class="topic-number">
+        01
+    </div>
+
+    <h3>
+        Staphylococci
+    </h3>
+
+    <p>
+        Morphology, cultural characteristics,
+        biochemical reactions, pathogenesis,
+        diseases and laboratory diagnosis.
+    </p>
+
+    <a
+        class="topic-btn"
+        href="staphylococci.html"
+    >
+        Study Staphylococci →
+    </a>
+
+</div>
+
+
+
+<!-- PNEUMOCOCCI -->
+
+<div class="topic">
+
+    <div class="topic-number">
+        02
+    </div>
+
+    <h3>
+        Pneumococci
+    </h3>
+
+    <p>
+        Study Pneumococci with focus on
+        morphology, culture, biochemical reactions,
+        pathogenesis and diagnosis.
+    </p>
+
+    <a
+        class="topic-btn"
+        href="pneumococci.html"
+    >
+        Study Pneumococci →
+    </a>
+
+</div>
+
+
+
+<!-- STREPTOCOCCI -->
+
+<div class="topic">
+
+    <div class="topic-number">
+        03
+    </div>
+
+    <h3>
+        Streptococci
+    </h3>
+
+    <p>
+        Morphology, cultural characteristics,
+        biochemical reactions, diseases,
+        pathogenesis and laboratory diagnosis.
+    </p>
+
+    <a
+        class="topic-btn"
+        href="streptococci.html"
+    >
+        Study Streptococci →
+    </a>
+
+</div>
+
+
+
+<!-- N. GONORRHOEAE -->
+
+<div class="topic">
+
+    <div class="topic-number">
+        04
+    </div>
+
+    <h3>
+        N. gonorrhoeae
+    </h3>
+
+    <p>
+        Important Gram-negative cocci covered
+        under morphology, culture, biochemical
+        reactions, disease and diagnosis.
+    </p>
+
+    <a
+        class="topic-btn"
+        href="gonorrhoeae.html"
+    >
+        Study N. gonorrhoeae →
+    </a>
+
+</div>
+
+
+
+<!-- N. MENINGITIDIS -->
+
+<div class="topic">
+
+    <div class="topic-number">
+        05
+    </div>
+
+    <h3>
+        N. meningitidis
+    </h3>
+
+    <p>
+        Morphology, cultural characteristics,
+        biochemical reactions, pathogenesis,
+        disease and laboratory diagnosis.
+    </p>
+
+    <a
+        class="topic-btn"
+        href="meningitidis.html"
+    >
+        Study N. meningitidis →
+    </a>
+
+</div>
+
+
+</section>
+
+
+
+<!-- EXAM STRUCTURE -->
+
+<section class="exam">
+
+    <h2>
+        📋 Study Checklist
+    </h2>
+
+    <div class="exam-grid">
+
+        <div class="exam-item">
+
+            <strong>
+                01 • Morphology
+            </strong>
+
+            <span>
+                Learn the important structural
+                and microscopic characteristics.
+            </span>
+
+        </div>
+
+
+        <div class="exam-item">
+
+            <strong>
+                02 • Cultural Characteristics
+            </strong>
+
+            <span>
+                Learn growth and colony
+                characteristics.
+            </span>
+
+        </div>
+
+
+        <div class="exam-item">
+
+            <strong>
+                03 • Biochemical Reactions
+            </strong>
+
+            <span>
+                Learn the important biochemical
+                identification reactions.
+            </span>
+
+        </div>
+
+
+        <div class="exam-item">
+
+            <strong>
+                04 • Pathogenesis & Disease
+            </strong>
+
+            <span>
+                Understand how infection occurs
+                and diseases caused.
+            </span>
+
+        </div>
+
+
+        <div class="exam-item">
+
+            <strong>
+                05 • Laboratory Diagnosis
+            </strong>
+
+            <span>
+                Learn specimen, microscopy,
+                culture and identification.
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CREDIT -->
+
+<section class="credit">
+
+    <div class="credit-icon">
+        ✦
+    </div>
+
+    <div class="credit-label">
+        ACADEMIC SOURCE & CREDITS
+    </div>
+
+    <h2>
+        Systematic Bacteriology
+    </h2>
+
+
+    <div class="source-box">
+
+        <span class="source-icon">
+            📚
+        </span>
+
+        <div>
+
+            <small>
+                ACADEMIC SOURCE
+            </small>
+
+            <strong>
+                Diksha Ma’am
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="designer">
+
+        <p>
+            Created & Designed by
+        </p>
+
+        <h3>
+            Enzamamul Hoque
+        </h3>
+
+        <p>
+            Student • Mangaldai College
+        </p>
+
+        <p>
+            Department:
+            <strong>
+                ML&MDT
+            </strong>
+        </p>
+
+    </div>
+
+
+    <div class="credit-line"></div>
+
+
+    <p class="credit-note">
+
+        Academic study resource •
+        3rd Semester ML&MDT
+
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    © 2026 Systematic Bacteriology
+
+    <br>
+
+    3rd Semester • ML&MDT • Mangaldai College
+
+</footer>
+
+
+</body>
+
+</html>
