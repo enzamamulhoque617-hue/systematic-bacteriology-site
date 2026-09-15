@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TEM | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%,#17283d 0%,transparent 35%),
+    radial-gradient(circle at 90% 80%,#102c38 0%,transparent 35%),
+    #050912;
+  color:#eef6ff;
+  min-height:100vh;
+}
+
+header{
+  padding:28px 6%;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  background:rgba(4,8,18,.7);
+  backdrop-filter:blur(18px);
+}
+
+.container{
+  width:min(1250px,92%);
+  margin:auto;
+}
+
+.back{
+  color:#8ddcff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+header h1{
+  margin-top:12px;
+  font-size:clamp(30px,5vw,58px);
+  letter-spacing:-2px;
+}
+
+header p{
+  margin-top:8px;
+  max-width:820px;
+  color:#a9bbca;
+  line-height:1.6;
+}
+
+.badge{
+  display:inline-block;
+  margin-top:15px;
+  padding:7px 13px;
+  border:1px solid rgba(100,220,255,.35);
+  border-radius:30px;
+  color:#8deaff;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.viewer{
+  margin-top:30px;
+  height:650px;
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.13);
+  background:
+    radial-gradient(circle at 50% 45%,rgba(0,200,255,.09),transparent 40%),
+    linear-gradient(145deg,#0c1422,#050910);
+  box-shadow:0 30px 90px rgba(0,0,0,.45);
+}
+
+canvas{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.viewer-title{
+  position:absolute;
+  top:22px;
+  left:24px;
+  z-index:5;
+  pointer-events:none;
+}
+
+.viewer-title strong{
+  display:block;
+  font-size:18px;
+}
+
+.viewer-title span{
+  color:#7f95a7;
+  font-size:12px;
+}
+
+.controls{
+  position:absolute;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:8;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+button{
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(10,18,30,.8);
+  color:white;
+  padding:10px 15px;
+  border-radius:12px;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  transition:.2s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  border-color:#65ddff;
+}
+
+.labels{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:6;
+}
+
+.label{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  padding:6px 10px;
+  border-radius:9px;
+  background:rgba(3,9,18,.85);
+  border:1px solid rgba(91,221,255,.4);
+  color:#a7ecff;
+  font-size:11px;
+  white-space:nowrap;
+}
+
+.info{
+  position:absolute;
+  right:20px;
+  bottom:20px;
+  width:min(320px,75%);
+  padding:17px;
+  border-radius:18px;
+  background:rgba(5,12,22,.9);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(18px);
+  z-index:10;
+  opacity:0;
+  transform:translateY(10px);
+  transition:.25s;
+  pointer-events:none;
+}
+
+.info.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.info h3{
+  color:#78e5ff;
+  margin-bottom:7px;
+  font-size:16px;
+}
+
+.info p{
+  color:#b9c9d6;
+  font-size:13px;
+  line-height:1.55;
+}
+
+section{
+  margin:32px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.card{
+  padding:25px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.1);
+  background:linear-gradient(
+    145deg,
+    rgba(20,31,48,.82),
+    rgba(7,13,24,.8)
+  );
+  box-shadow:0 15px 45px rgba(0,0,0,.2);
+}
+
+.card h2{
+  color:#8ce9ff;
+  font-size:20px;
+  margin-bottom:12px;
+}
+
+.card p,
+.card li{
+  color:#b9c7d2;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.card ul{
+  padding-left:20px;
+}
+
+.flow{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.flow div{
+  padding:13px 17px;
+  border-radius:14px;
+  background:#101d2d;
+  border:1px solid rgba(120,225,255,.2);
+  color:#b9efff;
+  font-size:13px;
+}
+
+.arrow{
+  color:#61dfff;
+  font-size:20px;
+}
+
+.exam{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(17,37,52,.82),
+      rgba(6,15,25,.9)
+    );
+}
+
+.credit{
+  text-align:center;
+  padding:35px 20px 50px;
+  color:#7f94a4;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.credit strong{
+  color:#d9f7ff;
+}
+
+@media(max-width:800px){
+
+  .viewer{
+    height:520px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .info{
+    width:80%;
+    right:10px;
+    bottom:70px;
+  }
+}
+
+@media(max-width:500px){
+
+  .viewer{
+    height:470px;
+    border-radius:20px;
+  }
+
+  button{
+    padding:9px 11px;
+    font-size:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container">
+
+<a class="back" href="unit5.html">
+← Back to Unit V
+</a>
+
+<h1>
+Transmission Electron Microscope
+</h1>
+
+<p>
+TEM is an electron microscope in which electrons pass through
+the specimen to reveal its internal structure.
+</p>
+
+<span class="badge">
+UNIT V • MICROSCOPY • 10 MARKS
+</span>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- 3D VIEWER -->
+
+<div class="viewer" id="viewer">
+
+<div class="viewer-title">
+
+<strong>
+Interactive 3D TEM
+</strong>
+
+<span>
+Drag • Rotate • Scroll to zoom • Click components
+</span>
+
+</div>
+
+<canvas id="scene"></canvas>
+
+<div class="labels" id="labels"></div>
+
+<div class="info" id="info">
+
+<h3 id="infoTitle"></h3>
+
+<p id="infoText"></p>
+
+</div>
+
+<div class="controls">
+
+<button id="reset">
+Reset
+</button>
+
+<button id="rotate">
+Auto Rotate
+</button>
+
+<button id="labelBtn">
+Labels
+</button>
+
+</div>
+
+</div>
+
+
+<!-- INTRODUCTION -->
+
+<section class="grid">
+
+<div class="card">
+
+<h2>
+1. Introduction
+</h2>
+
+<p>
+Transmission Electron Microscope (TEM) is an electron microscope.
+The study notes describe TEM as a microscope in which electrons
+pass through the specimen to reveal the internal structure.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+2. Basic Principle
+</h2>
+
+<p>
+The basic principle is based on the transmission of electrons
+through the specimen. The transmitted electrons provide
+information about the specimen's internal structure.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- WORKING -->
+
+<section>
+
+<div class="card">
+
+<h2>
+3. Working Principle
+</h2>
+
+<ul>
+
+<li>
+TEM uses an electron beam.
+</li>
+
+<li>
+The electrons pass through the specimen.
+</li>
+
+<li>
+The transmitted electrons provide information about the specimen.
+</li>
+
+<li>
+This allows the internal structure to be observed.
+</li>
+
+</ul>
+
+
+<div class="flow">
+
+<div>
+Electron Beam
+</div>
+
+<span class="arrow">
+→
+</span>
+
+<div>
+Specimen
+</div>
+
+<span class="arrow">
+→
+</span>
+
+<div>
+Electrons Pass Through
+</div>
+
+<span class="arrow">
+→
+</span>
+
+<div>
+Internal Structure
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SPECIAL FEATURE -->
+
+<section class="grid">
+
+<div class="card">
+
+<h2>
+4. Special Feature
+</h2>
+
+<p>
+The important feature of TEM mentioned in the notes is that
+electrons pass through the specimen, allowing the internal
+structure to be observed.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+5. Electron Microscope
+</h2>
+
+<ul>
+
+<li>
+Electron microscopes use an electron beam.
+</li>
+
+<li>
+TEM is a transmission electron microscope.
+</li>
+
+<li>
+Electrons pass through the specimen in TEM.
+</li>
+
+<li>
+TEM is therefore associated with observing internal structure.
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- APPLICATION -->
+
+<section>
+
+<div class="card">
+
+<h2>
+6. Applications
+</h2>
+
+<p>
+The uploaded notes specifically support the use of TEM for
+observing the internal structure of a specimen. Detailed
+clinical applications are not specified in the uploaded notes,
+so additional applications have not been added.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- COMPONENTS -->
+
+<section>
+
+<div class="card">
+
+<h2>
+7. Important Parts Shown in the 3D Model
+</h2>
+
+<ul>
+
+<li>
+Electron beam
+</li>
+
+<li>
+Specimen
+</li>
+
+<li>
+Transmission path
+</li>
+
+<li>
+Internal-structure viewing area
+</li>
+
+<li>
+Microscope body / structural housing
+</li>
+
+</ul>
+
+<p style="margin-top:14px">
+
+<strong>
+Note:
+</strong>
+
+The uploaded notes do not give a detailed
+component-by-component description of TEM. The model therefore
+uses these labels mainly to visualize the TEM concept.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- COMPARISON -->
+
+<section>
+
+<div class="card">
+
+<h2>
+8. SEM vs TEM — Quick Difference
+</h2>
+
+<div class="flow">
+
+<div>
+<strong>SEM</strong><br>
+Surface scanning<br>
+3D-like image
+</div>
+
+<span class="arrow">
+↔
+</span>
+
+<div>
+<strong>TEM</strong><br>
+Electrons pass through specimen<br>
+Internal structure
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section>
+
+<div class="card exam">
+
+<h2>
+9. 10-Mark Answer Structure
+</h2>
+
+<p>
+<strong>
+Transmission Electron Microscope (TEM)
+</strong>
+</p>
+
+<p style="margin-top:10px">
+
+TEM is an electron microscope in which electrons pass through
+the specimen to reveal its internal structure.
+
+</p>
+
+<p style="margin-top:12px">
+
+<strong>
+Principle:
+</strong>
+
+Electron beam → specimen → electrons pass through specimen →
+observation of internal structure.
+
+</p>
+
+<p style="margin-top:12px">
+
+<strong>
+Important feature:
+</strong>
+
+Electrons pass through the specimen.
+
+</p>
+
+<p style="margin-top:12px">
+
+<strong>
+Application:
+</strong>
+
+Observation of the internal structure of a specimen.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- REVISION -->
+
+<section>
+
+<div class="card">
+
+<h2>
+⚡ Quick Revision
+</h2>
+
+<div class="flow">
+
+<div>
+TEM
+</div>
+
+<span class="arrow">
+→
+</span>
+
+<div>
+Electron Beam
+</div>
+
+<span class="arrow">
+→
+</span>
+
+<div>
+Passes Through Specimen
+</div>
+
+<span class="arrow">
+→
+</span>
+
+<div>
+Internal Structure
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="credit">
+
+<strong>
+Created & Designed by Enzamamul Hoque
+</strong>
+
+<br>
+
+Student, Mangaldai College
+
+<br>
+
+Department: ML&MDT
+
+<br>
+
+Source: Diksha Ma’am
+
+</footer>
+
+
+<!-- THREE.JS -->
+
+<script type="importmap">
+{
+  "imports":{
+    "three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+
+
+<script type="module">
+
+import * as THREE from "three";
+
+import {
+  OrbitControls
+} from "three/addons/controls/OrbitControls.js";
+
+
+const canvas =
+document.getElementById("scene");
+
+const viewer =
+document.getElementById("viewer");
+
+
+/* SCENE */
+
+const scene =
+new THREE.Scene();
+
+scene.background =
+new THREE.Color(0x050912);
+
+
+/* CAMERA */
+
+const camera =
+new THREE.PerspectiveCamera(
+42,
+viewer.clientWidth /
+viewer.clientHeight,
+0.1,
+1000
+);
+
+camera.position.set(
+8,
+6,
+11
+);
+
+
+/* RENDERER */
+
+const renderer =
+new THREE.WebGLRenderer({
+canvas,
+antialias:true
+});
+
+renderer.setPixelRatio(
+Math.min(
+window.devicePixelRatio,
+2
+)
+);
+
+renderer.setSize(
+viewer.clientWidth,
+viewer.clientHeight
+);
+
+renderer.outputColorSpace =
+THREE.SRGBColorSpace;
+
+
+/* CONTROLS */
+
+const controls =
+new OrbitControls(
+camera,
+renderer.domElement
+);
+
+controls.enableDamping =
+true;
+
+controls.dampingFactor =
+.06;
+
+controls.minDistance =
+5;
+
+controls.maxDistance =
+18;
+
+
+/* LIGHTS */
+
+scene.add(
+new THREE.HemisphereLight(
+0xc8f3ff,
+0x07101c,
+2.2
+)
+);
+
+const key =
+new THREE.DirectionalLight(
+0xffffff,
+3
+);
+
+key.position.set(
+7,
+10,
+8
+);
+
+scene.add(key);
+
+
+const blueLight =
+new THREE.PointLight(
+0x39ddff,
+16,
+22
+);
+
+blueLight.position.set(
+-5,
+5,
+-5
+);
+
+scene.add(blueLight);
+
+
+/* MATERIALS */
+
+const blackMetal =
+new THREE.MeshStandardMaterial({
+color:0x111923,
+metalness:.92,
+roughness:.2
+});
+
+const darkMetal =
+new THREE.MeshStandardMaterial({
+color:0x25313d,
+metalness:.85,
+roughness:.23
+});
+
+const silver =
+new THREE.MeshStandardMaterial({
+color:0x8999a7,
+metalness:.9,
+roughness:.17
+});
+
+const glass =
+new THREE.MeshPhysicalMaterial({
+color:0x43e6ff,
+transparent:true,
+opacity:.25,
+roughness:.04,
+transmission:.35
+});
+
+const cyan =
+new THREE.MeshStandardMaterial({
+color:0x43e8ff,
+emissive:0x087f9e,
+emissiveIntensity:4,
+metalness:.2,
+roughness:.2
+});
+
+const screen =
+new THREE.MeshStandardMaterial({
+color:0x07151c,
+emissive:0x07536a,
+emissiveIntensity:1.8
+});
+
+
+/* MODEL */
+
+const model =
+new THREE.Group();
+
+scene.add(model);
+
+
+/* HELPERS */
+
+function box(
+w,h,d,
+mat,
+x,y,z
+){
+
+const mesh =
+new THREE.Mesh(
+new THREE.BoxGeometry(
+w,h,d
+),
+mat
+);
+
+mesh.position.set(
+x,y,z
+);
+
+model.add(mesh);
+
+return mesh;
+
+}
+
+
+function cylinder(
+r1,r2,h,
+mat,
+x,y,z
+){
+
+const mesh =
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+r1,r2,h,48
+),
+mat
+);
+
+mesh.position.set(
+x,y,z
+);
+
+model.add(mesh);
+
+return mesh;
+
+}
+
+
+/* BASE */
+
+box(
+5.7,
+.55,
+4.3,
+blackMetal,
+0,
+.25,
+0
+);
+
+
+/* LOWER DECK */
+
+box(
+4.7,
+.35,
+3.4,
+darkMetal,
+0,
+.7,
+0
+);
+
+
+/* MAIN COLUMN */
+
+box(
+2.3,
+5.3,
+2.2,
+blackMetal,
+0,
+3.35,
+.2
+);
+
+
+/* FRONT BODY */
+
+box(
+1.5,
+4.3,
+.5,
+darkMetal,
+0,
+3.65,
+-1.18
+);
+
+
+/* UPPER COLUMN */
+
+cylinder(
+.8,
+.68,
+1.8,
+silver,
+0,
+6.25,
+.2
+);
+
+
+/* TOP CAP */
+
+cylinder(
+1.02,
+1.02,
+.38,
+darkMetal,
+0,
+7.2,
+.2
+);
+
+
+/* SPECIMEN CHAMBER */
+
+const chamber =
+cylinder(
+1.65,
+1.65,
+2.4,
+darkMetal,
+0,
+3.0,
+-1.5
+);
+
+chamber.rotation.x =
+Math.PI/2;
+
+
+/* CHAMBER WINDOW */
+
+const chamberWindow =
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.76,
+.76,
+.08,
+48
+),
+glass
+);
+
+chamberWindow.rotation.x =
+Math.PI/2;
+
+chamberWindow.position.set(
+0,
+3,
+-2.75
+);
+
+model.add(
+chamberWindow
+);
+
+
+/* SPECIMEN GRID */
+
+const grid =
+new THREE.Mesh(
+new THREE.BoxGeometry(
+1.5,
+.08,
+1.15
+),
+silver
+);
+
+grid.position.set(
+0,
+2.38,
+-1.5
+);
+
+model.add(grid);
+
+
+/* SPECIMEN */
+
+const specimen =
+new THREE.Mesh(
+new THREE.BoxGeometry(
+.9,
+.12,
+.7
+),
+cyan
+);
+
+specimen.position.set(
+0,
+2.49,
+-1.5
+);
+
+model.add(specimen);
+
+
+/* INTERNAL STRUCTURE VISUAL */
+
+const internal =
+new THREE.Mesh(
+new THREE.IcosahedronGeometry(
+.48,
+2
+),
+new THREE.MeshStandardMaterial({
+color:0x7aefff,
+emissive:0x0c6c82,
+emissiveIntensity:2,
+transparent:true,
+opacity:.75
+})
+);
+
+internal.position.set(
+0,
+2.6,
+-1.5
+);
+
+internal.scale.set(
+1,
+.35,
+.75
+);
+
+model.add(internal);
+
+
+/* ELECTRON BEAM */
+
+const beam =
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.045,
+.11,
+3.2,
+24
+),
+cyan
+);
+
+beam.position.set(
+0,
+4.55,
+-1.5
+);
+
+model.add(beam);
+
+
+/* BEAM TIP */
+
+const tip =
+new THREE.Mesh(
+new THREE.SphereGeometry(
+.14,
+24,
+24
+),
+cyan
+);
+
+tip.position.set(
+0,
+2.92,
+-1.5
+);
+
+model.add(tip);
+
+
+/* TRANSMISSION LINES */
+
+for(
+let i=-2;
+i<=2;
+i++
+){
+
+const line =
+new THREE.Mesh(
+new THREE.CylinderGeometry(
+.012,
+.012,
+2.4,
+12
+),
+cyan
+);
+
+line.rotation.z =
+Math.PI/2;
+
+line.position.set(
+i*.2,
+2.58,
+-1.5
+);
+
+model.add(line);
+
+}
+
+
+/* SIDE MODULE */
+
+box(
+1.15,
+2.1,
+.7,
+darkMetal,
+1.95,
+2.45,
+-.7
+);
+
+
+/* MONITOR */
+
+box(
+2.15,
+1.6,
+.3,
+blackMetal,
+3.45,
+3.55,
+-.25
+);
+
+box(
+1.75,
+1.18,
+.08,
+screen,
+3.45,
+3.55,
+-.42
+);
+
+
+/* SCREEN IMAGE */
+
+const image =
+new THREE.Mesh(
+new THREE.PlaneGeometry(
+1.35,
+.8
+),
+new THREE.MeshBasicMaterial({
+color:0x35e5ff,
+transparent:true,
+opacity:.14
+})
+);
+
+image.position.set(
+3.45,
+3.55,
+-.47
+);
+
+image.rotation.y =
+Math.PI;
+
+model.add(image);
+
+
+/* CLICKABLE */
+
+const clickable = [];
+
+
+function clickablePart(
+mesh,
+name,
+text
+){
+
+mesh.userData.name =
+name;
+
+mesh.userData.text =
+text;
+
+clickable.push(mesh);
+
+}
+
+
+clickablePart(
+beam,
+"Electron Beam",
+"The uploaded notes identify the electron microscope as using an electron beam. In TEM, electrons pass through the specimen."
+);
+
+
+clickablePart(
+specimen,
+"Specimen",
+"The specimen is placed in the transmission path. The notes describe TEM as allowing electrons to pass through the specimen."
+);
+
+
+clickablePart(
+internal,
+"Internal Structure",
+"TEM is described in the notes as allowing the internal structure of the specimen to be observed."
+);
+
+
+clickablePart(
+chamberWindow,
+"Transmission Area",
+"This area represents the specimen transmission region in the 3D model. Detailed chamber functions are not specified in the uploaded notes."
+);
+
+
+clickablePart(
+image,
+"Observation / Image",
+"This display represents the information obtained after electrons pass through the specimen."
+);
+
+
+/* RAYCASTER */
+
+const raycaster =
+new THREE.Raycaster();
+
+const mouse =
+new THREE.Vector2();
+
+const info =
+document.getElementById("info");
+
+const infoTitle =
+document.getElementById("infoTitle");
+
+const infoText =
+document.getElementById("infoText");
+
+
+renderer.domElement.addEventListener(
+"pointerdown",
+function(event){
+
+const rect =
+renderer.domElement
+.getBoundingClientRect();
+
+mouse.x =
+((event.clientX -
+rect.left) /
+rect.width) * 2 - 1;
+
+mouse.y =
+-((event.clientY -
+rect.top) /
+rect.height) * 2 + 1;
+
+raycaster.setFromCamera(
+mouse,
+camera
+);
+
+const hits =
+raycaster.intersectObjects(
+clickable,
+true
+);
+
+if(hits.length){
+
+infoTitle.textContent =
+hits[0].object.userData.name;
+
+infoText.textContent =
+hits[0].object.userData.text;
+
+info.classList.add("show");
+
+}
+
+}
+);
+
+
+/* LABELS */
+
+const labelData = [
+
+{
+text:"Electron Beam",
+pos:new THREE.Vector3(
+0,5,-1.5
+)
+},
+
+{
+text:"Specimen",
+pos:new THREE.Vector3(
+0,2.75,-1.5
+)
+},
+
+{
+text:"Internal Structure",
+pos:new THREE.Vector3(
+0,2.6,-1.5
+)
+},
+
+{
+text:"Observation",
+pos:new THREE.Vector3(
+3.45,4.5,-.25
+)
+}
+
+];
+
+
+const labelContainer =
+document.getElementById("labels");
+
+
+labelData.forEach(
+item=>{
+
+const el =
+document.createElement("div");
+
+el.className =
+"label";
+
+el.textContent =
+item.text;
+
+el.dataset.x =
+item.pos.x;
+
+el.dataset.y =
+item.pos.y;
+
+el.dataset.z =
+item.pos.z;
+
+labelContainer.appendChild(el);
+
+}
+);
+
+
+function updateLabels(){
+
+const labels =
+labelContainer.children;
+
+for(
+let i=0;
+i<labels.length;
+i++
+){
+
+const el =
+labels[i];
+
+const pos =
+new THREE.Vector3(
+Number(el.dataset.x),
+Number(el.dataset.y),
+Number(el.dataset.z)
+);
+
+pos.project(camera);
+
+const x =
+(pos.x*.5+.5)
+*viewer.clientWidth;
+
+const y =
+(-pos.y*.5+.5)
+*viewer.clientHeight;
+
+el.style.left =
+x+"px";
+
+el.style.top =
+y+"px";
+
+}
+
+}
+
+
+/* CONTROLS */
+
+let autoRotate =
+false;
+
+let showLabels =
+true;
+
+
+document
+.getElementById("rotate")
+.onclick =
+function(){
+
+autoRotate =
+!autoRotate;
+
+this.textContent =
+autoRotate
+? "Stop Rotation"
+: "Auto Rotate";
+
+};
+
+
+document
+.getElementById("labelBtn")
+.onclick =
+function(){
+
+showLabels =
+!showLabels;
+
+labelContainer.style.display =
+showLabels
+? "block"
+: "none";
+
+};
+
+
+document
+.getElementById("reset")
+.onclick =
+function(){
+
+camera.position.set(
+8,
+6,
+11
+);
+
+controls.target.set(
+0,
+3,
+-.5
+);
+
+model.rotation.y =
+0;
+
+controls.update();
+
+};
+
+
+/* ANIMATION */
+
+function animate(){
+
+requestAnimationFrame(
+animate
+);
+
+if(autoRotate){
+
+model.rotation.y +=
+.0025;
+
+}
+
+internal.rotation.y +=
+.005;
+
+tip.scale.setScalar(
+1 +
+Math.sin(
+performance.now()*.005
+)*.12
+);
+
+controls.update();
+
+updateLabels();
+
+renderer.render(
+scene,
+camera
+);
+
+}
+
+
+controls.target.set(
+0,
+3,
+-.5
+);
+
+controls.update();
+
+animate();
+
+
+/* RESIZE */
+
+window.addEventListener(
+"resize",
+function(){
+
+camera.aspect =
+viewer.clientWidth /
+viewer.clientHeight;
+
+camera.updateProjectionMatrix();
+
+renderer.setSize(
+viewer.clientWidth,
+viewer.clientHeight
+);
+
+}
+);
+
+</script>
+
+</body>
+</html>
