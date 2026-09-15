@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pseudomonas | Unit III | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.65;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1050px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  padding:50px 0 44px;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  letter-spacing:.7px;
+  margin-bottom:17px;
+}
+
+h1{
+  font-size:40px;
+  line-height:1.15;
+  margin-bottom:9px;
+}
+
+.subtitle{
+  color:#d5deeb;
+  font-size:16px;
+}
+
+.header-credit{
+  margin-top:15px;
+  color:#aebbd0;
+  font-size:13px;
+}
+
+/* NAV */
+.nav{
+  background:white;
+  border-bottom:1px solid #e4e8ef;
+}
+
+.nav-inner{
+  min-height:58px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.back{
+  color:#2563eb;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.topic{
+  color:#697487;
+  font-size:13px;
+}
+
+/* MAIN */
+main{
+  padding:35px 0 60px;
+}
+
+/* HERO */
+.hero{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:22px;
+  padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 8px 25px rgba(20,30,50,.05);
+}
+
+.label{
+  display:inline-block;
+  background:#eef3ff;
+  color:#2563eb;
+  padding:6px 11px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.6px;
+  margin-bottom:12px;
+}
+
+.hero h2{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#687386;
+}
+
+/* QUICK */
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.quick-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:17px;
+  padding:18px;
+}
+
+.quick-card span{
+  display:block;
+  color:#7a8494;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:5px;
+}
+
+.quick-card strong{
+  font-size:15px;
+}
+
+/* NOTES */
+.note{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+  box-shadow:0 6px 20px rgba(20,30,50,.04);
+}
+
+.note h3{
+  font-size:20px;
+  margin-bottom:14px;
+}
+
+.note h3::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:21px;
+  background:#2563eb;
+  border-radius:5px;
+  vertical-align:-4px;
+  margin-right:10px;
+}
+
+.note h4{
+  font-size:16px;
+  margin-top:20px;
+  margin-bottom:9px;
+}
+
+.note p{
+  margin:8px 0;
+}
+
+.note ul{
+  padding-left:22px;
+}
+
+.note li{
+  margin:7px 0;
+}
+
+.highlight{
+  background:#f7f9fc;
+  border-left:4px solid #2563eb;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+.warning{
+  background:#fff8ed;
+  border-left:4px solid #e5a11a;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+/* TABLE */
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  min-width:600px;
+}
+
+th,td{
+  border:1px solid #e2e6ed;
+  padding:12px;
+  text-align:left;
+  font-size:14px;
+}
+
+th{
+  background:#f3f6fa;
+}
+
+/* FLOW */
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:13px;
+}
+
+.flow span{
+  background:#f0f4fa;
+  border:1px solid #dfe5ed;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.arrow{
+  color:#2563eb;
+  font-weight:bold;
+}
+
+/* EXAM */
+.exam{
+  background:#f7f9ff;
+  border:1px solid #dce5ff;
+  border-radius:18px;
+  padding:23px;
+  margin-top:20px;
+}
+
+.exam h3{
+  margin-bottom:12px;
+}
+
+.exam ul{
+  padding-left:22px;
+}
+
+.exam li{
+  margin:7px 0;
+}
+
+/* MEMORY */
+.memory{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-top:20px;
+}
+
+.memory small{
+  color:#aebbd0;
+  display:block;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
+}
+
+.memory h3{
+  margin-bottom:9px;
+}
+
+.memory p{
+  color:#d7dfeb;
+}
+
+/* SOURCE */
+.source-box{
+  margin-top:30px;
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:22px;
+  padding:29px;
+  text-align:center;
+}
+
+.source-title{
+  color:#aebbd0;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.source{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.designer{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:17px;
+  color:#c8d2e1;
+  font-size:13px;
+}
+
+.designer strong{
+  color:white;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#7b8494;
+  font-size:12px;
+  padding:25px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  h1{
+    font-size:31px;
+  }
+
+  .quick{
+    grid-template-columns:1fr;
+  }
+
+  .topic{
+    display:none;
+  }
+
+  .hero h2{
+    font-size:24px;
+  }
+
+  .note{
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container">
+
+  <div class="badge">
+    UNIT III • GRAM-NEGATIVE BACILLI
+  </div>
+
+  <h1>Pseudomonas</h1>
+
+  <div class="subtitle">
+    Systematic Bacteriology • FYUGP 3rd Semester
+  </div>
+
+  <div class="header-credit">
+    Medical Lab & Molecular Diagnostic Technology
+  </div>
+
+</div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+
+<div class="container nav-inner">
+
+  <a href="unit3.html" class="back">
+    ← Back to Unit III
+  </a>
+
+  <span class="topic">
+    Unit III → Topic 02 → Notes
+  </span>
+
+</div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="label">
+    TOPIC 02 • NOTES
+  </div>
+
+  <h2>Pseudomonas</h2>
+
+  <p>
+    The handwritten notes describe Pseudomonas as a
+    Gram-negative bacillus with characteristic pigment
+    production and important pathogenic potential.
+  </p>
+
+</section>
+
+
+<!-- QUICK FACTS -->
+
+<section class="quick">
+
+  <div class="quick-card">
+
+    <span>Gram reaction</span>
+
+    <strong>Gram-negative bacillus</strong>
+
+  </div>
+
+  <div class="quick-card">
+
+    <span>Important feature</span>
+
+    <strong>Pigment production</strong>
+
+  </div>
+
+  <div class="quick-card">
+
+    <span>Pathogenic clue</span>
+
+    <strong>Blue-green pus / pigment</strong>
+
+  </div>
+
+</section>
+
+
+<!-- MORPHOLOGY -->
+
+<section class="note">
+
+<h3>1. Morphology</h3>
+
+<ul>
+
+  <li>
+    Pseudomonas is described as a
+    <strong>slender bacillus</strong>.
+  </li>
+
+  <li>
+    The notes give an approximate size of
+    <strong>1.5–5 µm</strong>.
+  </li>
+
+  <li>
+    It is described as <strong>non-spore-forming</strong>.
+  </li>
+
+  <li>
+    Some organisms may possess
+    <strong>glycocalyx</strong>.
+  </li>
+
+  <li>
+    Motility is associated with the organism.
+  </li>
+
+</ul>
+
+<div class="highlight">
+
+<strong>⭐ Key morphology:</strong>
+
+Slender Gram-negative bacillus →
+motile → non-spore-forming.
+
+</div>
+
+</section>
+
+
+<!-- CULTURAL -->
+
+<section class="note">
+
+<h3>2. Cultural Characteristics</h3>
+
+
+<h4>Ordinary Media</h4>
+
+<ul>
+
+  <li>
+    The notes state that Pseudomonas grows well on
+    ordinary media.
+  </li>
+
+  <li>
+    Pigment production is an important cultural
+    characteristic.
+  </li>
+
+  <li>
+    The notes mention a
+    <strong>blue-green pigment</strong>.
+  </li>
+
+</ul>
+
+
+<h4>Nutrient Agar</h4>
+
+<p>
+  The notes mention a characteristic
+  <strong>metallic sheen</strong> associated with growth
+  on nutrient agar.
+</p>
+
+
+<h4>MacConkey Agar</h4>
+
+<ul>
+
+  <li>
+    The notes describe
+    <strong>pale white colonies</strong>.
+  </li>
+
+  <li>
+    The organism is described as
+    <strong>non-lactose fermenting</strong>.
+  </li>
+
+</ul>
+
+
+<h4>Blood Agar</h4>
+
+<p>
+  The notes mention production of
+  <strong>haemolytic colonies</strong> on blood agar.
+</p>
+
+
+<div class="highlight">
+
+<strong>Culture memory:</strong>
+
+<div class="flow">
+
+  <span>Ordinary media</span>
+
+  <b class="arrow">→</b>
+
+  <span>Pigment</span>
+
+  <b class="arrow">→</b>
+
+  <span>Metallic sheen</span>
+
+  <b class="arrow">→</b>
+
+  <span>Non-lactose fermenting</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BIOCHEMICAL -->
+
+<section class="note">
+
+<h3>3. Biochemical Reactions</h3>
+
+<p>
+  The handwritten notes specifically mention the following
+  biochemical reactions:
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+  <th>Test</th>
+
+  <th>Reaction in notes</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+  <td><strong>Catalase</strong></td>
+
+  <td>Positive</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Oxidase</strong></td>
+
+  <td>Positive</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Glucose</strong></td>
+
+  <td>Fermentation reaction mentioned in notes</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Gas production</strong></td>
+
+  <td>Noted with the biochemical reaction description</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="highlight">
+
+<strong>⭐ Remember:</strong>
+
+<strong>Catalase + + Oxidase +</strong>
+
+</div>
+
+</section>
+
+
+<!-- PATHOGENESIS -->
+
+<section class="note">
+
+<h3>4. Pathogenesis</h3>
+
+<p>
+  The notes identify Pseudomonas as a pathogenic organism
+  associated with production of a characteristic
+  <strong>blue-green pigment</strong>.
+</p>
+
+<p>
+  The pigment is associated with the characteristic
+  blue-green appearance described in the notes.
+</p>
+
+<div class="flow">
+
+  <span>Pseudomonas</span>
+
+  <b class="arrow">→</b>
+
+  <span>Pigment production</span>
+
+  <b class="arrow">→</b>
+
+  <span>Blue-green appearance</span>
+
+</div>
+
+</section>
+
+
+<!-- LAB DIAGNOSIS -->
+
+<section class="note">
+
+<h3>5. Laboratory Diagnosis</h3>
+
+
+<h4>Specimen Collection</h4>
+
+<p>
+  The notes mention collection of an appropriate
+  <strong>fecal sample</strong> for examination and
+  culture.
+</p>
+
+
+<h4>Culture</h4>
+
+<ul>
+
+  <li>
+    The specimen is cultured on suitable media.
+  </li>
+
+  <li>
+    Cultural characteristics help in identification.
+  </li>
+
+  <li>
+    Pigment production is an important identifying
+    characteristic.
+  </li>
+
+</ul>
+
+
+<h4>Identification</h4>
+
+<p>
+  The notes emphasize culture followed by
+  <strong>identification</strong>.
+</p>
+
+<div class="highlight">
+
+<strong>Diagnosis flow:</strong>
+
+<div class="flow">
+
+  <span>Specimen</span>
+
+  <b class="arrow">→</b>
+
+  <span>Culture</span>
+
+  <b class="arrow">→</b>
+
+  <span>Colony characteristics</span>
+
+  <b class="arrow">→</b>
+
+  <span>Biochemical tests</span>
+
+  <b class="arrow">→</b>
+
+  <span>Identification</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SUMMARY TABLE -->
+
+<section class="note">
+
+<h3>6. Quick Revision Table</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+  <th>Feature</th>
+
+  <th>Pseudomonas</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+  <td><strong>Shape</strong></td>
+
+  <td>Slender bacillus</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Gram reaction</strong></td>
+
+  <td>Gram-negative</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Spore</strong></td>
+
+  <td>Non-spore-forming</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Motility</strong></td>
+
+  <td>Motile</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Pigment</strong></td>
+
+  <td>Blue-green pigment mentioned</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Nutrient agar</strong></td>
+
+  <td>Metallic sheen mentioned</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>MacConkey agar</strong></td>
+
+  <td>Pale white, non-lactose fermenting colonies</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Blood agar</strong></td>
+
+  <td>Haemolytic colonies</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Catalase</strong></td>
+
+  <td>Positive</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Oxidase</strong></td>
+
+  <td>Positive</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section class="exam">
+
+<h3>⭐ High-Yield Exam Points</h3>
+
+<ul>
+
+  <li>
+    Morphology of Pseudomonas
+  </li>
+
+  <li>
+    Pigment production
+  </li>
+
+  <li>
+    Cultural characteristics on ordinary media
+  </li>
+
+  <li>
+    Metallic sheen on nutrient agar
+  </li>
+
+  <li>
+    Non-lactose fermenting colonies on MacConkey agar
+  </li>
+
+  <li>
+    Haemolytic colonies on blood agar
+  </li>
+
+  <li>
+    Catalase and oxidase reactions
+  </li>
+
+  <li>
+    Blue-green pigment / pus
+  </li>
+
+  <li>
+    Laboratory diagnosis by culture and identification
+  </li>
+
+</ul>
+
+</section>
+
+
+<!-- MEMORY -->
+
+<section class="memory">
+
+<small>🧠 QUICK MEMORY</small>
+
+<h3>“PSEUDO = BLUE + OXIDASE”</h3>
+
+<p>
+
+<strong>BLUE</strong>
+→ blue-green pigment
+
+<br><br>
+
+<strong>METALLIC</strong>
+→ metallic sheen on nutrient agar
+
+<br><br>
+
+<strong>MAC</strong>
+→ pale white, non-lactose fermenting colonies
+
+<br><br>
+
+<strong>OXIDASE +</strong>
+→ important biochemical reaction
+
+</p>
+
+</section>
+
+
+<!-- SOURCE -->
+
+<section class="source-box">
+
+<div class="source-title">
+  ACADEMIC SOURCE &amp; CREDITS
+</div>
+
+<div class="source">
+  📚 Source: Diksha Ma’am
+</div>
+
+<div class="designer">
+
+  Created &amp; Designed by
+  <strong>Enzamamul Hoque</strong>
+
+  <br>
+
+  Student, Mangaldai College
+
+  <br>
+
+  Department: ML&amp;MDT
+
+</div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+Systematic Bacteriology • Unit III • Pseudomonas
+
+<br>
+
+Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+</body>
+</html>
