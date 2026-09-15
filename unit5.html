@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unit V | Ultra 3D Microscopy</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#07101c;
+  color:#fff;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1200px,94%);
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  background:
+    radial-gradient(circle at 20% 20%,#193b58,transparent 35%),
+    radial-gradient(circle at 80% 10%,#172c49,transparent 30%),
+    linear-gradient(135deg,#050b13,#101d2c);
+  padding:50px 0 35px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  font-size:11px;
+  letter-spacing:1px;
+  margin-bottom:15px;
+}
+
+h1{
+  font-size:44px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:#b7c6d8;
+  font-size:15px;
+}
+
+.credit-top{
+  color:#8295aa;
+  font-size:12px;
+  margin-top:12px;
+}
+
+/* NAV */
+
+.nav{
+  background:#0b1522;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+  min-height:55px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.back{
+  color:#66aaff;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.marks{
+  color:#8090a4;
+  font-size:12px;
+}
+
+/* MAIN */
+
+main{
+  padding:30px 0 60px;
+}
+
+/* INTRO */
+
+.intro{
+  background:linear-gradient(145deg,#101d2c,#0c1724);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  padding:25px;
+  margin-bottom:20px;
+}
+
+.intro-label{
+  color:#62a8ff;
+  font-size:10px;
+  letter-spacing:1.5px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.intro h2{
+  font-size:28px;
+  margin-bottom:7px;
+}
+
+.intro p{
+  color:#9bacbf;
+  font-size:14px;
+}
+
+/* 3D CARD */
+
+.viewer-card{
+  background:#09131f;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 25px 70px rgba(0,0,0,.4);
+}
+
+.viewer-head{
+  padding:18px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#0d1927;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.viewer-head strong{
+  font-size:15px;
+}
+
+.viewer-head span{
+  color:#7f91a6;
+  font-size:11px;
+}
+
+/* 3D VIEW */
+
+#viewer{
+  width:100%;
+  height:680px;
+  position:relative;
+  background:
+    radial-gradient(circle at center,#14283c 0,#09131f 55%,#040a11 100%);
+}
+
+canvas{
+  display:block;
+}
+
+/* INFO PANEL */
+
+.info-panel{
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:300px;
+  padding:20px;
+  border-radius:18px;
+  background:rgba(7,15,25,.91);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.12);
+  z-index:10;
+  box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.info-small{
+  color:#5da5ff;
+  font-size:9px;
+  font-weight:bold;
+  letter-spacing:1.5px;
+  margin-bottom:7px;
+}
+
+#partName{
+  font-size:21px;
+  margin-bottom:8px;
+}
+
+#partIntro{
+  color:#b1bfce;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.function{
+  margin-top:14px;
+  padding:12px;
+  background:rgba(255,255,255,.05);
+  border-radius:11px;
+  color:#c7d3df;
+  font-size:12px;
+}
+
+.function strong{
+  color:#fff;
+}
+
+/* CONTROLS */
+
+.controls{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  z-index:10;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.control-btn{
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(7,15,25,.85);
+  color:#d8e3ee;
+  border-radius:10px;
+  padding:9px 12px;
+  cursor:pointer;
+  font-size:11px;
+}
+
+.control-btn:hover{
+  background:#172b40;
+}
+
+/* LABELS */
+
+.label3d{
+  position:absolute;
+  pointer-events:none;
+  color:white;
+  background:rgba(5,12,20,.82);
+  border:1px solid rgba(100,170,255,.45);
+  border-radius:8px;
+  padding:5px 8px;
+  font-size:10px;
+  white-space:nowrap;
+  transform:translate(-50%,-50%);
+  z-index:5;
+}
+
+/* INSTRUCTION */
+
+.tip{
+  text-align:center;
+  color:#708298;
+  font-size:11px;
+  padding:13px;
+  background:#07111c;
+}
+
+/* COMPONENTS */
+
+.section-title{
+  text-align:center;
+  margin:38px 0 20px;
+}
+
+.section-title h2{
+  font-size:25px;
+}
+
+.section-title p{
+  color:#7f91a6;
+  font-size:12px;
+  margin-top:4px;
+}
+
+.parts{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+}
+
+.part-card{
+  background:linear-gradient(145deg,#101d2c,#0b1622);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:17px;
+}
+
+.part-card small{
+  color:#5da5ff;
+  font-size:9px;
+  letter-spacing:1px;
+}
+
+.part-card h3{
+  font-size:15px;
+  margin:6px 0;
+}
+
+.part-card p{
+  color:#899aac;
+  font-size:11px;
+}
+
+/* MICROSCOPE TYPES */
+
+.types{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.type-card{
+  background:linear-gradient(145deg,#101d2c,#0b1622);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:22px;
+}
+
+.type-number{
+  color:#5da5ff;
+  font-size:9px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.type-card h3{
+  margin:7px 0;
+}
+
+.type-card p{
+  color:#8c9caf;
+  font-size:12px;
+  margin-bottom:14px;
+}
+
+.open-btn{
+  display:inline-block;
+  padding:9px 14px;
+  border-radius:9px;
+  background:#173452;
+  color:#9ecbff;
+  font-size:11px;
+  font-weight:bold;
+}
+
+/* SOURCE */
+
+.source{
+  margin-top:30px;
+  background:linear-gradient(145deg,#101d2c,#08121d);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  padding:27px;
+  text-align:center;
+}
+
+.source-title{
+  color:#6f8195;
+  font-size:9px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.source-name{
+  font-size:17px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.credit{
+  border-top:1px solid rgba(255,255,255,.09);
+  padding-top:14px;
+  color:#8798aa;
+  font-size:11px;
+}
+
+.credit strong{
+  color:#fff;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  color:#617287;
+  padding:25px;
+  font-size:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .parts{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  #viewer{
+    height:700px;
+  }
+
+  .info-panel{
+    width:260px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  h1{
+    font-size:32px;
+  }
+
+  .marks{
+    display:none;
+  }
+
+  #viewer{
+    height:760px;
+  }
+
+  .info-panel{
+    left:15px;
+    right:15px;
+    top:15px;
+    width:auto;
+  }
+
+  .parts,
+  .types{
+    grid-template-columns:1fr;
+  }
+
+  .controls{
+    left:12px;
+    bottom:12px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="container">
+
+  <div class="badge">UNIT V • 15 MARKS</div>
+
+  <h1>🔬 Microscopy</h1>
+
+  <div class="subtitle">
+    Ultra 3D Interactive Microscope Laboratory
+  </div>
+
+  <div class="credit-top">
+    Medical Lab &amp; Molecular Diagnostic Technology
+  </div>
+
+</div>
+
+</header>
+
+
+<div class="nav">
+
+<div class="container nav-inner">
+
+  <a href="index.html" class="back">
+    ← Back to Home
+  </a>
+
+  <span class="marks">
+    Unit V • Microscopy
+  </span>
+
+</div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<section class="intro">
+
+  <div class="intro-label">
+    INTERACTIVE 3D LABORATORY
+  </div>
+
+  <h2>Explore the Microscope in 3D</h2>
+
+  <p>
+    Rotate the microscope, zoom in and click the highlighted
+    components to learn their introduction and function.
+  </p>
+
+</section>
+
+
+<!-- 3D VIEWER -->
+
+<section class="viewer-card">
+
+  <div class="viewer-head">
+
+    <strong>🔬 Compound Light Microscope — 3D Model</strong>
+
+    <span>WebGL • Interactive</span>
+
+  </div>
+
+
+  <div id="viewer">
+
+
+    <div class="info-panel">
+
+      <div class="info-small">
+        SELECTED COMPONENT
+      </div>
+
+      <h2 id="partName">
+        Microscope
+      </h2>
+
+      <p id="partIntro">
+        Click a blue component marker on the microscope
+        to learn about that part.
+      </p>
+
+      <div class="function">
+
+        <strong>Function:</strong>
+
+        <span id="partFunction">
+          Select a component.
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="controls">
+
+      <button class="control-btn" id="resetBtn">
+        ↻ Reset View
+      </button>
+
+      <button class="control-btn" id="labelsBtn">
+        ◉ Labels
+      </button>
+
+      <button class="control-btn" id="autoBtn">
+        ▶ Auto Rotate
+      </button>
+
+    </div>
+
+
+    <div class="tip">
+      🖱️ Drag = Rotate &nbsp; • &nbsp;
+      Scroll = Zoom &nbsp; • &nbsp;
+      👆 Touch = Rotate / Pinch Zoom &nbsp; • &nbsp;
+      🔵 Click part = Learn
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PARTS -->
+
+<div class="section-title">
+
+  <h2>Interactive Components</h2>
+
+  <p>
+    Components shown in the 3D model.
+  </p>
+
+</div>
+
+
+<section class="parts">
+
+<div class="part-card">
+  <small>PART 01</small>
+  <h3>Eyepiece</h3>
+  <p>Used for viewing the specimen.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 02</small>
+  <h3>Body Tube</h3>
+  <p>Supports the optical assembly.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 03</small>
+  <h3>Objective Lens</h3>
+  <p>Primary lens for magnification.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 04</small>
+  <h3>Nosepiece</h3>
+  <p>Holds the objective lenses.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 05</small>
+  <h3>Stage</h3>
+  <p>Supports the specimen slide.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 06</small>
+  <h3>Condenser</h3>
+  <p>Directs light toward the specimen.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 07</small>
+  <h3>Diaphragm</h3>
+  <p>Controls illumination.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 08</small>
+  <h3>Light Source</h3>
+  <p>Provides illumination.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 09</small>
+  <h3>Arm</h3>
+  <p>Supports the microscope body.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 10</small>
+  <h3>Stage Control</h3>
+  <p>Positions the specimen.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 11</small>
+  <h3>Focus Knob</h3>
+  <p>Used for focusing.</p>
+</div>
+
+<div class="part-card">
+  <small>PART 12</small>
+  <h3>Base</h3>
+  <p>Provides support.</p>
+</div>
+
+</section>
+
+
+<!-- TYPES -->
+
+<div class="section-title">
+
+  <h2>Microscope Types</h2>
+
+  <p>
+    Each microscope will have its own detailed 3D learning page.
+  </p>
+
+</div>
+
+
+<section class="types">
+
+<div class="type-card">
+  <div class="type-number">TOPIC 01</div>
+  <h3>Bright Field Microscope</h3>
+  <p>Principle, applications and interactive components.</p>
+  <a href="bright-field.html" class="open-btn">Open 3D Notes →</a>
+</div>
+
+<div class="type-card">
+  <div class="type-number">TOPIC 02</div>
+  <h3>Dark Field Microscope</h3>
+  <p>Principle, applications and interactive components.</p>
+  <a href="dark-field.html" class="open-btn">Open 3D Notes →</a>
+</div>
+
+<div class="type-card">
+  <div class="type-number">TOPIC 03</div>
+  <h3>Phase Contrast Microscope</h3>
+  <p>Principle, applications and interactive components.</p>
+  <a href="phase-contrast.html" class="open-btn">Open 3D Notes →</a>
+</div>
+
+<div class="type-card">
+  <div class="type-number">TOPIC 04</div>
+  <h3>Polarised Microscope</h3>
+  <p>Principle, applications and interactive components.</p>
+  <a href="polarised.html" class="open-btn">Open 3D Notes →</a>
+</div>
+
+<div class="type-card">
+  <div class="type-number">TOPIC 05</div>
+  <h3>Fluorescence Microscope</h3>
+  <p>Principle, applications and interactive components.</p>
+  <a href="fluorescence.html" class="open-btn">Open 3D Notes →</a>
+</div>
+
+<div class="type-card">
+  <div class="type-number">TOPIC 06</div>
+  <h3>Scanning Electron Microscope</h3>
+  <p>Principle, applications and interactive components.</p>
+  <a href="sem.html" class="open-btn">Open 3D Notes →</a>
+</div>
+
+<div class="type-card">
+  <div class="type-number">TOPIC 07</div>
+  <h3>Transmission Electron Microscope</h3>
+  <p>Principle, applications and interactive components.</p>
+  <a href="tem.html" class="open-btn">Open 3D Notes →</a>
+</div>
+
+</section>
+
+
+<!-- SOURCE -->
+
+<section class="source">
+
+  <div class="source-title">
+    ACADEMIC SOURCE &amp; CREDITS
+  </div>
+
+  <div class="source-name">
+    📚 Source: Diksha Ma’am
+  </div>
+
+  <div class="credit">
+
+    Created &amp; Designed by
+    <strong>Enzamamul Hoque</strong>
+
+    <br>
+
+    Student, Mangaldai College
+
+    <br>
+
+    Department: ML&amp;MDT
+
+  </div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+Systematic Bacteriology • Unit V • Microscopy
+
+<br>
+
+Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+
+<!-- THREE.JS -->
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+
+
+<script type="module">
+
+import * as THREE from "three";
+
+import { OrbitControls }
+from "three/addons/controls/OrbitControls.js";
+
+
+/* =====================================================
+   BASIC SETUP
+===================================================== */
+
+const viewer =
+document.getElementById("viewer");
+
+const scene =
+new THREE.Scene();
+
+scene.background =
+new THREE.Color(0x07111d);
+
+
+const camera =
+new THREE.PerspectiveCamera(
+  42,
+  viewer.clientWidth / viewer.clientHeight,
+  0.1,
+  1000
+);
+
+camera.position.set(
+  7,
+  5.5,
+  9
+);
+
+
+const renderer =
+new THREE.WebGLRenderer({
+  antialias:true,
+  alpha:true
+});
+
+renderer.setPixelRatio(
+  Math.min(window.devicePixelRatio,2)
+);
+
+renderer.setSize(
+  viewer.clientWidth,
+  viewer.clientHeight
+);
+
+renderer.shadowMap.enabled = true;
+
+renderer.shadowMap.type =
+THREE.PCFSoftShadowMap;
+
+viewer.appendChild(renderer.domElement);
+
+
+/* =====================================================
+   CAMERA CONTROLS
+===================================================== */
+
+const controls =
+new OrbitControls(
+  camera,
+  renderer.domElement
+);
+
+controls.enableDamping = true;
+
+controls.dampingFactor = 0.06;
+
+controls.minDistance = 5;
+
+controls.maxDistance = 17;
+
+controls.target.set(
+  0,
+  2.5,
+  0
+);
+
+
+/* =====================================================
+   LIGHTING
+===================================================== */
+
+const ambient =
+new THREE.HemisphereLight(
+  0xbfdcff,
+  0x182332,
+  2.2
+);
+
+scene.add(ambient);
+
+
+const keyLight =
+new THREE.DirectionalLight(
+  0xffffff,
+  4
+);
+
+keyLight.position.set(
+  5,
+  10,
+  8
+);
+
+keyLight.castShadow = true;
+
+scene.add(keyLight);
+
+
+const fillLight =
+new THREE.DirectionalLight(
+  0x8bbcff,
+  2
+);
+
+fillLight.position.set(
+  -7,
+  5,
+  4
+);
+
+scene.add(fillLight);
+
+
+const rimLight =
+new THREE.PointLight(
+  0x4da6ff,
+  15,
+  20
+);
+
+rimLight.position.set(
+  -4,
+  5,
+  -5
+);
+
+scene.add(rimLight);
+
+
+/* =====================================================
+   MATERIALS
+===================================================== */
+
+const metal =
+new THREE.MeshStandardMaterial({
+  color:0x344b60,
+  metalness:.82,
+  roughness:.22
+});
+
+
+const darkMetal =
+new THREE.MeshStandardMaterial({
+  color:0x182839,
+  metalness:.9,
+  roughness:.18
+});
+
+
+const silver =
+new THREE.MeshStandardMaterial({
+  color:0x9ba9b6,
+  metalness:.9,
+  roughness:.17
+});
+
+
+const black =
+new THREE.MeshStandardMaterial({
+  color:0x101820,
+  metalness:.65,
+  roughness:.2
+});
+
+
+const glass =
+new THREE.MeshPhysicalMaterial({
+  color:0x9dd8ff,
+  transparent:true,
+  opacity:.42,
+  metalness:.1,
+  roughness:.05,
+  transmission:.35
+});
+
+
+const glow =
+new THREE.MeshStandardMaterial({
+  color:0x77caff,
+  emissive:0x2288ff,
+  emissiveIntensity:2
+});
+
+
+/* =====================================================
+   MAIN GROUP
+===================================================== */
+
+const microscope =
+new THREE.Group();
+
+scene.add(microscope);
+
+
+/* =====================================================
+   HELPER FUNCTIONS
+===================================================== */
+
+const parts = [];
+
+
+function registerPart(
+  mesh,
+  name,
+  intro,
+  func
+){
+
+  mesh.userData.name = name;
+
+  mesh.userData.intro = intro;
+
+  mesh.userData.function = func;
+
+  mesh.userData.isPart = true;
+
+  parts.push(mesh);
+
+}
+
+
+function cylinder(
+  radiusTop,
+  radiusBottom,
+  height,
+  material,
+  x,
+  y,
+  z
+){
+
+  const geometry =
+  new THREE.CylinderGeometry(
+    radiusTop,
+    radiusBottom,
+    height,
+    48
+  );
+
+  const mesh =
+  new THREE.Mesh(
+    geometry,
+    material
+  );
+
+  mesh.position.set(x,y,z);
+
+  mesh.castShadow = true;
+
+  mesh.receiveShadow = true;
+
+  microscope.add(mesh);
+
+  return mesh;
+
+}
+
+
+function box(
+  width,
+  height,
+  depth,
+  material,
+  x,
+  y,
+  z,
+  radius=0
+){
+
+  const geometry =
+  new THREE.BoxGeometry(
+    width,
+    height,
+    depth
+  );
+
+  const mesh =
+  new THREE.Mesh(
+    geometry,
+    material
+  );
+
+  mesh.position.set(x,y,z);
+
+  mesh.castShadow = true;
+
+  mesh.receiveShadow = true;
+
+  microscope.add(mesh);
+
+  return mesh;
+
+}
+
+
+/* =====================================================
+   BASE
+===================================================== */
+
+const base =
+new THREE.Mesh(
+  new THREE.BoxGeometry(
+    5.2,
+    .65,
+    3.6
+  ),
+  darkMetal
+);
+
+base.position.set(
+  0,
+  .35,
+  0
+);
+
+base.scale.set(
+  1,
+  1,
+  .85
+);
+
+base.castShadow = true;
+
+base.receiveShadow = true;
+
+microscope.add(base);
+
+
+registerPart(
+  base,
+  "Base",
+  "The base is the lower supporting portion of the microscope.",
+  "Provides support and stability for the microscope."
+);
+
+
+/* =====================================================
+   BASE PLATFORM
+===================================================== */
+
+const baseTop =
+new THREE.Mesh(
+  new THREE.CylinderGeometry(
+    2.15,
+    2.35,
+    .32,
+    64
+  ),
+  metal
+);
+
+baseTop.position.set(
+  0,
+  .78,
+  0
+);
+
+baseTop.scale.z=.72;
+
+baseTop.castShadow=true;
+
+microscope.add(baseTop);
+
+
+/* =====================================================
+   ARM
+===================================================== */
+
+const arm =
+new THREE.Mesh(
+  new THREE.BoxGeometry(
+    1.25,
+    5.3,
+    .75
+  ),
+  metal
+);
+
+arm.position.set(
+  -1.45,
+  3.25,
+  0
+);
+
+arm.rotation.z =
+THREE.MathUtils.degToRad(-10);
+
+arm.castShadow=true;
+
+microscope.add(arm);
+
+
+registerPart(
+  arm,
+  "Arm",
+  "The arm is the supporting part of the microscope body.",
+  "Supports the microscope body and helps in handling it."
+);
+
+
+/* =====================================================
+   BODY TUBE
+===================================================== */
+
+const tube =
+cylinder(
+  .55,
+  .72,
+  2.7,
+  darkMetal,
+  -.82,
+  6.2,
+  0
+);
+
+tube.rotation.z =
+THREE.MathUtils.degToRad(-8);
+
+registerPart(
+  tube,
+  "Body Tube",
+  "The body tube forms part of the optical assembly.",
+  "Supports the optical components between the eyepiece and objectives."
+);
+
+
+/* =====================================================
+   HEAD
+===================================================== */
+
+const head =
+cylinder(
+  .95,
+  1.05,
+  .65,
+  metal,
+  -.65,
+  7.35,
+  0
+);
+
+head.rotation.z =
+THREE.MathUtils.degToRad(-8);
+
+registerPart(
+  head,
+  "Microscope Head",
+  "The head houses the upper optical assembly.",
+  "Supports the upper optical components."
+);
+
+
+/* =====================================================
+   EYEPIECE
+===================================================== */
+
+const eyepiece =
+cylinder(
+  .42,
+  .55,
+  1.45,
+  black,
+  -.48,
+  8.3,
+  0
+);
+
+eyepiece.rotation.z =
+THREE.MathUtils.degToRad(-8);
+
+registerPart(
+  eyepiece,
+  "Eyepiece",
+  "The eyepiece is located at the top of the microscope.",
+  "Used for viewing the specimen."
+);
+
+
+/* =====================================================
+   EYEPIECE RING
+===================================================== */
+
+cylinder(
+  .48,
+  .48,
+  .18,
+  silver,
+  -.48,
+  8.92,
+  0
+);
+
+
+/* =====================================================
+   NOSEPIECE
+===================================================== */
+
+const nosepiece =
+cylinder(
+  .72,
+  .88,
+  .42,
+  silver,
+  -.42,
+  5.05,
+  0
+);
+
+registerPart(
+  nosepiece,
+  "Nosepiece",
+  "The nosepiece is positioned below the microscope head.",
+  "Holds and allows selection of objective lenses."
+);
+
+
+/* =====================================================
+   OBJECTIVES
+===================================================== */
+
+const objectiveData = [
+
+  [-.95,4.25,.0,.45],
+  [-.50,4.12,.0,.60],
+  [-.05,4.10,.0,.82],
+  [.40,4.18,.0,1.05]
+
+];
+
+
+objectiveData.forEach(
+  (d,index)=>{
+
+    const obj =
+    cylinder(
+      .20,
+      .29,
+      d[3],
+      silver,
+      d[0],
+      d[1],
+      d[2]
+    );
+
+    obj.rotation.z =
+    THREE.MathUtils.degToRad(-4);
+
+    registerPart(
+      obj,
+      "Objective Lens",
+      "The objective lens is one of the primary optical components.",
+      "Magnifies the specimen image."
+    );
+
+  }
+);
+
+
+/* =====================================================
+   STAGE SUPPORT
+===================================================== */
+
+const stageSupport =
+cylinder(
+  .75,
+  .95,
+  1.0,
+  darkMetal,
+  .35,
+  2.55,
+  0
+);
+
+
+/* =====================================================
+   STAGE
+===================================================== */
+
+const stage =
+new THREE.Mesh(
+  new THREE.BoxGeometry(
+    4.0,
+    .42,
+    2.8
+  ),
+  metal
+);
+
+stage.position.set(
+  .25,
+  3.0,
+  0
+);
+
+stage.castShadow=true;
+
+stage.receiveShadow=true;
+
+microscope.add(stage);
+
+
+registerPart(
+  stage,
+  "Stage",
+  "The stage is the platform on which the specimen slide is placed.",
+  "Supports the slide/specimen during microscopic observation."
+);
+
+
+/* =====================================================
+   STAGE OPENING
+===================================================== */
+
+const stageHole =
+new THREE.Mesh(
+  new THREE.CylinderGeometry(
+    .72,
+    .72,
+    .44,
+    48
+  ),
+  black
+);
+
+stageHole.rotation.x =
+Math.PI/2;
+
+stageHole.position.set(
+  .25,
+  3.23,
+  0
+);
+
+microscope.add(stageHole);
+
+
+/* =====================================================
+   SLIDE
+===================================================== */
+
+const slide =
+new THREE.Mesh(
+  new THREE.BoxGeometry(
+    2.2,
+    .08,
+    .75
+  ),
+  glass
+);
+
+slide.position.set(
+  .25,
+  3.28,
+  0
+);
+
+slide.castShadow=true;
+
+microscope.add(slide);
+
+
+registerPart(
+  slide,
+  "Specimen Slide",
+  "The slide carries the specimen for microscopic observation.",
+  "Holds the specimen on the microscope stage."
+);
+
+
+/* =====================================================
+   CONDENSER
+===================================================== */
+
+const condenser =
+cylinder(
+  .72,
+  .45,
+  .8,
+  metal,
+  .25,
+  2.45,
+  0
+);
+
+registerPart(
+  condenser,
+  "Condenser",
+  "The condenser is located below the stage.",
+  "Helps direct and concentrate light toward the specimen."
+);
+
+
+/* =====================================================
+   DIAPHRAGM
+===================================================== */
+
+const diaphragm =
+cylinder(
+  .48,
+  .48,
+  .18,
+  black,
+  .25,
+  1.95,
+  0
+);
+
+registerPart(
+  diaphragm,
+  "Diaphragm",
+  "The diaphragm controls the illumination reaching the specimen.",
+  "Controls the amount of light reaching the specimen."
+);
+
+
+/* =====================================================
+   LIGHT SOURCE
+===================================================== */
+
+const light =
+cylinder(
+  .68,
+  .68,
+  .32,
+  glow,
+  .25,
+  1.55,
+  0
+);
+
+registerPart(
+  light,
+  "Light Source",
+  "The light source provides illumination for observation.",
+  "Provides illumination for microscopic examination."
+);
+
+
+/* =====================================================
+   FOCUS KNOBS
+===================================================== */
+
+const focus =
+new THREE.Mesh(
+  new THREE.TorusGeometry(
+    .42,
+    .12,
+    24,
+    48
+  ),
+  silver
+);
+
+focus.position.set(
+  -.15,
+  4.4,
+  .65
+);
+
+focus.rotation.x =
+Math.PI/2;
+
+microscope.add(focus);
+
+
+registerPart(
+  focus,
+  "Focus Knob",
+  "The focus knob is used during focusing.",
+  "Helps adjust focus to obtain a clear image."
+);
+
+
+/* =====================================================
+   STAGE CONTROL
+===================================================== */
+
+const stageControl =
+new THREE.Mesh(
+  new THREE.CylinderGeometry(
+    .22,
+    .22,
+    .35,
+    32
+  ),
+  silver
+);
+
+stageControl.rotation.z =
+Math.PI/2;
+
+stageControl.position.set(
+  2.05,
+  2.95,
+  .55
+);
+
+microscope.add(stageControl);
+
+
+registerPart(
+  stageControl,
+  "Stage Control",
+  "The stage control adjusts the specimen position.",
+  "Helps position the specimen for observation."
+);
+
+
+/* =====================================================
+   LABEL DATA
+===================================================== */
+
+const labelData = [
+
+  {
+    object:eyepiece,
+    text:"Eyepiece"
+  },
+
+  {
+    object:arm,
+    text:"Arm"
+  },
+
+  {
+    object:nosepiece,
+    text:"Nosepiece"
+  },
+
+  {
+    object:stage,
+    text:"Stage"
+  },
+
+  {
+    object:condenser,
+    text:"Condenser"
+  },
+
+  {
+    object:diaphragm,
+    text:"Diaphragm"
+  },
+
+  {
+    object:light,
+    text:"Light Source"
+  },
+
+  {
+    object:base,
+    text:"Base"
+  }
+
+];
+
+
+const labelElements = [];
+
+
+labelData.forEach(item=>{
+
+  const div =
+  document.createElement("div");
+
+  div.className =
+  "label3d";
+
+  div.textContent =
+  item.text;
+
+  viewer.appendChild(div);
+
+  labelElements.push({
+    div:div,
+    object:item.object
+  });
+
+});
+
+
+let labelsVisible=true;
+
+
+/* =====================================================
+   CLICK / TOUCH INTERACTION
+===================================================== */
+
+const raycaster =
+new THREE.Raycaster();
+
+const mouse =
+new THREE.Vector2();
+
+
+function pointerPosition(event){
+
+  const rect =
+  renderer.domElement.getBoundingClientRect();
+
+  let x,y;
+
+  if(event.touches){
+
+    x =
+    event.touches[0].clientX;
+
+    y =
+    event.touches[0].clientY;
+
+  }else{
+
+    x=event.clientX;
+    y=event.clientY;
+
+  }
+
+  mouse.x =
+  ((x-rect.left)/rect.width)*2-1;
+
+  mouse.y =
+  -((y-rect.top)/rect.height)*2+1;
+
+}
+
+
+function selectPart(event){
+
+  pointerPosition(event);
+
+  raycaster.setFromCamera(
+    mouse,
+    camera
+  );
+
+  const hits =
+  raycaster.intersectObjects(
+    parts,
+    true
+  );
+
+  if(!hits.length) return;
+
+  let object =
+  hits[0].object;
+
+  while(
+    object &&
+    !object.userData.isPart &&
+    object.parent
+  ){
+    object =
+    object.parent;
+  }
+
+  if(!object.userData.isPart)
+    return;
+
+  showPart(object);
+
+}
+
+
+renderer.domElement.addEventListener(
+  "pointerdown",
+  selectPart
+);
+
+
+/* =====================================================
+   INFORMATION PANEL
+===================================================== */
+
+const nameElement =
+document.getElementById("partName");
+
+const introElement =
+document.getElementById("partIntro");
+
+const functionElement =
+document.getElementById("partFunction");
+
+
+function showPart(object){
+
+  nameElement.textContent =
+  object.userData.name;
+
+  introElement.textContent =
+  object.userData.intro;
+
+  functionElement.textContent =
+  object.userData.function;
+
+  parts.forEach(
+    part=>{
+      if(part.material &&
+         part.userData.originalColor===undefined){
+
+        if(part.material.color){
+          part.userData.originalColor =
+          part.material.color.getHex();
+        }
+
+      }
+    }
+  );
+
+  if(object.material &&
+     object.material.emissive){
+
+    object.material.emissive
+    .setHex(0x2288ff);
+
+    object.material.emissiveIntensity=2;
+
+  }
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+document
+.getElementById("resetBtn")
+.addEventListener(
+  "click",
+  ()=>{
+
+    camera.position.set(
+      7,
+      5.5,
+      9
+    );
+
+    controls.target.set(
+      0,
+      2.5,
+      0
+    );
+
+    controls.update();
+
+  }
+);
+
+
+document
+.getElementById("labelsBtn")
+.addEventListener(
+  "click",
+  ()=>{
+
+    labelsVisible =
+    !labelsVisible;
+
+    labelElements.forEach(
+      item=>{
+        item.div.style.display =
+        labelsVisible
+        ? "block"
+        : "none";
+      }
+    );
+
+  }
+);
+
+
+let autoRotate=false;
+
+
+document
+.getElementById("autoBtn")
+.addEventListener(
+  "click",
+  function(){
+
+    autoRotate =
+    !autoRotate;
+
+    this.textContent =
+    autoRotate
+    ? "⏸ Stop Rotate"
+    : "▶ Auto Rotate";
+
+  }
+);
+
+
+/* =====================================================
+   LABEL POSITIONING
+===================================================== */
+
+function updateLabels(){
+
+  labelElements.forEach(
+    item=>{
+
+      const position =
+      item.object.position.clone();
+
+      position.project(camera);
+
+      const x =
+      (position.x*.5+.5)
+      *viewer.clientWidth;
+
+      const y =
+      (-position.y*.5+.5)
+      *viewer.clientHeight;
+
+      item.div.style.left =
+      x+"px";
+
+      item.div.style.top =
+      y+"px";
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   RESIZE
+===================================================== */
+
+function resize(){
+
+  const width =
+  viewer.clientWidth;
+
+  const height =
+  viewer.clientHeight;
+
+  camera.aspect =
+  width/height;
+
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(
+    width,
+    height
+  );
+
+}
+
+
+window.addEventListener(
+  "resize",
+  resize
+);
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+function animate(){
+
+  requestAnimationFrame(
+    animate
+  );
+
+  if(autoRotate){
+
+    microscope.rotation.y +=
+    .003;
+
+  }
+
+  controls.update();
+
+  updateLabels();
+
+  renderer.render(
+    scene,
+    camera
+  );
+
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
