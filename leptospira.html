@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Leptospira | Unit IV | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.65;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1050px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  padding:50px 0 44px;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  letter-spacing:.7px;
+  margin-bottom:17px;
+}
+
+h1{
+  font-size:40px;
+  line-height:1.15;
+  margin-bottom:9px;
+}
+
+.subtitle{
+  color:#d5deeb;
+  font-size:16px;
+}
+
+.header-credit{
+  margin-top:15px;
+  color:#aebbd0;
+  font-size:13px;
+}
+
+/* NAV */
+
+.nav{
+  background:white;
+  border-bottom:1px solid #e4e8ef;
+}
+
+.nav-inner{
+  min-height:58px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.back{
+  color:#2563eb;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.topic{
+  color:#697487;
+  font-size:13px;
+}
+
+/* MAIN */
+
+main{
+  padding:35px 0 60px;
+}
+
+/* HERO */
+
+.hero{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:22px;
+  padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 8px 25px rgba(20,30,50,.05);
+}
+
+.label{
+  display:inline-block;
+  background:#eef3ff;
+  color:#2563eb;
+  padding:6px 11px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.6px;
+  margin-bottom:12px;
+}
+
+.hero h2{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#687386;
+}
+
+/* QUICK */
+
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.quick-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:17px;
+  padding:18px;
+}
+
+.quick-card span{
+  display:block;
+  color:#7a8494;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:5px;
+}
+
+.quick-card strong{
+  font-size:15px;
+}
+
+/* NOTES */
+
+.note{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+  box-shadow:0 6px 20px rgba(20,30,50,.04);
+}
+
+.note h3{
+  font-size:20px;
+  margin-bottom:14px;
+}
+
+.note h3::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:21px;
+  background:#2563eb;
+  border-radius:5px;
+  vertical-align:-4px;
+  margin-right:10px;
+}
+
+.note h4{
+  font-size:16px;
+  margin-top:20px;
+  margin-bottom:9px;
+}
+
+.note p{
+  margin:8px 0;
+}
+
+.note ul{
+  padding-left:22px;
+}
+
+.note li{
+  margin:7px 0;
+}
+
+.highlight{
+  background:#f7f9fc;
+  border-left:4px solid #2563eb;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+.warning{
+  background:#fff8ed;
+  border-left:4px solid #e5a11a;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+/* TABLE */
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  min-width:600px;
+}
+
+th,td{
+  border:1px solid #e2e6ed;
+  padding:12px;
+  text-align:left;
+  font-size:14px;
+}
+
+th{
+  background:#f3f6fa;
+}
+
+/* FLOW */
+
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:13px;
+}
+
+.flow span{
+  background:#f0f4fa;
+  border:1px solid #dfe5ed;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.arrow{
+  color:#2563eb;
+  font-weight:bold;
+}
+
+/* EXAM */
+
+.exam{
+  background:#f7f9ff;
+  border:1px solid #dce5ff;
+  border-radius:18px;
+  padding:23px;
+  margin-top:20px;
+}
+
+.exam h3{
+  margin-bottom:12px;
+}
+
+.exam ul{
+  padding-left:22px;
+}
+
+.exam li{
+  margin:7px 0;
+}
+
+/* MEMORY */
+
+.memory{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-top:20px;
+}
+
+.memory small{
+  color:#aebbd0;
+  display:block;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
+}
+
+.memory h3{
+  margin-bottom:9px;
+}
+
+.memory p{
+  color:#d7dfeb;
+}
+
+/* SOURCE */
+
+.source-box{
+  margin-top:30px;
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:22px;
+  padding:29px;
+  text-align:center;
+}
+
+.source-title{
+  color:#aebbd0;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.source{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.designer{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:17px;
+  color:#c8d2e1;
+  font-size:13px;
+}
+
+.designer strong{
+  color:white;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  color:#7b8494;
+  font-size:12px;
+  padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  h1{
+    font-size:31px;
+  }
+
+  .quick{
+    grid-template-columns:1fr;
+  }
+
+  .topic{
+    display:none;
+  }
+
+  .hero h2{
+    font-size:24px;
+  }
+
+  .note{
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container">
+
+  <div class="badge">
+    UNIT IV • MISCELLANEOUS BACTERIA
+  </div>
+
+  <h1>Leptospira</h1>
+
+  <div class="subtitle">
+    Systematic Bacteriology • FYUGP 3rd Semester
+  </div>
+
+  <div class="header-credit">
+    Medical Lab & Molecular Diagnostic Technology
+  </div>
+
+</div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+
+<div class="container nav-inner">
+
+  <a href="unit4.html" class="back">
+    ← Back to Unit IV
+  </a>
+
+  <span class="topic">
+    Unit IV → Topic 02 → Notes
+  </span>
+
+</div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="label">
+    TOPIC 02 • SPIROCHETES
+  </div>
+
+  <h2>Leptospira</h2>
+
+  <p>
+    The handwritten notes describe Leptospira as a
+    <strong>very delicate and actively motile spirochete</strong>,
+    with characteristic spiral morphology and importance
+    in human infection.
+  </p>
+
+</section>
+
+
+<!-- QUICK FACTS -->
+
+<section class="quick">
+
+  <div class="quick-card">
+
+    <span>Group</span>
+
+    <strong>Spirochete</strong>
+
+  </div>
+
+  <div class="quick-card">
+
+    <span>Nature</span>
+
+    <strong>Very delicate &amp; actively motile</strong>
+
+  </div>
+
+  <div class="quick-card">
+
+    <span>Specimens</span>
+
+    <strong>Blood / Urine</strong>
+
+  </div>
+
+</section>
+
+
+<!-- MORPHOLOGY -->
+
+<section class="note">
+
+<h3>1. Morphology</h3>
+
+<ul>
+
+  <li>
+    The notes describe Leptospira as
+    <strong>very delicate</strong>.
+  </li>
+
+  <li>
+    It is described as
+    <strong>actively motile</strong>.
+  </li>
+
+  <li>
+    The organism has a characteristic
+    <strong>spiral form</strong>.
+  </li>
+
+  <li>
+    The notes mention approximately
+    <strong>6–20 coils</strong>.
+  </li>
+
+  <li>
+    The ends are described as
+    <strong>hooked</strong>.
+  </li>
+
+  <li>
+    The notes mention that the organism can be observed
+    with a suitable microscope because of its delicate
+    structure.
+  </li>
+
+</ul>
+
+<div class="highlight">
+
+<strong>⭐ Morphology memory:</strong>
+
+Very delicate + actively motile + spiral +
+hooked ends.
+
+</div>
+
+</section>
+
+
+<!-- CULTURAL -->
+
+<section class="note">
+
+<h3>2. Cultural Characteristics</h3>
+
+<ul>
+
+  <li>
+    The handwritten notes state that Leptospira can be
+    grown in <strong>enriched media</strong>.
+  </li>
+
+  <li>
+    The optimum temperature mentioned is approximately
+    <strong>25–30°C</strong>.
+  </li>
+
+  <li>
+    The notes mention a pH of approximately
+    <strong>7.4–7.5</strong>.
+  </li>
+
+</ul>
+
+
+<div class="highlight">
+
+<strong>⭐ Culture memory:</strong>
+
+Enriched media → 25–30°C → pH 7.4–7.5
+
+</div>
+
+</section>
+
+
+<!-- BIOCHEMICAL -->
+
+<section class="note">
+
+<h3>3. Biochemical Reactions</h3>
+
+<p>
+  <strong>No specific biochemical reactions are clearly
+  recorded in the Leptospira section of the uploaded
+  handwritten notes.</strong>
+</p>
+
+<div class="warning">
+
+No additional biochemical reactions have been inserted
+from outside sources, keeping this page faithful to
+your provided notes.
+
+</div>
+
+</section>
+
+
+<!-- PATHOGENESIS -->
+
+<section class="note">
+
+<h3>4. Pathogenesis</h3>
+
+<p>
+  The notes describe Leptospira infection as an infection
+  that can affect humans.
+</p>
+
+<p>
+  The handwritten notes mention that the infection may
+  produce clinical symptoms and that the disease can
+  involve different tissues.
+</p>
+
+<p>
+  The notes specifically mention involvement of the
+  <strong>kidneys</strong> and <strong>jaundice</strong>
+  among the clinical/pathogenic features.
+</p>
+
+<div class="highlight">
+
+<strong>Important:</strong>
+
+The handwritten pathogenesis section is brief, so the
+page does not add a detailed disease mechanism that is
+not present in the source.
+
+</div>
+
+</section>
+
+
+<!-- DISEASE -->
+
+<section class="note">
+
+<h3>5. Clinical Features</h3>
+
+<p>
+  The notes indicate that symptoms occur in a proportion
+  of infected cases.
+</p>
+
+<p>
+  The handwritten notes mention approximately
+  <strong>10–20% of cases</strong> in the context of
+  symptomatic disease.
+</p>
+
+<p>
+  <strong>Jaundice</strong> and
+  <strong>kidney involvement</strong> are mentioned among
+  the clinical features.
+</p>
+
+<div class="highlight">
+
+<strong>⭐ Exam recall:</strong>
+
+Leptospira → infection → clinical symptoms may occur →
+kidney involvement + jaundice mentioned.
+
+</div>
+
+</section>
+
+
+<!-- LAB DIAGNOSIS -->
+
+<section class="note">
+
+<h3>6. Laboratory Diagnosis</h3>
+
+
+<h4>A. Specimens</h4>
+
+<ul>
+
+  <li>
+    <strong>Blood</strong> may be collected.
+  </li>
+
+  <li>
+    <strong>Urine</strong> may also be collected.
+  </li>
+
+</ul>
+
+
+<h4>B. Microscopy</h4>
+
+<p>
+  The notes mention that
+  <strong>light microscopy</strong> can be used to observe
+  the bacteria.
+</p>
+
+
+<h4>C. Serological Test</h4>
+
+<p>
+  The handwritten notes mention
+  <strong>ELISA</strong> as a serological test.
+</p>
+
+
+<div class="flow">
+
+  <span>Blood / Urine</span>
+
+  <b class="arrow">→</b>
+
+  <span>Microscopy</span>
+
+  <b class="arrow">+</b>
+
+  <span>ELISA</span>
+
+  <b class="arrow">→</b>
+
+  <span>Diagnosis</span>
+
+</div>
+
+</section>
+
+
+<!-- QUICK TABLE -->
+
+<section class="note">
+
+<h3>7. Quick Revision Table</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+  <th>Feature</th>
+
+  <th>Leptospira</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+  <td><strong>Group</strong></td>
+
+  <td>Spirochete</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Nature</strong></td>
+
+  <td>Very delicate</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Motility</strong></td>
+
+  <td>Actively motile</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Shape</strong></td>
+
+  <td>Spiral</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Coils</strong></td>
+
+  <td>Approximately 6–20 coils mentioned</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Ends</strong></td>
+
+  <td>Hooked</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Culture</strong></td>
+
+  <td>Enriched media</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Temperature</strong></td>
+
+  <td>Approximately 25–30°C</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>pH</strong></td>
+
+  <td>Approximately 7.4–7.5</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Specimens</strong></td>
+
+  <td>Blood / Urine</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Microscopy</strong></td>
+
+  <td>Light microscopy mentioned</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Serology</strong></td>
+
+  <td>ELISA mentioned</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section class="exam">
+
+<h3>⭐ High-Yield Exam Points</h3>
+
+<ul>
+
+  <li>
+    Characteristics of spirochetes
+  </li>
+
+  <li>
+    Very delicate and actively motile nature
+  </li>
+
+  <li>
+    Spiral morphology
+  </li>
+
+  <li>
+    6–20 coils mentioned in the notes
+  </li>
+
+  <li>
+    Hooked ends
+  </li>
+
+  <li>
+    Growth in enriched media
+  </li>
+
+  <li>
+    Optimum temperature 25–30°C
+  </li>
+
+  <li>
+    pH 7.4–7.5
+  </li>
+
+  <li>
+    Kidney involvement and jaundice
+  </li>
+
+  <li>
+    Blood and urine specimens
+  </li>
+
+  <li>
+    Light microscopy
+  </li>
+
+  <li>
+    ELISA
+  </li>
+
+</ul>
+
+</section>
+
+
+<!-- MEMORY -->
+
+<section class="memory">
+
+<small>🧠 QUICK MEMORY</small>
+
+<h3>“LEPTO = DELICATE + HOOK + BLOOD/URINE”</h3>
+
+<p>
+
+<strong>DELICATE</strong>
+→ very delicate organism
+
+<br><br>
+
+<strong>HOOK</strong>
+→ hooked ends
+
+<br><br>
+
+<strong>6–20</strong>
+→ approximate coils mentioned
+
+<br><br>
+
+<strong>BLOOD / URINE</strong>
+→ specimens mentioned
+
+<br><br>
+
+<strong>ELISA</strong>
+→ serological test mentioned
+
+</p>
+
+</section>
+
+
+<!-- SOURCE -->
+
+<section class="source-box">
+
+<div class="source-title">
+  ACADEMIC SOURCE &amp; CREDITS
+</div>
+
+<div class="source">
+  📚 Source: Diksha Ma’am
+</div>
+
+<div class="designer">
+
+  Created &amp; Designed by
+  <strong>Enzamamul Hoque</strong>
+
+  <br>
+
+  Student, Mangaldai College
+
+  <br>
+
+  Department: ML&amp;MDT
+
+</div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+Systematic Bacteriology • Unit IV • Leptospira
+
+<br>
+
+Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+</body>
+</html>
