@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enterobacteriaceae | Unit III | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.65;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1080px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  padding:50px 0 44px;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  letter-spacing:.7px;
+  margin-bottom:17px;
+}
+
+h1{
+  font-size:40px;
+  line-height:1.15;
+  margin-bottom:9px;
+}
+
+.subtitle{
+  color:#d5deeb;
+  font-size:16px;
+}
+
+.header-credit{
+  margin-top:15px;
+  color:#aebbd0;
+  font-size:13px;
+}
+
+/* NAV */
+.nav{
+  background:white;
+  border-bottom:1px solid #e4e8ef;
+}
+
+.nav-inner{
+  min-height:58px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.back{
+  color:#2563eb;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.topic{
+  color:#697487;
+  font-size:13px;
+}
+
+/* MAIN */
+main{
+  padding:35px 0 60px;
+}
+
+.hero{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:22px;
+  padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 8px 25px rgba(20,30,50,.05);
+}
+
+.label{
+  display:inline-block;
+  background:#eef3ff;
+  color:#2563eb;
+  padding:6px 11px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.6px;
+  margin-bottom:12px;
+}
+
+.hero h2{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#687386;
+}
+
+/* QUICK FACTS */
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.quick-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:17px;
+  padding:18px;
+}
+
+.quick-card span{
+  display:block;
+  color:#7a8494;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:5px;
+}
+
+.quick-card strong{
+  font-size:15px;
+}
+
+/* NOTES */
+.note{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+  box-shadow:0 6px 20px rgba(20,30,50,.04);
+}
+
+.note h3{
+  font-size:20px;
+  margin-bottom:14px;
+}
+
+.note h3::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:21px;
+  background:#2563eb;
+  border-radius:5px;
+  vertical-align:-4px;
+  margin-right:10px;
+}
+
+.note h4{
+  font-size:16px;
+  margin-top:19px;
+  margin-bottom:9px;
+}
+
+.note p{
+  margin:8px 0;
+}
+
+.note ul{
+  padding-left:22px;
+}
+
+.note li{
+  margin:7px 0;
+}
+
+.highlight{
+  background:#f7f9fc;
+  border-left:4px solid #2563eb;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+.warning{
+  background:#fff8ed;
+  border-left:4px solid #e5a11a;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+/* SPECIES */
+.species-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:15px;
+}
+
+.species{
+  background:#fafbfc;
+  border:1px solid #e2e6ed;
+  border-radius:15px;
+  padding:18px;
+}
+
+.species h4{
+  margin:0 0 8px;
+}
+
+.species p{
+  color:#687386;
+  font-size:14px;
+}
+
+/* TABLE */
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  min-width:650px;
+}
+
+th,td{
+  border:1px solid #e2e6ed;
+  padding:12px;
+  text-align:left;
+  font-size:14px;
+}
+
+th{
+  background:#f3f6fa;
+}
+
+/* FLOW */
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:13px;
+}
+
+.flow span{
+  background:#f0f4fa;
+  border:1px solid #dfe5ed;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.arrow{
+  color:#2563eb;
+  font-weight:bold;
+}
+
+/* EXAM */
+.exam{
+  background:#f7f9ff;
+  border:1px solid #dce5ff;
+  border-radius:18px;
+  padding:23px;
+  margin-top:20px;
+}
+
+.exam h3{
+  margin-bottom:12px;
+}
+
+.exam ul{
+  padding-left:22px;
+}
+
+.exam li{
+  margin:7px 0;
+}
+
+/* MEMORY */
+.memory{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-top:20px;
+}
+
+.memory small{
+  color:#aebbd0;
+  display:block;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
+}
+
+.memory h3{
+  margin-bottom:9px;
+}
+
+.memory p{
+  color:#d7dfeb;
+}
+
+/* SOURCE */
+.source-box{
+  margin-top:30px;
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:22px;
+  padding:29px;
+  text-align:center;
+}
+
+.source-title{
+  color:#aebbd0;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.source{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.designer{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:17px;
+  color:#c8d2e1;
+  font-size:13px;
+}
+
+.designer strong{
+  color:white;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#7b8494;
+  font-size:12px;
+  padding:25px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  h1{
+    font-size:31px;
+  }
+
+  .quick,
+  .species-grid{
+    grid-template-columns:1fr;
+  }
+
+  .topic{
+    display:none;
+  }
+
+  .hero h2{
+    font-size:24px;
+  }
+
+  .note{
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container">
+
+  <div class="badge">
+    UNIT III • GRAM-NEGATIVE BACILLI
+  </div>
+
+  <h1>Enterobacteriaceae</h1>
+
+  <div class="subtitle">
+    Systematic Bacteriology • FYUGP 3rd Semester
+  </div>
+
+  <div class="header-credit">
+    Medical Lab & Molecular Diagnostic Technology
+  </div>
+
+</div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+
+<div class="container nav-inner">
+
+  <a href="unit3.html" class="back">
+    ← Back to Unit III
+  </a>
+
+  <span class="topic">
+    Unit III → Topic 01 → Notes
+  </span>
+
+</div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="label">
+    TOPIC 01 • NOTES
+  </div>
+
+  <h2>Enterobacteriaceae</h2>
+
+  <p>
+    Enterobacteriaceae are an important group of
+    Gram-negative bacilli. Your handwritten notes cover
+    <strong>E. coli, Salmonella and Shigella</strong>.
+  </p>
+
+</section>
+
+
+<!-- QUICK FACTS -->
+
+<section class="quick">
+
+  <div class="quick-card">
+
+    <span>Group</span>
+
+    <strong>Gram-negative bacilli</strong>
+
+  </div>
+
+  <div class="quick-card">
+
+    <span>Organisms in notes</span>
+
+    <strong>E. coli • Salmonella • Shigella</strong>
+
+  </div>
+
+  <div class="quick-card">
+
+    <span>Main importance</span>
+
+    <strong>Intestinal & systemic infections</strong>
+
+  </div>
+
+</section>
+
+
+<!-- GENERAL -->
+
+<section class="note">
+
+<h3>1. General Characteristics</h3>
+
+<ul>
+
+  <li>
+    Enterobacteriaceae are described in the notes as
+    <strong>Gram-negative bacilli</strong>.
+  </li>
+
+  <li>
+    They are generally <strong>non-spore-forming</strong>.
+  </li>
+
+  <li>
+    Some members are <strong>motile</strong>, while others
+    may be non-motile.
+  </li>
+
+  <li>
+    They can grow readily on ordinary culture media.
+  </li>
+
+  <li>
+    The notes mention fermentation of
+    <strong>glucose</strong>, with acid and/or gas production
+    depending on the organism.
+  </li>
+
+</ul>
+
+<div class="highlight">
+
+<strong>⭐ Remember:</strong>
+
+Enterobacteriaceae → Gram-negative bacilli →
+important intestinal pathogens.
+
+</div>
+
+</section>
+
+
+<!-- E COLI -->
+
+<section class="note">
+
+<h3>2. Escherichia coli</h3>
+
+<p>
+  The notes identify <strong>E. coli</strong> as an important
+  member of Enterobacteriaceae and as part of the normal
+  intestinal flora.
+</p>
+
+
+<h4>Morphology</h4>
+
+<ul>
+
+  <li>
+    It is a <strong>rod-shaped Gram-negative bacterium</strong>.
+  </li>
+
+  <li>
+    The notes describe a size of approximately
+    <strong>1–3 µm</strong>.
+  </li>
+
+  <li>
+    It is generally <strong>non-spore-forming</strong>.
+  </li>
+
+  <li>
+    Flagella may be present and provide motility.
+  </li>
+
+</ul>
+
+
+<h4>Cultural Characteristics</h4>
+
+<ul>
+
+  <li>
+    E. coli grows readily on ordinary laboratory media.
+  </li>
+
+  <li>
+    The notes mention growth at approximately
+    <strong>37°C</strong>.
+  </li>
+
+  <li>
+    On suitable agar media, colonies are described as
+    characteristic of E. coli.
+  </li>
+
+  <li>
+    On blood agar, the notes mention that some strains
+    may show haemolysis.
+  </li>
+
+</ul>
+
+
+<h4>Biochemical Reactions</h4>
+
+<ul>
+
+  <li>
+    The notes mention fermentation of
+    <strong>glucose, lactose and maltose</strong>.
+  </li>
+
+  <li>
+    Acid and gas production are associated with
+    carbohydrate fermentation.
+  </li>
+
+</ul>
+
+
+<h4>Pathogenesis / Diseases</h4>
+
+<p>
+  The notes list important disease-producing groups of
+  E. coli, including:
+</p>
+
+<ul>
+
+  <li>
+    <strong>Diarrhoeagenic E. coli</strong>
+  </li>
+
+  <li>
+    <strong>Urinary tract infections</strong>
+  </li>
+
+  <li>
+    <strong>Septicemia</strong>
+  </li>
+
+  <li>
+    <strong>Pyogenic infections</strong>
+  </li>
+
+</ul>
+
+
+<h4>Laboratory Diagnosis</h4>
+
+<ul>
+
+  <li>
+    Collection of the appropriate clinical specimen.
+  </li>
+
+  <li>
+    Culture of the specimen.
+  </li>
+
+  <li>
+    Identification based on cultural and biochemical
+    characteristics.
+  </li>
+
+</ul>
+
+</section>
+
+
+<!-- SALMONELLA -->
+
+<section class="note">
+
+<h3>3. Salmonella</h3>
+
+
+<h4>Morphology</h4>
+
+<ul>
+
+  <li>
+    Salmonella are described as
+    <strong>Gram-negative rods</strong>.
+  </li>
+
+  <li>
+    The notes mention that they are generally
+    <strong>motile</strong>.
+  </li>
+
+  <li>
+    They are described as
+    <strong>non-spore-forming</strong>.
+  </li>
+
+  <li>
+    The notes mention absence of capsule in the organism
+    being described.
+  </li>
+
+</ul>
+
+
+<h4>Cultural Characteristics</h4>
+
+<ul>
+
+  <li>
+    Optimum pH mentioned in the notes is approximately
+    <strong>6.8–7.2</strong>.
+  </li>
+
+  <li>
+    Optimum temperature is approximately
+    <strong>37°C</strong>.
+  </li>
+
+  <li>
+    The notes describe growth on culture media with
+    characteristic colonies.
+  </li>
+
+  <li>
+    On <strong>MacConkey agar</strong>, colonies are described
+    according to their lactose reaction.
+  </li>
+
+  <li>
+    The notes mention black-coloured colonies on
+    <strong>bismuth sulphite agar</strong> for the relevant
+    Salmonella growth described.
+  </li>
+
+</ul>
+
+
+<h4>Biochemical Reactions</h4>
+
+<ul>
+
+  <li>
+    Salmonella ferment <strong>glucose</strong>.
+  </li>
+
+  <li>
+    Acid and gas production are mentioned.
+  </li>
+
+  <li>
+    The notes state that Salmonella are generally
+    <strong>motile</strong>.
+  </li>
+
+</ul>
+
+
+<h4>Pathogenesis / Diseases</h4>
+
+<p>
+  The notes describe Salmonella as human and animal
+  pathogens and mention three major infection patterns:
+</p>
+
+<div class="species-grid">
+
+  <div class="species">
+
+    <h4>1. Enteric Fever</h4>
+
+    <p>
+      Includes the typhoid-type illness associated with
+      Salmonella.
+    </p>
+
+  </div>
+
+
+  <div class="species">
+
+    <h4>2. Gastroenteritis</h4>
+
+    <p>
+      Food-associated intestinal infection producing
+      gastrointestinal symptoms.
+    </p>
+
+  </div>
+
+
+  <div class="species">
+
+    <h4>3. Septicemia</h4>
+
+    <p>
+      Systemic infection in which Salmonella enters the
+      bloodstream.
+    </p>
+
+  </div>
+
+</div>
+
+
+<h4>Laboratory Diagnosis</h4>
+
+<ul>
+
+  <li>
+    Collection of appropriate clinical specimens.
+  </li>
+
+  <li>
+    Blood culture is mentioned for enteric fever,
+    followed by relevant testing.
+  </li>
+
+  <li>
+    The notes also mention PCR as a diagnostic method.
+  </li>
+
+</ul>
+
+</section>
+
+
+<!-- SHIGELLA -->
+
+<section class="note">
+
+<h3>4. Shigella</h3>
+
+
+<h4>Morphology</h4>
+
+<ul>
+
+  <li>
+    Shigella are described as
+    <strong>Gram-negative bacilli</strong>.
+  </li>
+
+  <li>
+    They are short rods.
+  </li>
+
+  <li>
+    The notes describe them as
+    <strong>non-motile</strong>.
+  </li>
+
+  <li>
+    They are <strong>non-spore-forming</strong>.
+  </li>
+
+  <li>
+    They are described as
+    <strong>non-capsulated</strong>.
+  </li>
+
+</ul>
+
+
+<h4>Cultural Characteristics</h4>
+
+<ul>
+
+  <li>
+    Shigella can grow under both aerobic and facultative
+    anaerobic conditions as described in the notes.
+  </li>
+
+  <li>
+    The notes mention growth around
+    <strong>37°C</strong>.
+  </li>
+
+  <li>
+    Colonies are described as small, smooth and
+    translucent on suitable media.
+  </li>
+
+  <li>
+    On MacConkey agar, lactose-negative colonies are
+    associated with Shigella.
+  </li>
+
+  <li>
+    The notes mention characteristic growth on
+    selective media.
+  </li>
+
+</ul>
+
+
+<h4>Biochemical Reactions</h4>
+
+<ul>
+
+  <li>
+    Shigella ferment <strong>glucose</strong>.
+  </li>
+
+  <li>
+    The notes describe acid production without gas
+    for the characteristic reaction.
+  </li>
+
+  <li>
+    Shigella are <strong>non-motile</strong>.
+  </li>
+
+</ul>
+
+
+<h4>Pathogenesis / Disease</h4>
+
+<p>
+  Shigella infection causes
+  <strong>bacillary dysentery / shigellosis</strong>.
+</p>
+
+<p>
+  The notes associate the infection with intestinal
+  disease and inflammatory diarrhoeal illness.
+</p>
+
+
+<h4>Laboratory Diagnosis</h4>
+
+<ul>
+
+  <li>
+    Collect the stool specimen without unnecessary delay.
+  </li>
+
+  <li>
+    Culture the specimen on appropriate selective and
+    differential media.
+  </li>
+
+  <li>
+    The notes mention enrichment media such as
+    <strong>Selenite F broth</strong>.
+  </li>
+
+  <li>
+    Microscopy may be performed, including Gram staining.
+  </li>
+
+  <li>
+    Serological testing may also be performed as mentioned
+    in the notes.
+  </li>
+
+</ul>
+
+</section>
+
+
+<!-- COMPARISON -->
+
+<section class="note">
+
+<h3>5. Quick Comparison</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+  <th>Feature</th>
+
+  <th>E. coli</th>
+
+  <th>Salmonella</th>
+
+  <th>Shigella</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+  <td><strong>Gram reaction</strong></td>
+
+  <td>Gram-negative</td>
+
+  <td>Gram-negative</td>
+
+  <td>Gram-negative</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Shape</strong></td>
+
+  <td>Rod</td>
+
+  <td>Rod</td>
+
+  <td>Short rod</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Motility</strong></td>
+
+  <td>Flagella may provide motility</td>
+
+  <td>Motile</td>
+
+  <td>Non-motile</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Spore</strong></td>
+
+  <td>Non-spore-forming</td>
+
+  <td>Non-spore-forming</td>
+
+  <td>Non-spore-forming</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Major importance</strong></td>
+
+  <td>Diarrhoeal / UTI / septicemia</td>
+
+  <td>Enteric fever / gastroenteritis / septicemia</td>
+
+  <td>Bacillary dysentery</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- DIAGNOSIS FLOW -->
+
+<section class="note">
+
+<h3>6. General Laboratory Diagnosis</h3>
+
+<div class="flow">
+
+  <span>Clinical specimen</span>
+
+  <b class="arrow">→</b>
+
+  <span>Microscopy</span>
+
+  <b class="arrow">→</b>
+
+  <span>Culture</span>
+
+  <b class="arrow">→</b>
+
+  <span>Biochemical tests</span>
+
+  <b class="arrow">→</b>
+
+  <span>Identification</span>
+
+</div>
+
+<div class="highlight">
+
+<strong>Exam approach:</strong>
+
+For a 5-mark answer, write under five headings:
+
+<strong>Morphology → Culture → Biochemical reactions →
+Pathogenesis/Disease → Laboratory diagnosis.</strong>
+
+</div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section class="exam">
+
+<h3>⭐ High-Yield Exam Points</h3>
+
+<ul>
+
+  <li>
+    General characteristics of Enterobacteriaceae
+  </li>
+
+  <li>
+    Morphology of E. coli
+  </li>
+
+  <li>
+    Cultural and biochemical characteristics of E. coli
+  </li>
+
+  <li>
+    Diseases caused by E. coli
+  </li>
+
+  <li>
+    Morphology and culture of Salmonella
+  </li>
+
+  <li>
+    Enteric fever, gastroenteritis and septicemia
+  </li>
+
+  <li>
+    Laboratory diagnosis of Salmonella
+  </li>
+
+  <li>
+    Morphology and cultural characteristics of Shigella
+  </li>
+
+  <li>
+    Bacillary dysentery
+  </li>
+
+  <li>
+    Laboratory diagnosis of Shigella
+  </li>
+
+</ul>
+
+</section>
+
+
+<!-- MEMORY -->
+
+<section class="memory">
+
+<small>🧠 QUICK MEMORY</small>
+
+<h3>“E – S – S”</h3>
+
+<p>
+
+<strong>E = E. coli</strong>
+→ Diarrhoeal disease • UTI • Septicemia
+
+<br><br>
+
+<strong>S = Salmonella</strong>
+→ Enteric fever • Gastroenteritis • Septicemia
+
+<br><br>
+
+<strong>S = Shigella</strong>
+→ Bacillary dysentery
+
+</p>
+
+</section>
+
+
+<!-- SOURCE -->
+
+<section class="source-box">
+
+<div class="source-title">
+  ACADEMIC SOURCE &amp; CREDITS
+</div>
+
+<div class="source">
+  📚 Source: Diksha Ma’am
+</div>
+
+<div class="designer">
+
+  Created &amp; Designed by
+  <strong>Enzamamul Hoque</strong>
+
+  <br>
+
+  Student, Mangaldai College
+
+  <br>
+
+  Department: ML&amp;MDT
+
+</div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+Systematic Bacteriology • Unit III • Enterobacteriaceae
+
+<br>
+
+Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+</body>
+</html>
