@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Haemophilus | Unit III | Systematic Bacteriology</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.65;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1050px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  padding:50px 0 44px;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  letter-spacing:.7px;
+  margin-bottom:17px;
+}
+
+h1{
+  font-size:40px;
+  line-height:1.15;
+  margin-bottom:9px;
+}
+
+.subtitle{
+  color:#d5deeb;
+  font-size:16px;
+}
+
+.header-credit{
+  margin-top:15px;
+  color:#aebbd0;
+  font-size:13px;
+}
+
+/* NAV */
+.nav{
+  background:white;
+  border-bottom:1px solid #e4e8ef;
+}
+
+.nav-inner{
+  min-height:58px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.back{
+  color:#2563eb;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.topic{
+  color:#697487;
+  font-size:13px;
+}
+
+/* MAIN */
+main{
+  padding:35px 0 60px;
+}
+
+/* HERO */
+.hero{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:22px;
+  padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 8px 25px rgba(20,30,50,.05);
+}
+
+.label{
+  display:inline-block;
+  background:#eef3ff;
+  color:#2563eb;
+  padding:6px 11px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.6px;
+  margin-bottom:12px;
+}
+
+.hero h2{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#687386;
+}
+
+/* QUICK */
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.quick-card{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:17px;
+  padding:18px;
+}
+
+.quick-card span{
+  display:block;
+  color:#7a8494;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:5px;
+}
+
+.quick-card strong{
+  font-size:15px;
+}
+
+/* NOTES */
+.note{
+  background:white;
+  border:1px solid #e4e8ef;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:18px;
+  box-shadow:0 6px 20px rgba(20,30,50,.04);
+}
+
+.note h3{
+  font-size:20px;
+  margin-bottom:14px;
+}
+
+.note h3::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:21px;
+  background:#2563eb;
+  border-radius:5px;
+  vertical-align:-4px;
+  margin-right:10px;
+}
+
+.note h4{
+  font-size:16px;
+  margin-top:20px;
+  margin-bottom:9px;
+}
+
+.note p{
+  margin:8px 0;
+}
+
+.note ul{
+  padding-left:22px;
+}
+
+.note li{
+  margin:7px 0;
+}
+
+.highlight{
+  background:#f7f9fc;
+  border-left:4px solid #2563eb;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+.warning{
+  background:#fff8ed;
+  border-left:4px solid #e5a11a;
+  border-radius:10px;
+  padding:15px 17px;
+  margin-top:15px;
+}
+
+/* TABLE */
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  min-width:600px;
+}
+
+th,td{
+  border:1px solid #e2e6ed;
+  padding:12px;
+  text-align:left;
+  font-size:14px;
+}
+
+th{
+  background:#f3f6fa;
+}
+
+/* FLOW */
+.flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:13px;
+}
+
+.flow span{
+  background:#f0f4fa;
+  border:1px solid #dfe5ed;
+  padding:9px 13px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.arrow{
+  color:#2563eb;
+  font-weight:bold;
+}
+
+/* EXAM */
+.exam{
+  background:#f7f9ff;
+  border:1px solid #dce5ff;
+  border-radius:18px;
+  padding:23px;
+  margin-top:20px;
+}
+
+.exam h3{
+  margin-bottom:12px;
+}
+
+.exam ul{
+  padding-left:22px;
+}
+
+.exam li{
+  margin:7px 0;
+}
+
+/* MEMORY */
+.memory{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-top:20px;
+}
+
+.memory small{
+  color:#aebbd0;
+  display:block;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
+}
+
+.memory h3{
+  margin-bottom:9px;
+}
+
+.memory p{
+  color:#d7dfeb;
+}
+
+/* SOURCE */
+.source-box{
+  margin-top:30px;
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:22px;
+  padding:29px;
+  text-align:center;
+}
+
+.source-title{
+  color:#aebbd0;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.source{
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.designer{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:17px;
+  color:#c8d2e1;
+  font-size:13px;
+}
+
+.designer strong{
+  color:white;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#7b8494;
+  font-size:12px;
+  padding:25px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+  h1{
+    font-size:31px;
+  }
+
+  .quick{
+    grid-template-columns:1fr;
+  }
+
+  .topic{
+    display:none;
+  }
+
+  .hero h2{
+    font-size:24px;
+  }
+
+  .note{
+    padding:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container">
+
+  <div class="badge">
+    UNIT III • GRAM-NEGATIVE BACILLI
+  </div>
+
+  <h1>Haemophilus</h1>
+
+  <div class="subtitle">
+    Systematic Bacteriology • FYUGP 3rd Semester
+  </div>
+
+  <div class="header-credit">
+    Medical Lab & Molecular Diagnostic Technology
+  </div>
+
+</div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+
+<div class="container nav-inner">
+
+  <a href="unit3.html" class="back">
+    ← Back to Unit III
+  </a>
+
+  <span class="topic">
+    Unit III → Topic 06 → Notes
+  </span>
+
+</div>
+
+</div>
+
+
+<main>
+
+<div class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="label">
+    TOPIC 06 • NOTES
+  </div>
+
+  <h2>Haemophilus</h2>
+
+  <p>
+    The handwritten notes particularly discuss
+    <strong>Haemophilus influenzae</strong>, a Gram-negative
+    organism associated with respiratory and other
+    infections.
+  </p>
+
+</section>
+
+
+<!-- QUICK FACTS -->
+
+<section class="quick">
+
+  <div class="quick-card">
+
+    <span>Important species</span>
+
+    <strong>H. influenzae</strong>
+
+  </div>
+
+  <div class="quick-card">
+
+    <span>Growth requirement</span>
+
+    <strong>X factor + V factor</strong>
+
+  </div>
+
+  <div class="quick-card">
+
+    <span>Major importance</span>
+
+    <strong>Respiratory infection</strong>
+
+  </div>
+
+</section>
+
+
+<!-- MORPHOLOGY -->
+
+<section class="note">
+
+<h3>1. Morphology</h3>
+
+<ul>
+
+  <li>
+    Haemophilus is described as a
+    <strong>Gram-negative organism</strong>.
+  </li>
+
+  <li>
+    The notes describe it as
+    <strong>small</strong>.
+  </li>
+
+  <li>
+    It is described as
+    <strong>non-motile</strong>.
+  </li>
+
+  <li>
+    It is <strong>non-sporing</strong>.
+  </li>
+
+  <li>
+    The notes describe a
+    <strong>pleomorphic</strong> appearance.
+  </li>
+
+  <li>
+    The organism may occur as short bacillary or
+    coccobacillary forms.
+  </li>
+
+</ul>
+
+<div class="highlight">
+
+<strong>⭐ Key morphology:</strong>
+
+Small + Gram-negative + pleomorphic +
+non-motile + non-spore-forming.
+
+</div>
+
+</section>
+
+
+<!-- CULTURAL -->
+
+<section class="note">
+
+<h3>2. Cultural Characteristics</h3>
+
+<p>
+  A very important point in the handwritten notes is that
+  Haemophilus requires specific growth factors.
+</p>
+
+
+<h4>Growth Factors</h4>
+
+<div class="flow">
+
+  <span>X factor</span>
+
+  <b class="arrow">+</b>
+
+  <span>V factor</span>
+
+  <b class="arrow">→</b>
+
+  <span>Growth</span>
+
+</div>
+
+
+<ul>
+
+  <li>
+    The notes state that the organism requires
+    <strong>factor X</strong> and
+    <strong>factor V</strong>.
+  </li>
+
+  <li>
+    The notes identify these factors as important
+    requirements for growth.
+  </li>
+
+  <li>
+    The notes mention that these factors are involved
+    in the growth of the organism.
+  </li>
+
+</ul>
+
+
+<h4>Other Cultural Points</h4>
+
+<ul>
+
+  <li>
+    The notes mention growth on suitable enriched
+    culture media.
+  </li>
+
+  <li>
+    The notes describe the organism as fastidious in
+    its growth requirements.
+  </li>
+
+</ul>
+
+
+<div class="highlight">
+
+<strong>🧠 Most important culture point:</strong>
+
+<strong>Haemophilus → X + V factors</strong>
+
+</div>
+
+</section>
+
+
+<!-- BIOCHEMICAL -->
+
+<section class="note">
+
+<h3>3. Biochemical Reactions</h3>
+
+<p>
+  The handwritten notes include biochemical reactions
+  associated with Haemophilus.
+</p>
+
+<ul>
+
+  <li>
+    The notes mention
+    <strong>glucose fermentation</strong>.
+  </li>
+
+  <li>
+    The notes mention production of acid from
+    carbohydrate reactions.
+  </li>
+
+  <li>
+    Catalase is included among the biochemical
+    examination points.
+  </li>
+
+</ul>
+
+<div class="warning">
+
+<strong>Source-based note:</strong>
+
+The biochemical section in the handwritten notes is brief,
+so no additional reactions have been added from outside
+sources.
+
+</div>
+
+</section>
+
+
+<!-- PATHOGENESIS -->
+
+<section class="note">
+
+<h3>4. Pathogenesis</h3>
+
+<p>
+  The notes identify <strong>H. influenzae</strong> as an
+  important human pathogen.
+</p>
+
+<p>
+  The notes state that H. influenzae was among the first
+  strongly recognized organisms associated with disease
+  in influenza.
+</p>
+
+<p>
+  The organism can be associated with respiratory disease
+  and other infections.
+</p>
+
+
+<div class="flow">
+
+  <span>H. influenzae</span>
+
+  <b class="arrow">→</b>
+
+  <span>Human infection</span>
+
+  <b class="arrow">→</b>
+
+  <span>Disease</span>
+
+</div>
+
+</section>
+
+
+<!-- LAB DIAGNOSIS -->
+
+<section class="note">
+
+<h3>5. Laboratory Diagnosis</h3>
+
+
+<h4>A. Specimen Collection</h4>
+
+<ul>
+
+  <li>
+    The notes mention collection of
+    <strong>blood</strong> specimens.
+  </li>
+
+  <li>
+    <strong>CSF</strong> should also be collected when
+    indicated by the clinical condition.
+  </li>
+
+</ul>
+
+
+<h4>B. Microscopy</h4>
+
+<p>
+  Gram staining can be used to examine the organism
+  in clinical specimens.
+</p>
+
+<p>
+  The notes emphasize examination of the characteristic
+  Gram-negative organism.
+</p>
+
+
+<h4>C. Culture</h4>
+
+<ul>
+
+  <li>
+    The sample can be inoculated onto suitable
+    culture media.
+  </li>
+
+  <li>
+    The notes mention
+    <strong>blood agar</strong>.
+  </li>
+
+  <li>
+    The notes describe
+    <strong>satellite growth</strong> as a useful
+    cultural characteristic.
+  </li>
+
+</ul>
+
+
+<div class="highlight">
+
+<strong>Satellite growth:</strong>
+
+The characteristic satellite-growth observation is an
+important laboratory identification point recorded in
+your notes.
+
+</div>
+
+
+<div class="flow">
+
+  <span>Blood / CSF</span>
+
+  <b class="arrow">→</b>
+
+  <span>Gram stain</span>
+
+  <b class="arrow">→</b>
+
+  <span>Culture</span>
+
+  <b class="arrow">→</b>
+
+  <span>Identification</span>
+
+</div>
+
+</section>
+
+
+<!-- X V FACTOR -->
+
+<section class="note">
+
+<h3>6. X and V Factor — Quick Revision</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+  <th>Factor</th>
+
+  <th>Importance in notes</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+  <td><strong>X factor</strong></td>
+
+  <td>
+    Required for growth.
+  </td>
+
+</tr>
+
+<tr>
+
+  <td><strong>V factor</strong></td>
+
+  <td>
+    Required for growth.
+  </td>
+
+</tr>
+
+<tr>
+
+  <td><strong>X + V</strong></td>
+
+  <td>
+    Important growth requirement of Haemophilus.
+  </td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="highlight">
+
+<strong>⭐ Exam line:</strong>
+
+Haemophilus requires
+<strong>X factor + V factor</strong> for growth.
+
+</div>
+
+</section>
+
+
+<!-- QUICK TABLE -->
+
+<section class="note">
+
+<h3>7. Quick Revision Table</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+  <th>Feature</th>
+
+  <th>Haemophilus</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+  <td><strong>Important species</strong></td>
+
+  <td>H. influenzae</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Gram reaction</strong></td>
+
+  <td>Gram-negative</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Size</strong></td>
+
+  <td>Small</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Shape</strong></td>
+
+  <td>Pleomorphic / coccobacillary forms</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Motility</strong></td>
+
+  <td>Non-motile</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Spore</strong></td>
+
+  <td>Non-spore-forming</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Growth factors</strong></td>
+
+  <td>X factor + V factor</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Biochemical point</strong></td>
+
+  <td>Glucose fermentation mentioned</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Important specimens</strong></td>
+
+  <td>Blood / CSF</td>
+
+</tr>
+
+<tr>
+
+  <td><strong>Culture point</strong></td>
+
+  <td>Satellite growth</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section class="exam">
+
+<h3>⭐ High-Yield Exam Points</h3>
+
+<ul>
+
+  <li>
+    Morphology of Haemophilus
+  </li>
+
+  <li>
+    Pleomorphic / coccobacillary appearance
+  </li>
+
+  <li>
+    Non-motile and non-spore-forming nature
+  </li>
+
+  <li>
+    X factor requirement
+  </li>
+
+  <li>
+    V factor requirement
+  </li>
+
+  <li>
+    Cultural characteristics
+  </li>
+
+  <li>
+    Glucose fermentation
+  </li>
+
+  <li>
+    H. influenzae and pathogenicity
+  </li>
+
+  <li>
+    Blood and CSF specimens
+  </li>
+
+  <li>
+    Satellite growth
+  </li>
+
+</ul>
+
+</section>
+
+
+<!-- MEMORY -->
+
+<section class="memory">
+
+<small>🧠 QUICK MEMORY</small>
+
+<h3>“HAEMO = X + V”</h3>
+
+<p>
+
+<strong>X</strong>
+→ X factor
+
+<br><br>
+
+<strong>V</strong>
+→ V factor
+
+<br><br>
+
+<strong>X + V</strong>
+→ Important growth requirement
+
+<br><br>
+
+<strong>CSF / BLOOD</strong>
+→ Important specimens mentioned in the notes
+
+<br><br>
+
+<strong>SATELLITE</strong>
+→ Important culture clue
+
+</p>
+
+</section>
+
+
+<!-- SOURCE -->
+
+<section class="source-box">
+
+<div class="source-title">
+  ACADEMIC SOURCE &amp; CREDITS
+</div>
+
+<div class="source">
+  📚 Source: Diksha Ma’am
+</div>
+
+<div class="designer">
+
+  Created &amp; Designed by
+  <strong>Enzamamul Hoque</strong>
+
+  <br>
+
+  Student, Mangaldai College
+
+  <br>
+
+  Department: ML&amp;MDT
+
+</div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+Systematic Bacteriology • Unit III • Haemophilus
+
+<br>
+
+Created &amp; Designed by Enzamamul Hoque
+
+</footer>
+
+</body>
+</html>
